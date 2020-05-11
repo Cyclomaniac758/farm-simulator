@@ -25,7 +25,7 @@ public class Game {
 			CommercialFarm farm = new CommercialFarm(name);
 		} else if (num == 3) {
 			LivestockFarm farm = new LivestockFarm(name);
-		} else if (num == 4) {
+		} else {
 			OrchardFarm farm = new OrchardFarm(name);
 		}
 		return farm;
