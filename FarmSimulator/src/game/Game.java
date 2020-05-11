@@ -8,12 +8,13 @@ public class Game {
 	
 	
 	public void startGame() {
+		Scanner scan = new Scanner(System.in);
 		Farm farm = this.createFarm();
 		System.out.println("done");
 	}
 	
 	public Farm createFarm() {
-		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Choose your farm type by entering the respective number./n1. Family Farm\n2. Commercial Farm\n"
 				+ "3. Livestock Farm\n4. Crop Farm");
 		int num = scan.nextInt();
@@ -28,7 +29,7 @@ public class Game {
 		} else {
 			OrchardFarm farm = new OrchardFarm(name);
 		}
-		return farm;
+		return farm; 
 	}
 	
 	public static void main(String[] args) {
