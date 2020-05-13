@@ -3,6 +3,8 @@ package generalStore;
 import farm.*;
 import exceptions.*;
 import items.*;
+import animals.*;
+import crops.*;
 
 /**
  * Store object, where items, animals and crops can be bought

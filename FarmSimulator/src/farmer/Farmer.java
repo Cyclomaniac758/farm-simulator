@@ -4,6 +4,8 @@ package farmer;
 import items.*;
 import farm.Farm;
 import exceptions.*;
+import crops.*;
+import animals.*;
 
 /**
  * A farmer character
@@ -102,14 +104,14 @@ public class Farmer {
 	}
 	
 	
-	public void useCropTool(cropTools item, crops crop) {
+	public void useCropTool(cropTools item, Crops crop) {
 		try {
 			this.deductAction();
 		} catch (NoMoreActionsException e) {
 			System.out.println(e.getMessage());
 		}
-		currentTime = crop.getGrowTime();
-		newTime = currentTime - item.getImpact();
+		int currentTime = crop.getGrowTime();
+		int newTime = currentTime - item.getImpact();
 		crop.setGrowTime(newTime);
 		if (crop.getGrowTime() < 0) {
 			crop.setGrowTime(0);
@@ -117,16 +119,16 @@ public class Farmer {
 	}
 	
 	
-	public void useFood(Food item, animals animal) {
+	public void useFood(Food item, Animals animal) {
 		try {
 			this.deductAction();
 		} catch (NoMoreActionsException e) {
 			System.out.println(e.getMessage());
 		}
-		currentHealthiness = animal.getHealthiness();
-		newHealthiness = currentHealthiness * item.getHealthiness();
+		float currentHealthiness = animal.getHealthiness();
+		float newHealthiness = currentHealthiness * item.getHealthiness();
 		animal.setHealthiness(newHealthiness);
-		if (animal.getHealthiness > 100) {
+		if (animal.getHealthiness() > 100) {
 			animal.setHealthiness(100);
 		}
 	}
@@ -137,14 +139,14 @@ public class Farmer {
 		} catch (NoMoreActionsException e) {
 			System.out.println(e.getMessage());
 		}
-		for (animals animal: farm.getAnimalsList()) {
-			currentHappiness = animal.getHappiness();
-			newHappiness = currentHappiness * 1.4;
-			animal.setHappiness(newHapiness);
+		for (Animals animal: farm.getAnimalList()) {
+			float currentHappiness = animal.getHappinessLevel();
+			float newHappiness = (float) (currentHappiness * 1.4);
+			animal.setHappinessLevel(newHappiness);
 		}
 	}
 	
-	public void harvestCrop(crops crop) {
+	public void harvestCrop(Crops crop) {
 		try {
 			this.deductAction();
 		} catch (NoMoreActionsException e) {
@@ -161,8 +163,8 @@ public class Farmer {
 		}
 		int currentCapacity = farm.getMaxCropCapacity();
 		farm.setMaxCropCapacity(currentCapacity + 1);
-		double currentHappiness = farm.getAnimalHappiness();
-		farm.setAnimalHappiness(currentHappiness*1.2);
+		float currentHappiness = farm.getAnimalHappinessModifier();
+		farm.setAnimalHappinessModifier((float) (currentHappiness*1.2));
 	}
 	
 	

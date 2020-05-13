@@ -22,8 +22,8 @@ public class CommercialFarm extends Farm {
 		setFarmName(name);
 		setFarmMoney(new Money(3000));
 		setFarmType("Commercial");
-    	setGrowingSpeed(1);
-    	setAnimalHappiness(0.75f);
+    	setGrowingSpeedModifier(1);
+    	setAnimalHappinessModifier(0.75f);
     	setCropList(new ArrayList<Crops>());
     	setAnimalList(new ArrayList<Animals>());
 	}

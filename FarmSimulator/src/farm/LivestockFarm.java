@@ -21,8 +21,8 @@ public class LivestockFarm extends Farm {
 		setFarmName(name);
     	setFarmMoney(new Money(2500));
     	setFarmType("Livestock");
-    	setGrowingSpeed(2);
-    	setAnimalHappiness(1.0f);
+    	setGrowingSpeedModifier(2);
+    	setAnimalHappinessModifier(1.0f);
     	setCropList(new ArrayList<Crops>());
     	setAnimalList(new ArrayList<Animals>());
 	}
