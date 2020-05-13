@@ -30,12 +30,12 @@ public class Game {
 	}
 	
 	public void createFarm() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Choose your farm type by entering the respective number./n1. Family Farm\n2. Commercial Farm\n"
+		Scanner scan1 = new Scanner(System.in);
+		System.out.println("Choose your farm type by entering the respective number.\n1. Family Farm\n2. Commercial Farm\n"
 				+ "3. Livestock Farm\n4. Crop Farm");
-		int num = scan.nextInt();
+		int num = scan1.nextInt();
 		System.out.println("Enter your farm name");
-		String name = scan.nextLine();
+		String name = scan1.nextLine();
 		if (num == 1) {
 			farm = new FamilyFarm(name);
 		} else if (num == 2) {
@@ -45,7 +45,7 @@ public class Game {
 		} else {
 			farm = new OrchardFarm(name);
 		}
-		scan.close();
+		scan1.close();
 	}
 	
 	public void createFarmer() {
