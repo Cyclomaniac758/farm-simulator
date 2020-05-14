@@ -289,11 +289,15 @@ public class Farm {
 	 * Called at the end of every day, lessens the days left for crops to grow if they're days left = 0 sells the crops
 	 */
 	public void progressGrowth() {
+		ArrayList<Crops> toRemove = new ArrayList<Crops>();
 		for (Crops crop : cropList) {
 			crop.setGrowTime(crop.getGrowTime() - 1);
 			if (crop.getGrowTime() <= 0) {
-				minusCrop(crop);
+				toRemove.add(crop);
 			}
+		}
+		for (Crops crop: toRemove) {
+			minusCrop(crop);
 		}
 	}
 	/**

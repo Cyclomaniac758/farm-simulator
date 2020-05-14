@@ -1,8 +1,7 @@
 package game;
 
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
-import java.util.regex.*;
 import farm.*;
 import farmer.*;
 import exceptions.*;
@@ -21,7 +20,6 @@ public class Game {
 	public void startGame() {
 		setGameLength();
 		createFarm();
-		System.out.println("done");
 		createFarmer();
 		System.out.println("Time to start farming. *RULES*"
 				+ "\n");
@@ -34,19 +32,30 @@ public class Game {
 	
 	public void createFarm() {
 		Scanner scan1 = new Scanner(System.in);
-		System.out.println("Choose your farm type by entering the respective number.\n1. Family Farm\n2. Commercial Farm\n"
-				+ "3. Livestock Farm\n4. Crop Farm");
-		int num = scan1.nextInt();
 		System.out.println("Enter your farm name");
 		String name = scan1.next();
-		if (num == 1) {
-			farm = new FamilyFarm(name);
-		} else if (num == 2) {
-			farm = new CommercialFarm(name);
-		} else if (num == 3) {
-			farm = new LivestockFarm(name);
-		} else {
-			farm = new OrchardFarm(name);
+		System.out.println("Choose your farm type by entering the respective number.\n1. Family Farm\n2. Commercial Farm\n"
+				+ "3. Livestock Farm\n4. Crop Farm");
+		
+		
+		boolean found = false;
+		while (found == false) {
+			int num = scan1.nextInt();
+			if (num == 1) {
+				farm = new FamilyFarm(name);
+				found = true;
+			} else if (num == 2) {
+				farm = new CommercialFarm(name);
+				found = true;
+			} else if (num == 3) {
+				farm = new LivestockFarm(name);
+				found = true;
+			} else if (num == 4) {
+				farm = new OrchardFarm(name);
+				found = true;
+			} else {
+				System.out.println("Enter a valid number");
+			}
 		}
 	}
 	
@@ -114,6 +123,8 @@ public class Game {
 		if (currentDay < numDays) {
 			currentDay += 1;
 			farmer.restoreActions();
+			farm.progressGrowth();
+			farm.addAnimalEarnings();
 			System.out.println("Day" + currentDay + ".\nDo activities");
 			
 		} else {
@@ -125,6 +136,7 @@ public class Game {
 		farm.printAnimalList();
 		farm.printCropList();
 		farm.printItemList();
+		System.out.println("You have $" + farm.getFarmMoney().getMoneyAmount());
 	}
 	
 	
@@ -141,46 +153,49 @@ public class Game {
 		while (num != 8) {
 			switch (num) {
 			case 1: System.out.println(store.viewCrops());
-					num = scan.nextInt();
 					break;
 			case 2: System.out.println(store.viewAnimals());
-					num = scan.nextInt();
 					break;
 			case 3: System.out.println(store.viewItems());
-					num = scan.nextInt();
 					break;
 			case 4: buyCrops();
-					num = scan.nextInt();
 					break;
 			case 5: buyAnimals();
-					num = scan.nextInt();
 					break;
 			case 6: buyItems();
-					num = scan.nextInt();
 					break;
 			case 7: viewFarmStatus();
-					num = scan.nextInt();
+					
 					break;
 			}
+			System.out.println("General Store\n1. View crops\n2. View animals"
+					+ "\n3. View items\n4. Buy crops\n5. Buy animals"
+					+ "\n6. Buy items\n7. Show current inventory\n"
+					+ "8. Exit store");
+			num = scan.nextInt();
 		}
 	}
 	
 	public void buyCrops() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter number to buy crop\n1. Carrots\n2. Wheat\n"
-				+ "3. Tomatoes\n4. Corn\n5. Lemon Tree\n6. Apple Tree");
+				+ "3. Tomatoes\n4. Corn\n5. Lemon Tree\n6. Apple Tree\n7. Exit");
 		int num = scan.nextInt();
-		System.out.println("Enter crop quantity");
-		int num2 = scan.nextInt();
+		
 		switch (num) {
 		case 1: try {
+					System.out.println("Enter crop quantity");
+					int num2 = scan.nextInt();
 					store.buyCarrots(num2);
-				} catch (InsufficientFundsException|InsufficientCapacityException e) {
+				} catch (IllegalStateException e) {
 					System.out.println(e.getMessage());
 				}
 				break;
-		case 2: store.buyWheat(num2);
+		case 2: System.out.println("Enter crop quantity");
+				int num2 = scan.nextInt();
+				store.buyWheat(num2);
 				break;
+		case 7: break;
 		}
 	}
 	

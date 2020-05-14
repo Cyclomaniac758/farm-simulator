@@ -1,5 +1,10 @@
 package exceptions;
 
+/**
+ * 
+ * @author Icarus
+ *
+ */
 public class InsufficientCapacityException extends IllegalStateException {
 	public InsufficientCapacityException() {}
 	
