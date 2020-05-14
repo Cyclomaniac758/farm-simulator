@@ -58,12 +58,6 @@ public abstract class item {
 	}
 	
 	public String toString() {
-		char firstChar = itemName.charAt(0);
-		if ("aeiouAEIOU".indexOf(firstChar) != -1) {
-			return String.format("This item is %s.\nIt is used to %s.", itemName, itemUse);
-		} else {
-			return String.format("This item is %s.\nIt is used to %s.", itemName, itemUse);
-		}
-		
+		return String.format("%15s%15s", itemName, price);
 	}
 }

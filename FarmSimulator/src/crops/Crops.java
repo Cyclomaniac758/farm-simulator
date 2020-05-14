@@ -78,4 +78,8 @@ public class Crops {
 	public int getGrowTime() {
 		return growTime;
 	}
+	
+	public String toString() {
+		return String.format("%10s%10s%10s%10s", getCropName(), getBuyPrice(), getSellPrice(), getGrowTime());
+	}
 }

@@ -18,11 +18,6 @@ public class Farmer {
 	private String name;
 	
 	/**
-	 * The age of the farmer
-	 */
-	private int age;
-	
-	/**
 	 * The number of actions remaining for the day
 	 */
 	private int numActions;
@@ -38,10 +33,9 @@ public class Farmer {
 	 * @param userAge
 	 * @param userFarm
 	 */
-	public Farmer(String userName, int userAge, Farm userFarm) {
+	public Farmer(String userName, Farm userFarm) {
 		numActions = 2;
 		name = userName;
-		age = userAge;
 		farm = userFarm;
 	}
 	
@@ -53,13 +47,6 @@ public class Farmer {
 		name = userName;
 	}
 	
-	/**
-	 * Sets the age of the farmer
-	 * @param userAge
-	 */
-	public void setAge(int userAge) {
-		age = userAge;
-	}
 	
 	/**
 	 * Returns farmer name
@@ -68,15 +55,7 @@ public class Farmer {
 	public String getName() {
 		return name;
 	}
-	
-	/**
-	 * Returns farmer age
-	 * @return age
-	 */
-	public int getAge() {
-		return age;
-	}
-	
+
 	/**
 	 * returns the number of actions remaining for the day
 	 * @return numActions
@@ -125,8 +104,8 @@ public class Farmer {
 		} catch (NoMoreActionsException e) {
 			System.out.println(e.getMessage());
 		}
-		float currentHealthiness = animal.getHealthiness();
-		float newHealthiness = currentHealthiness * item.getHealthiness();
+		double currentHealthiness = animal.getHealthiness();
+		double newHealthiness = currentHealthiness * item.getHealthiness();
 		animal.setHealthiness(newHealthiness);
 		if (animal.getHealthiness() > 100) {
 			animal.setHealthiness(100);
@@ -140,8 +119,8 @@ public class Farmer {
 			System.out.println(e.getMessage());
 		}
 		for (Animals animal: farm.getAnimalList()) {
-			float currentHappiness = animal.getHappinessLevel();
-			float newHappiness = (float) (currentHappiness * 1.4);
+			double currentHappiness = animal.getHappinessLevel();
+			double newHappiness = currentHappiness * 1.4;
 			animal.setHappinessLevel(newHappiness);
 		}
 	}
@@ -163,18 +142,9 @@ public class Farmer {
 		}
 		int currentCapacity = farm.getMaxCropCapacity();
 		farm.setMaxCropCapacity(currentCapacity + 1);
-		float currentHappiness = farm.getAnimalHappinessModifier();
-		farm.setAnimalHappinessModifier((float) (currentHappiness*1.2));
+		double currentHappiness = farm.getAnimalHappinessModifier();
+		farm.setAnimalHappinessModifier(currentHappiness*1.2);
 	}
 	
-	
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

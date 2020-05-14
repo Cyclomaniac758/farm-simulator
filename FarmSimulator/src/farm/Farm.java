@@ -5,6 +5,7 @@ import crops.*;
 import animals.*;
 import money.*;
 import farmer.*;
+import items.*;
 
 /**
  * Farms are where the farmer does their tasks
@@ -32,11 +33,11 @@ public class Farm {
 	/**
 	 * The happiness of animals on the farm
 	 */
-	private float animalHappinessModifier;
+	private double animalHappinessModifier;
 	/**
 	 * The healthiness of animals on the farm
 	 */
-	private float animalHealthinessModifier;
+	private double animalHealthinessModifier;
 	/**
 	 * The farmer this will replaced with the actual farmer class
 	 */
@@ -49,6 +50,10 @@ public class Farm {
 	 * ArrayList where the current animals on the farm are stored
 	 */
 	private ArrayList<Animals> animalList;
+	/**
+	 * ArrayList storing the owned items
+	 */
+	private ArrayList<item> itemList;
 	/**
 	 * The max crop capacity of the farm
 	 */
@@ -91,14 +96,14 @@ public class Farm {
      * Gets the animal happiness modifier level
      * @return The happiness level of the animal
      */
-    public float getAnimalHappinessModifier() {
+    public double getAnimalHappinessModifier() {
     	return animalHappinessModifier;
     }
     /**
      * Gets the animal healthiness modifier level
      * @return the healthiness modifier for the animal
      */
-    public float getAnimallHealthinessModifier() {
+    public double getAnimallHealthinessModifier() {
     	return animalHealthinessModifier;
     }
     /**
@@ -121,6 +126,13 @@ public class Farm {
      */
     public ArrayList<Animals> getAnimalList() {
     	return  animalList;
+    }
+    /**
+     * Gets the item list
+     * @return ArrayList<item>
+     */
+    public ArrayList<item> getItemList(){
+    	return itemList;
     }
     /**
      * Gets the max crop capacity of the farm
@@ -170,11 +182,11 @@ public class Farm {
 	 * Sets the modifier for the happiness of animals on the farm
 	 * @param happiness
 	 */
-	public void setAnimalHappinessModifier(float happiness) {
+	public void setAnimalHappinessModifier(double happiness) {
 		animalHappinessModifier = happiness;
 	}
 	
-	public void setAnimalHealthinessModifier(float healthiness) {
+	public void setAnimalHealthinessModifier(double healthiness) {
 		animalHealthinessModifier = healthiness;
 	}
 	/**
@@ -197,6 +209,13 @@ public class Farm {
 	 */
 	public void setAnimalList(ArrayList<Animals> animalsList) {
 		animalList = animalsList;
+	}
+	/**
+	 * Set the list of owned items
+	 * @param itemList
+	 */
+	public void setItemList(ArrayList<item> itemsList) {
+		itemList = itemsList;
 	}
 	/**
 	 * Sets the max crop capacity of the farm
@@ -223,7 +242,6 @@ public class Farm {
 		crop.setGrowTime(cropGrowingSpeedModifier + crop.getGrowTime());
 		cropList.add(crop);
 		farmMoney.minusMoney(crop.getBuyPrice());
-		System.out.println(String.format("Bought %s for $%s", crop.getCropName(), crop.getBuyPrice()));
 		} else {
 			System.out.println("Farm is at max capacity of crops please sell some before purchasing more. :)");
 		}
@@ -246,10 +264,14 @@ public class Farm {
 		animal.setHappinessLevel(animalHappinessModifier * animal.getHappinessLevel());
 		animalList.add(animal);
 		farmMoney.minusMoney(animal.getBuyPrice());
-		System.out.println(String.format("Bought %s for $%s", animal.getAnimalName(), animal.getBuyPrice()));
 		} else {
 			System.out.println("You have reached the maximum animal capacity for your farm. :)");
 		}
+	}
+	
+	public void addItem(item item) {
+		itemList.add(item);
+		farmMoney.minusMoney(item.getItemPrice());
 	}
 	/**
 	 * Called at the end of everyday, 
@@ -257,7 +279,7 @@ public class Farm {
 	 */
 	public void addAnimalEarnings() {
 		for (Animals animal : animalList) {
-			float earnings = animal.getHealthiness() * animal.getHappinessLevel() * animal.getDailyEarnings();
+			double earnings = animal.getHealthiness() * animal.getHappinessLevel() * animal.getDailyEarnings();
 			farmMoney.addMoney(earnings);
 			System.out.println(animal.getClass());
 			System.out.println(String.format("Your %s earned $%s today", animal.getAnimalName(), earnings));
@@ -278,23 +300,43 @@ public class Farm {
 	 * Prints out the crops currently on the farm
 	 */
 	public void printCropList() {
-		for (Crops crop : cropList) {
-			System.out.println(crop.getCropName());
+		if (cropList.size() == 0) {
+			System.out.println("You own no crops");
+		} else {
+			for (Crops crop : cropList) {
+				System.out.println(crop.getCropName() + ": Days remaining= " + crop.getGrowTime());
+			}	
 		}
 	}
 	/**
 	 * prints out the animals currently on the farm
 	 */
 	public void printAnimalList() {
-		for (Animals animal : animalList) {
-			System.out.println(animal.getAnimalName());
+		if (animalList.size() == 0) {
+			System.out.println("You own no animals");
+		} else {
+			for (Animals animal : animalList) {
+				System.out.println(animal.getAnimalName());
+			}
+		
+		}
+	}
+	
+	public void printItemList() {
+		if (itemList.size() == 0) {
+			System.out.println("You own no items");
+		} else {
+			for (item item: itemList) {
+				System.out.println(item.getItemName());
+			}
+		
 		}
 	}
 	/**
 	 * String representation of the farm
 	 */
 	public String toString() {
-		return String.format("the name of the farm is %s\nthe farmer is %s\nmoney count = %s", getFarmName(), getFarmer(), getFarmMoney());
+		return String.format("the name of the farm is %s\nthe farmer is %s\nmoney count = %s", getFarmName(), getFarmer().getName(), getFarmMoney());
 	}
 
 

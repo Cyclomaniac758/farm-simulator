@@ -21,11 +21,11 @@ public class Animals {
 	/**
 	 * The happiness level of the animal
 	 */
-	private float happinessLevel;
+	private double happinessLevel;
 	/**
 	 * The  healthiness level of the animal
 	 */
-	private float healthinessLevel;
+	private double healthinessLevel;
   
 	/**
 	 * Sets the animal's name
@@ -52,14 +52,14 @@ public class Animals {
   	 * Sets the happiness level of the animal
   	 * @param happiness
   	 */
-  	public void setHappinessLevel(float happiness) {
+  	public void setHappinessLevel(double happiness) {
   		happinessLevel = happiness;
   	}
   	/**
   	 * Sets the healthiness level of the animal
   	 * @param healthiness
   	 */
-  	public void setHealthiness(float healthiness) {
+  	public void setHealthiness(double healthiness) {
   		healthinessLevel = healthiness;
   	}
   	/**
@@ -87,15 +87,19 @@ public class Animals {
   	 * Gets the happiness level of the animal
   	 * @return
   	 */
-  	public float getHappinessLevel() {
+  	public double getHappinessLevel() {
   		return happinessLevel;
   	}
   	/**
   	 * Gets the healthiness level of the animal
   	 * @return
   	 */
-  	public float getHealthiness() {
+  	public double getHealthiness() {
   		return healthinessLevel;
+  	}
+  	
+  	public String toString() {
+  		return String.format("%15s%15s%15s", getAnimalName(), getBuyPrice(), getDailyEarnings());
   	}
 
 }

@@ -1,11 +1,11 @@
 package farm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import crops.*;
 import animals.*;
 import money.*;
+import items.*;
 
 /**
  * Class OrchardFarm extends Farm
@@ -22,9 +22,13 @@ public class OrchardFarm extends Farm {
 	    setFarmMoney(new Money(2000));
 	    setFarmType("Orchard");
 	    setGrowingSpeedModifier(1);
-	    setAnimalHappinessModifier(1f);
-	    setCropList(new ArrayList<Crops>(Arrays.asList(new AppleTree(), new Carrots(), new Corn(), new LemonTree(), new Tomatoes(), new Wheat())));
-	    setAnimalList(new ArrayList<Animals>(Arrays.asList(new Chicken(), new Cow(), new Pig())));
+	    setAnimalHappinessModifier(1.2f);
+	    setAnimalHealthinessModifier(1.0f);
+	    setCropList(new ArrayList<Crops>());
+	    setAnimalList(new ArrayList<Animals>());
+	    setItemList(new ArrayList<item>());
+    	setMaxCropCapacity(30);
+    	setMaxAnimalCapacity(5);
 	}
 
 

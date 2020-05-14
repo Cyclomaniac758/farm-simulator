@@ -1,11 +1,11 @@
 package farm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import animals.*;
 import crops.*;
 import money.*;
+import items.*;
 
 /**
  * Class CommercialFarm extends Farm
@@ -24,8 +24,14 @@ public class CommercialFarm extends Farm {
 		setFarmType("Commercial");
     	setGrowingSpeedModifier(1);
     	setAnimalHappinessModifier(0.75f);
+    	setAnimalHealthinessModifier(0.9f);
     	setCropList(new ArrayList<Crops>());
     	setAnimalList(new ArrayList<Animals>());
+    	setItemList(new ArrayList<item>());
+    	setMaxCropCapacity(20);
+    	setMaxAnimalCapacity(10);
 	}
 
 }
+
+

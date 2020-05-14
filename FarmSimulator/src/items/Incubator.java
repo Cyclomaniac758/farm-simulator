@@ -11,7 +11,7 @@ public class Incubator extends cropTools {
 	 */
 	public Incubator() {
 		setImpact(2);
-		setItemName("seed incubator");
+		setItemName("Incubator");
 		setItemPrice(150);
 		setItemUse("speed up the crop growth process");
 	}

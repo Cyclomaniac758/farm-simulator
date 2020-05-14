@@ -8,12 +8,12 @@ public class Money {
 	/**
 	 * The amount of money
 	 */
-	private float moneyAmount;
+	private double moneyAmount;
 	/**
 	 * Constructor of Money class
 	 * @param amount
 	 */
-	public Money(float money) {
+	public Money(double money) {
 		moneyAmount = money;
 	}
 	/**
@@ -27,14 +27,14 @@ public class Money {
 	 * Gets the moneyAmount value
 	 * @return
 	 */
-	public float getMoneyAmount() {
+	public double getMoneyAmount() {
 		return moneyAmount;
 	}
 	/**
 	 * Adds amount value to current moneyAmount
 	 * @param amount
 	 */
-	public void addMoney(float amount) {
+	public void addMoney(double amount) {
 		moneyAmount += amount;
 	}
 	/**

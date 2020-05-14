@@ -1,11 +1,11 @@
 package farm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import crops.*;
 import animals.*;
 import money.*;
+import items.*;
 
 /**
  * Class LivestockFarm extends Farm
@@ -14,7 +14,7 @@ import money.*;
  */
 public class LivestockFarm extends Farm {
 	/**
-	 * Constructor of LivestockFarmClass
+	 * Constructor of LivestockFarm Class
 	 * @param name
 	 */
 	public LivestockFarm(String name) {
@@ -23,8 +23,13 @@ public class LivestockFarm extends Farm {
     	setFarmType("Livestock");
     	setGrowingSpeedModifier(2);
     	setAnimalHappinessModifier(1.0f);
+    	setAnimalHealthinessModifier(1.0f);
     	setCropList(new ArrayList<Crops>());
     	setAnimalList(new ArrayList<Animals>());
+    	setItemList(new ArrayList<item>());
+    	setMaxCropCapacity(10);
+    	setMaxAnimalCapacity(15);
 	}
 
 }
+
