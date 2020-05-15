@@ -8,7 +8,8 @@ import exceptions.*;
 import generalStore.*;
 import items.*;
 import money.*;
-
+import crops.*;
+import animals.*;
 
 public class Game {
 	private Farm farm;
@@ -105,16 +106,35 @@ public class Game {
 	public void playGame() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("\nEnter action number to complete the action"
-				+ "\n1. Proceed to next day\n2.View farm status\n3.Visit general store"
-				+ "\n4.Tend crops\n5. Feed animals\n6. Play with animals\n7. Harvest crops"
+				+ "\n1. Proceed to next day\n2. View farm status\n3. Visit general store"
+				+ "\n4. Tend crops\n5. Feed animals\n6. Play with animals\n7. Harvest crops"
 				+ "\n8. Tend land");
 		int num = scan.nextInt();
-		if (num == 1) {
+		switch (num) {
+		case 1: 
 			nextDay();
-		} else if (num == 2) {
+			break;
+		case 2: 
 			viewFarmStatus();
-		} else if (num == 3) {
+			break;
+		case 3: 
 			visitStore();
+			break;
+		case 4:
+			tendCrops();
+			break;
+		case 5:
+			feedAnimals();
+			break;
+		case 6:
+			playWithAnimals();
+			break;
+		case 7:
+			harvestCrops();
+			break;
+		case 8:
+			tendLand();
+			break;
 		}
 	}
 
@@ -165,7 +185,6 @@ public class Game {
 			case 6: buyItems();
 					break;
 			case 7: viewFarmStatus();
-					
 					break;
 			}
 			System.out.println("General Store\n1. View crops\n2. View animals"
@@ -178,35 +197,289 @@ public class Game {
 	
 	public void buyCrops() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter number to buy crop\n1. Carrots\n2. Wheat\n"
-				+ "3. Tomatoes\n4. Corn\n5. Lemon Tree\n6. Apple Tree\n7. Exit");
+		System.out.println(store.viewCrops());
 		int num = scan.nextInt();
-		
+		System.out.println("Enter crop quantity");
+		int num2 = scan.nextInt();
 		switch (num) {
 		case 1: try {
-					System.out.println("Enter crop quantity");
-					int num2 = scan.nextInt();
 					store.buyCarrots(num2);
 				} catch (IllegalStateException e) {
 					System.out.println(e.getMessage());
 				}
 				break;
-		case 2: System.out.println("Enter crop quantity");
-				int num2 = scan.nextInt();
-				store.buyWheat(num2);
+		case 2: try {
+					store.buyWheat(num2);
+				} catch (IllegalStateException e) {
+					System.out.println(e.getMessage());
+				}
 				break;
+		case 3: 
+			try {
+			store.buyTomatoes(num2);
+			} catch (IllegalStateException e) {
+			System.out.println(e.getMessage());
+			}
+		break;
+		case 4:
+			try {
+				store.buyCorn(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 5:
+			try {
+				store.buyLemonTree(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 6:
+			try {
+				store.buyAppleTree(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
 		case 7: break;
 		}
 	}
 	
 	public void buyAnimals() {
-		
+		Scanner scan = new Scanner(System.in);
+		System.out.println(store.viewAnimals());
+		int num = scan.nextInt();
+		System.out.println("Enter animal quantity");
+		int num2 = scan.nextInt();
+		switch (num) {
+		case 1:
+			try {
+				store.buyChicken(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 2:
+			try {
+				store.buyPig(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 3:
+			try {
+				store.buyCow(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 4:
+			break;
+		}
 	}
 	
 	public void buyItems() {
-		
+		Scanner scan = new Scanner(System.in);
+		System.out.println(store.viewItems() + "\n\n Enter tool number");
+		int num = scan.nextInt();
+		System.out.println("Enter item quantity");
+		int num2 = scan.nextInt();
+		switch (num) {
+		case 1:
+			try {
+				store.buyWater(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 2: 
+			try {
+				store.buyHoe(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 3:
+			try {
+				store.buyFertilizer(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 4:
+			try {
+				store.buyIncubator(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 5:
+			try {
+				store.buyWaterFood(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 6: 
+			try {
+				store.buyGrain(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 7:
+			try {
+				store.buyGrowthHormone(num2);
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+			}
+			break;
+		}
+	}
+	/**
+	 * Use crop tool to tend crop
+	 */
+	public void tendCrops() {
+		if (farm.getCropList().size() == 0) {
+			farm.printCropList();
+		} else if (farm.getItemList().size() == 0) {
+			farm.printItemList();
+		} else {
+			if (containsCropTool() == true) {
+				Scanner scan = new Scanner(System.in);
+				System.out.println("Choose your crop to tend to");
+				farm.printCropList();
+				int num = scan.nextInt();
+				Crops crop = farm.getCropList().get(num-1);
+				boolean validTool = false;
+				while (validTool == false) {
+					System.out.println("Choose your item to use");
+					farm.printItemList();
+					int num1 = scan.nextInt();
+					if (farm.getItemList().get(num1-1) instanceof cropTools) {
+						cropTools item = (cropTools) farm.getItemList().get(num1-1);
+						try {
+							farmer.useCropTool(item, crop);
+						} catch (NoMoreActionsException e) {
+							System.out.println(e.getMessage());
+						}
+						validTool = true;
+					} else {
+						System.out.println("Select a valid tool");
+					}
+				} 
+			} else {
+					System.out.println("You dont own any crop tools");
+			}
+		}
+	}
+	/**
+	 * itemList contains cropTool
+	 * @return boolean Crop tool in items
+	 */
+	public boolean containsCropTool() {
+		int index = farm.getItemList().size()-1;
+		boolean hasCropTool = false;
+		while (index>=0 && hasCropTool == false) {
+			if (farm.getItemList().get(index) instanceof cropTools) {
+				hasCropTool = true;
+			} else {
+				index += -1;
+			}
+		}
+		return hasCropTool;
 	}
 	
+	public void feedAnimals() {
+		if (farm.getAnimalList().size() == 0) {
+			farm.printCropList();
+		} else if (farm.getItemList().size() == 0) {
+			farm.printItemList();
+		} else {
+			if (containsFood() == true) {
+				Scanner scan = new Scanner(System.in);
+				System.out.println("Choose your animal to feed");
+				farm.printAnimalList();
+				int num = scan.nextInt();
+				Animals animal = farm.getAnimalList().get(num-1);
+				boolean validTool = false;
+				while (validTool == false) {
+					System.out.println("Choose your item to use");
+					farm.printItemList();
+					int num1 = scan.nextInt();
+					if (farm.getItemList().get(num1-1) instanceof Food) {
+						Food item = (Food) farm.getItemList().get(num1-1);
+						try {
+							farmer.useFood(item, animal);
+						} catch (NoMoreActionsException e) {
+							System.out.println(e.getMessage());
+						}
+						validTool = true;
+					} else {
+						System.out.println("Select a item");
+					}
+				} 
+			} else {
+					System.out.println("You dont own any food");
+			}
+		}
+	}
+	
+	public boolean containsFood() {
+		int index = farm.getItemList().size()-1;
+		boolean hasFood = false;
+		while (index>=0 && hasFood == false) {
+			if (farm.getItemList().get(index) instanceof Food) {
+				hasFood = true;
+			} else {
+				index += -1;
+			}
+		}
+		return hasFood;
+	}
+	
+	public void playWithAnimals() {
+		if (farm.getAnimalList().size() > 0) {
+			try {
+				farmer.playWithAnimals();
+			} catch (NoMoreActionsException e) {
+				System.out.println(e.getMessage());
+			}
+		} else {
+			System.out.println("You own no animals");
+		}
+	}
+	
+	public void harvestCrops() {
+		Scanner scan = new Scanner(System.in);
+		if (farm.getCropList().size() == 0) {
+			System.out.println("You have no crops");
+		} else {
+			System.out.println("Select your crop to harvest");
+			farm.printCropList();
+			int num = scan.nextInt();
+			Crops crop = farm.getCropList().get(num-1);
+			if (crop.getGrowTime() > 0) {
+				System.out.println("Crop is not ready yet");
+			} else {
+				try {
+					farmer.harvestCrop(crop);
+				} catch (NoMoreActionsException e) {
+					System.out.println(e.getMessage());
+				}
+				
+			}
+		}
+	}
+	
+	public void tendLand() {
+		try {
+			farmer.tendLand();
+		} catch (NoMoreActionsException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	public void endGame() {
 		Scanner scan = new Scanner(System.in);
 		double earnedValue = farm.getFarmMoney().getMoneyAmount();

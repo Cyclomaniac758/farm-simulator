@@ -22,8 +22,8 @@ public class OrchardFarm extends Farm {
 	    setFarmMoney(new Money(2000));
 	    setFarmType("Orchard");
 	    setGrowingSpeedModifier(1);
-	    setAnimalHappinessModifier(1.2f);
-	    setAnimalHealthinessModifier(1.0f);
+	    setAnimalHappinessModifier(1.2);
+	    setAnimalHealthinessModifier(1.0);
 	    setCropList(new ArrayList<Crops>());
 	    setAnimalList(new ArrayList<Animals>());
 	    setItemList(new ArrayList<item>());

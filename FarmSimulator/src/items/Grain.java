@@ -10,7 +10,7 @@ public class Grain extends Food{
 	 * Set the item values
 	 */
 	public Grain() {
-		setHealthiness((float) 1.4);
+		setHealthiness(1.40000);
 		setItemName("Grain");
 		setItemPrice(20);
 		setItemUse("increase an animals healthiness");

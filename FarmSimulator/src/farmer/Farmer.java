@@ -84,17 +84,14 @@ public class Farmer {
 	
 	
 	public void useCropTool(cropTools item, Crops crop) {
-		try {
-			this.deductAction();
-		} catch (NoMoreActionsException e) {
-			System.out.println(e.getMessage());
-		}
+		deductAction();
 		int currentTime = crop.getGrowTime();
 		int newTime = currentTime - item.getImpact();
 		crop.setGrowTime(newTime);
 		if (crop.getGrowTime() < 0) {
 			crop.setGrowTime(0);
 		}
+		farm.removeItem(item);
 	}
 	
 	
@@ -113,33 +110,23 @@ public class Farmer {
 	}
 	
 	public void playWithAnimals() {
-		try {
-			this.deductAction();
-		} catch (NoMoreActionsException e) {
-			System.out.println(e.getMessage());
-		}
+		deductAction();
 		for (Animals animal: farm.getAnimalList()) {
+			System.out.println(animal.getHappinessLevel());
 			double currentHappiness = animal.getHappinessLevel();
-			double newHappiness = currentHappiness * 1.4;
+			double newHappiness = currentHappiness * 1.1;
 			animal.setHappinessLevel(newHappiness);
+			System.out.println(animal.getHappinessLevel());
 		}
 	}
 	
 	public void harvestCrop(Crops crop) {
-		try {
-			this.deductAction();
-		} catch (NoMoreActionsException e) {
-			System.out.println(e.getMessage());
-		}
+		deductAction();
 		farm.minusCrop(crop);
 	}
 	
 	public void tendLand() {
-		try {
-			this.deductAction();
-		} catch (NoMoreActionsException e) {
-			System.out.println(e.getMessage());
-		}
+		deductAction();
 		int currentCapacity = farm.getMaxCropCapacity();
 		farm.setMaxCropCapacity(currentCapacity + 1);
 		double currentHappiness = farm.getAnimalHappinessModifier();

@@ -10,7 +10,8 @@ public class WaterFood extends Food {
 	 * Set the parameters of the object WaterFood
 	 */
 	public WaterFood() {
-		setHealthiness((float) 1.10);
+		setHealthiness(1.10000);
+		
 		setItemName("WaterFood");
 		setItemPrice(0);
 		setItemUse("increase an animals healthiness");

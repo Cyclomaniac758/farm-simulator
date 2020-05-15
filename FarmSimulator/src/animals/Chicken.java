@@ -13,7 +13,7 @@ public class Chicken extends Animals {
     setAnimalName("Chicken");
     setBuyPrice(50);
     setDailyEarnings(20);
-    setHappinessLevel(1);
+    setHappinessLevel((double) 1);
     setHealthiness(1);
   }
 }

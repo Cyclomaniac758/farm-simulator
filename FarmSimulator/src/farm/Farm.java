@@ -268,10 +268,18 @@ public class Farm {
 			System.out.println("You have reached the maximum animal capacity for your farm. :)");
 		}
 	}
-	
+	/**
+	 * Add item to itemList
+	 * @param item
+	 */
 	public void addItem(item item) {
 		itemList.add(item);
 		farmMoney.minusMoney(item.getItemPrice());
+	}
+	
+	public void removeItem(item item) {
+		int index = itemList.indexOf(item);
+		itemList.remove(index);
 	}
 	/**
 	 * Called at the end of everyday, 
@@ -289,15 +297,11 @@ public class Farm {
 	 * Called at the end of every day, lessens the days left for crops to grow if they're days left = 0 sells the crops
 	 */
 	public void progressGrowth() {
-		ArrayList<Crops> toRemove = new ArrayList<Crops>();
 		for (Crops crop : cropList) {
 			crop.setGrowTime(crop.getGrowTime() - 1);
 			if (crop.getGrowTime() <= 0) {
-				toRemove.add(crop);
+				crop.setGrowTime(0);
 			}
-		}
-		for (Crops crop: toRemove) {
-			minusCrop(crop);
 		}
 	}
 	/**
@@ -307,8 +311,10 @@ public class Farm {
 		if (cropList.size() == 0) {
 			System.out.println("You own no crops");
 		} else {
+			int num = 1;
 			for (Crops crop : cropList) {
-				System.out.println(crop.getCropName() + ": Days remaining= " + crop.getGrowTime());
+				System.out.println(num + ": " + crop.getCropName() + ": Days remaining= " + crop.getGrowTime());
+				num += 1;
 			}	
 		}
 	}
@@ -319,23 +325,32 @@ public class Farm {
 		if (animalList.size() == 0) {
 			System.out.println("You own no animals");
 		} else {
+			System.out.println("Animals:\n");
+			int num = 1;
 			for (Animals animal : animalList) {
-				System.out.println(animal.getAnimalName());
+				System.out.println(num + ": " + animal.getAnimalName());
+				num += 1;
+			}
+		
+		}
+	}
+	/**
+	 * Print itemList
+	 */
+	public void printItemList() {
+		if (itemList.size() == 0) {
+			System.out.println("You own no items");
+		} else {
+			System.out.println("Items:");
+			int num = 1;
+			for (item item: itemList) {
+				System.out.println(num + ". " + item.getItemName());
+				num += 1;
 			}
 		
 		}
 	}
 	
-	public void printItemList() {
-		if (itemList.size() == 0) {
-			System.out.println("You own no items");
-		} else {
-			for (item item: itemList) {
-				System.out.println(item.getItemName());
-			}
-		
-		}
-	}
 	/**
 	 * String representation of the farm
 	 */

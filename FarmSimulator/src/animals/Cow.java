@@ -12,7 +12,7 @@ public class Cow extends Animals {
 		setAnimalName("Cow");
 		setBuyPrice(200);
 		setDailyEarnings(80);
-		setHappinessLevel(1);
+		setHappinessLevel((float) 1);
 		setHealthiness(1);
 	}
 }

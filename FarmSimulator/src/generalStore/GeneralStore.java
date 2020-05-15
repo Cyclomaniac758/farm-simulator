@@ -38,7 +38,7 @@ public class GeneralStore {
 		LemonTree lemon = new LemonTree();
 		Tomatoes tomatoe = new Tomatoes();
 		Wheat wheat = new Wheat();
-		return String.format("%10s%10s%10s%10s\n%s\n%s\n%s\n%s\n%s\n%s\n", 
+		return String.format("%13s%10s%10s%10s\n1. %s\n2. %s\n3. %s\n4. %s\n5. %s\n6. %s\n", 
 				"Crop", "Buy", "Sell", "Time", carrot.toString(),
 				wheat.toString(), tomatoe.toString(), corn.toString(), 
 				lemon.toString(), apple.toString());
@@ -53,7 +53,7 @@ public class GeneralStore {
 		Chicken chicken = new Chicken();
 		Cow cow = new Cow();
 		Pig pig = new Pig();
-		return String.format("%15s%15s%15s\n%s\n%s\n%s\n", "Animal", "Price", 
+		return String.format("%15s%15s%15s\n1. %s\n2. %s\n3. %s\n", "Animal", "Price", 
 				"Daily profit", chicken.toString(), pig.toString(), cow.toString());
 	}
 	
@@ -71,9 +71,9 @@ public class GeneralStore {
 		Grain grain = new Grain();
 		GrowthHormone growth = new GrowthHormone();
 		//initialize food items
-		return String.format("Tools to speed up crop growth:\n%15s%15s\n"
-				+ "%s\n%s\n%s\n%s\n\nFood to increase animal healthiness:\n"
-				+ "%15s%15s\n%s\n%s\n%s\n", "Name", "Price",  
+		return String.format("Tools to speed up crop growth:\n%18s%15s\n"
+				+ "1. %s\n2. %s\n3. %s\n4. %s\n\nFood to increase animal healthiness:\n"
+				+ "%18s%15s\n5. %s\n6. %s\n7. %s\n", "Name", "Price",  
 				water.toString(), hoe.toString(), fert.toString(), incub.toString(), 
 				"Name", "Price", 
 				waterFood.toString(), grain.toString(), growth.toString());
@@ -191,28 +191,168 @@ public class GeneralStore {
 		}
 		
 	}
-	
-	public void buyWheat(int num) {
-		
-	}
 	/**
-	 * Buy a cow method
+	 * Buy wheat
+	 * @param num
 	 */
-	public void buyCow(int num) {
-		Cow cow = new Cow();
-		if (farm.getFarmMoney().getMoneyAmount() >= cow.getBuyPrice()*num) {
-			for (int i=0; i < num; i++) {
-				Cow cow1 = new Cow();
-				farm.addAnimal(cow1);
+	public void buyWheat(int num) {
+		Wheat wheat = new Wheat();
+		if (farm.getFarmMoney().getMoneyAmount() >= wheat.getBuyPrice()*num) {
+			int capacity = farm.getCropList().size() + num;
+			if (capacity < farm.getMaxCropCapacity()) {
+				for (int i=0; i < num; i++) {
+					Wheat wheat1 = new Wheat();
+					farm.addCrop(wheat1);
+				}
+				System.out.println("Bought " + num + " wheat for $" + num*wheat.getBuyPrice());
+			} else {
+				throw new InsufficientCapacityException("Not enough capacity");
 			}
 		} else {
 			throw new InsufficientFundsException("You can't afford this");
 		}
-		
+	}
+	/**
+	 * Buy tomatoes
+	 * @param num
+	 */
+	public void buyTomatoes(int num) {
+		Tomatoes tomatoe = new Tomatoes();
+		if (farm.getFarmMoney().getMoneyAmount() >= tomatoe.getBuyPrice()*num) {
+			int capacity = farm.getCropList().size() + num;
+			if (capacity < farm.getMaxCropCapacity()) {
+				for (int i=0; i < num; i++) {
+					Tomatoes tomatoe1 = new Tomatoes();
+					farm.addCrop(tomatoe1);
+				}
+				System.out.println("Bought " + num + " tomatoes for $" + num*tomatoe.getBuyPrice());
+			} else {
+				throw new InsufficientCapacityException("Not enough capacity");
+			}
+		} else {
+			throw new InsufficientFundsException("You can't afford this");
+		}
+	}
+	/**
+	 * Buy corn
+	 * @param num
+	 */
+	public void buyCorn(int num) {
+		Corn corn = new Corn();
+		if (farm.getFarmMoney().getMoneyAmount() >= corn.getBuyPrice()*num) {
+			int capacity = farm.getCropList().size() + num;
+			if (capacity < farm.getMaxCropCapacity()) {
+				for (int i=0; i < num; i++) {
+					Corn corn1 = new Corn();
+					farm.addCrop(corn1);
+				}
+				System.out.println("Bought " + num + " corn for $" + num*corn.getBuyPrice());
+			} else {
+				throw new InsufficientCapacityException("Not enough capacity");
+			}
+		} else {
+			throw new InsufficientFundsException("You can't afford this");
+		}
+	}
+	/**
+	 * Buy lemon tree
+	 * @param num
+	 */
+	public void buyLemonTree(int num) {
+		LemonTree lemonTree = new LemonTree();
+		if (farm.getFarmMoney().getMoneyAmount() >= lemonTree.getBuyPrice()*num) {
+			int capacity = farm.getCropList().size() + num;
+			if (capacity < farm.getMaxCropCapacity()) {
+				for (int i=0; i < num; i++) {
+					LemonTree lemonTree1 = new LemonTree();
+					farm.addCrop(lemonTree1);
+				}
+				System.out.println("Bought " + num + " lemon trees for $" + num*lemonTree.getBuyPrice());
+			} else {
+				throw new InsufficientCapacityException("Not enough capacity");
+			}
+		} else {
+			throw new InsufficientFundsException("You can't afford this");
+		}
 	}
 	
+	public void buyAppleTree(int num) {
+		AppleTree appleTree = new AppleTree();
+		if (farm.getFarmMoney().getMoneyAmount() >= appleTree.getBuyPrice()*num) {
+			int capacity = farm.getCropList().size() + num;
+			if (capacity < farm.getMaxCropCapacity()) {
+				for (int i=0; i < num; i++) {
+					AppleTree appleTree1 = new AppleTree();
+					farm.addCrop(appleTree1);
+				}
+				System.out.println("Bought " + num + " apple trees for $" + num*appleTree.getBuyPrice());
+			} else {
+				throw new InsufficientCapacityException("Not enough capacity");
+			}
+		} else {
+			throw new InsufficientFundsException("You can't afford this");
+		}
+	}
+	/**
+	 * Buy chickens
+	 * @param num
+	 */
+	public void buyChicken(int num) {
+		Chicken chicken = new Chicken();
+		if (farm.getFarmMoney().getMoneyAmount() >= chicken.getBuyPrice()*num) {
+			int capacity = farm.getAnimalList().size() + num;
+			if (capacity < farm.getMaxAnimalCapacity()) {
+				for (int i=0; i < num; i++) {
+					Chicken chicken1 = new Chicken();
+					farm.addAnimal(chicken1);
+				}
+				System.out.println("Bought " + num + " chickens for $" + num*chicken.getBuyPrice());
+				
+			} else {
+				throw new InsufficientCapacityException("Not enough capacity");
+			}
+		} else {
+			throw new InsufficientFundsException("You can't afford this");
+		}
+	}
 	
-	public void buyPig() {
+	public void buyPig(int num) {
+		Pig pig = new Pig();
+		if (farm.getFarmMoney().getMoneyAmount() >= pig.getBuyPrice()*num) {
+			int capacity = farm.getAnimalList().size() + num;
+			if (capacity < farm.getMaxAnimalCapacity()) {
+				for (int i=0; i < num; i++) {
+					Pig pig1 = new Pig();
+					farm.addAnimal(pig1);
+				}
+				System.out.println("Bought " + num + " pigs for $" + num*pig.getBuyPrice());
+				
+			} else {
+				throw new InsufficientCapacityException("Not enough capacity");
+			}
+		} else {
+			throw new InsufficientFundsException("You can't afford this");
+		}
+	}
+	/**
+	 * Buy cows
+	 */
+	public void buyCow(int num) {
+		Cow cow = new Cow();
+		if (farm.getFarmMoney().getMoneyAmount() >= cow.getBuyPrice()*num) {
+			int capacity = farm.getAnimalList().size() + num;
+			if (capacity < farm.getMaxAnimalCapacity()) {
+				for (int i=0; i < num; i++) {
+				Cow cow1 = new Cow();
+				farm.addAnimal(cow1);
+				}
+				System.out.println("Bought " + num + " cows for $" + num*cow.getBuyPrice());
+			} else {
+				throw new InsufficientCapacityException("Not enough capacity");
+			}
+		} else {
+			throw new InsufficientFundsException("You can't afford this");
+		}
 		
 	}
 }

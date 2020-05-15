@@ -54,6 +54,9 @@ public class Animals {
   	 */
   	public void setHappinessLevel(double happiness) {
   		happinessLevel = happiness;
+  		if (happinessLevel > 1) {
+  			happinessLevel = 1;
+  		}
   	}
   	/**
   	 * Sets the healthiness level of the animal
@@ -99,7 +102,7 @@ public class Animals {
   	}
   	
   	public String toString() {
-  		return String.format("%15s%15s%15s", getAnimalName(), getBuyPrice(), getDailyEarnings());
+  		return String.format("%12s%15s%15s", getAnimalName(), getBuyPrice(), getDailyEarnings());
   	}
 
 }
