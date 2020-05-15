@@ -393,7 +393,7 @@ public class Game {
 	
 	public void feedAnimals() {
 		if (farm.getAnimalList().size() == 0) {
-			farm.printCropList();
+			farm.printAnimalList();
 		} else if (farm.getItemList().size() == 0) {
 			farm.printItemList();
 		} else {
