@@ -32,4 +32,3 @@ public class LivestockFarm extends Farm {
 	}
 
 }
-
