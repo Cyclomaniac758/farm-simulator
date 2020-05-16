@@ -276,7 +276,10 @@ public class Farm {
 		itemList.add(item);
 		farmMoney.minusMoney(item.getItemPrice());
 	}
-	
+	/**
+	 * Remove item from itemList
+	 * @param item
+	 */
 	public void removeItem(item item) {
 		int index = itemList.indexOf(item);
 		itemList.remove(index);
@@ -312,6 +315,7 @@ public class Farm {
 			System.out.println("You own no crops");
 		} else {
 			int num = 1;
+			System.out.println("Crops:");
 			for (Crops crop : cropList) {
 				System.out.println(num + ": " + crop.getCropName() + ": Days remaining= " + crop.getGrowTime());
 				num += 1;
@@ -325,7 +329,7 @@ public class Farm {
 		if (animalList.size() == 0) {
 			System.out.println("You own no animals");
 		} else {
-			System.out.println("Animals:\n");
+			System.out.println("Animals:");
 			int num = 1;
 			for (Animals animal : animalList) {
 				System.out.println(num + ": " + animal.getAnimalName());
@@ -357,32 +361,4 @@ public class Farm {
 	public String toString() {
 		return String.format("the name of the farm is %s\nthe farmer is %s\nmoney count = %s", getFarmName(), getFarmer().getName(), getFarmMoney());
 	}
-
-
-	public static void main(String[] args) {
-	
-    OrchardFarm myNewFarm = new OrchardFarm("my orchard");
-    System.out.println(myNewFarm.toString());
-    myNewFarm.printAnimalList();
-    myNewFarm.printCropList();
-    
-    FamilyFarm famtime = new FamilyFarm("Family time");
-    System.out.println(famtime.toString());
-    famtime.addCrop(new Corn());
-    famtime.minusCrop(new Corn());
-    famtime.printCropList();
-    System.out.println(famtime.getFarmMoney());
-    
-    LivestockFarm lively = new LivestockFarm("cull season");
-    System.out.println(lively.toString());
-
-    CommercialFarm fonterra = new CommercialFarm("The scotts");
-    System.out.println(fonterra.toString());
-    fonterra.addAnimal(new Cow());
-    fonterra.addAnimal(new Pig());
-    fonterra.addAnimalEarnings();
-    System.out.println(fonterra.getFarmMoney());
-    
-	}
-
 }

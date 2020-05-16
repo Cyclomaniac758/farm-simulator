@@ -16,7 +16,10 @@ public class Farmer {
 	 * The farmer's name
 	 */
 	private String name;
-	
+	/**
+	 * The farmer's age
+	 */
+	private int age;
 	/**
 	 * The number of actions remaining for the day
 	 */
@@ -33,9 +36,10 @@ public class Farmer {
 	 * @param userAge
 	 * @param userFarm
 	 */
-	public Farmer(String userName, Farm userFarm) {
+	public Farmer(String userName, int userAge, Farm userFarm) {
 		numActions = 2;
 		name = userName;
+		age = userAge;
 		farm = userFarm;
 	}
 	
@@ -96,17 +100,14 @@ public class Farmer {
 	
 	
 	public void useFood(Food item, Animals animal) {
-		try {
-			this.deductAction();
-		} catch (NoMoreActionsException e) {
-			System.out.println(e.getMessage());
-		}
+		deductAction();
 		double currentHealthiness = animal.getHealthiness();
 		double newHealthiness = currentHealthiness * item.getHealthiness();
 		animal.setHealthiness(newHealthiness);
 		if (animal.getHealthiness() > 100) {
 			animal.setHealthiness(100);
 		}
+		farm.removeItem(item);
 	}
 	
 	public void playWithAnimals() {

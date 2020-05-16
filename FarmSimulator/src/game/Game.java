@@ -74,7 +74,9 @@ public class Game {
 				System.out.println("Invalid name");
 			}
 		} 
-		farmer = new Farmer(userName, farm);
+		System.out.println("Enter your age");
+		int age = scan.nextInt();
+		farmer = new Farmer(userName, age, farm);
 		farm.setFarmer(farmer);
 		
 	}
