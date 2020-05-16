@@ -148,8 +148,6 @@ public class Farm {
     public int getMaxAnimalCapacity() {
     	return maxAnimalCapacity;
     }
-    
-    
     /**
      * Sets the farm name at the start of the game
      * @param name
@@ -185,7 +183,10 @@ public class Farm {
 	public void setAnimalHappinessModifier(double happiness) {
 		animalHappinessModifier = happiness;
 	}
-	
+	/**
+	 * Set the farms healthiness modifier value.
+	 * @param healthiness
+	 */
 	public void setAnimalHealthinessModifier(double healthiness) {
 		animalHealthinessModifier = healthiness;
 	}
@@ -231,8 +232,6 @@ public class Farm {
 	public void setMaxAnimalCapacity(int maxCapacity) {
 		maxAnimalCapacity = maxCapacity;
 	}
-	
-	
 	/**
 	 * Called when a crop is bought, adds new crop to the farms cropList
 	 * @param crop
