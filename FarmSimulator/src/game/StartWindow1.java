@@ -15,9 +15,9 @@ import javax.swing.ImageIcon;
 public class StartWindow1 {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField nameField;
+	private JTextField ageField;
+	private JTextField gameLengthField;
 
 	/**
 	 * Launch the application.
@@ -51,46 +51,46 @@ public class StartWindow1 {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Farm Simulator");
-		lblNewLabel.setBounds(10, 21, 436, 54);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Harrington", Font.BOLD, 45));
-		lblNewLabel.setLabelFor(frame.getContentPane());
-		frame.getContentPane().add(lblNewLabel);
+		JLabel gameNameLabel = new JLabel("Farm Simulator");
+		gameNameLabel.setBounds(10, 21, 436, 54);
+		gameNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		gameNameLabel.setFont(new Font("Harrington", Font.BOLD, 45));
+		gameNameLabel.setLabelFor(frame.getContentPane());
+		frame.getContentPane().add(gameNameLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Name:");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(111, 113, 49, 20);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel nameLabel = new JLabel("Name:");
+		nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		nameLabel.setBounds(111, 113, 49, 20);
+		frame.getContentPane().add(nameLabel);
 		
-		textField = new JTextField();
-		lblNewLabel_1.setLabelFor(textField);
-		textField.setBounds(170, 113, 107, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		nameField = new JTextField();
+		nameLabel.setLabelFor(nameField);
+		nameField.setBounds(170, 113, 107, 20);
+		frame.getContentPane().add(nameField);
+		nameField.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Age:");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setBounds(108, 154, 49, 17);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel ageLabel = new JLabel("Age:");
+		ageLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		ageLabel.setBounds(108, 154, 49, 17);
+		frame.getContentPane().add(ageLabel);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(170, 151, 107, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		ageField = new JTextField();
+		ageField.setBounds(170, 151, 107, 20);
+		frame.getContentPane().add(ageField);
+		ageField.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Game Duration (days):");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(10, 185, 150, 20);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel lengthLabel = new JLabel("Game Duration (days):");
+		lengthLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lengthLabel.setBounds(10, 185, 150, 20);
+		frame.getContentPane().add(lengthLabel);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(170, 185, 107, 20);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		gameLengthField = new JTextField();
+		gameLengthField.setBounds(170, 185, 107, 20);
+		frame.getContentPane().add(gameLengthField);
+		gameLengthField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("NEXT");
-		btnNewButton.setBounds(170, 216, 73, 23);
-		frame.getContentPane().add(btnNewButton);
+		JButton nextButton = new JButton("NEXT");
+		nextButton.setBounds(170, 216, 73, 23);
+		frame.getContentPane().add(nextButton);
 	}
 }
