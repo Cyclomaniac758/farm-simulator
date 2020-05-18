@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.ComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class StartWindow1 {
 
@@ -87,6 +89,10 @@ public class StartWindow1 {
 		frame.getContentPane().add(lengthLabel);
 		
 		JButton nextButton = new JButton("NEXT");
+		nextButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		nextButton.setBounds(170, 216, 73, 23);
 		frame.getContentPane().add(nextButton);
 		

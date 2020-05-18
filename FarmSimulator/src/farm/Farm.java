@@ -135,6 +135,29 @@ public class Farm {
     	return itemList;
     }
     /**
+     * Returns the items in itemList of type cropTools
+     * @return ArrayList<cropTools>
+     */
+    public ArrayList<cropTools> getCropToolList(){
+    	ArrayList<cropTools> cropToolList = new ArrayList<cropTools>();
+    	for (item item: itemList) {
+    		if (item instanceof cropTools) {
+    			cropToolList.add((cropTools) item);
+    		}
+    	}
+    	return cropToolList;
+    }
+    
+    public ArrayList<Food> getFoodList(){
+    	ArrayList<Food> foodList = new ArrayList<Food>();
+    	for (item item: itemList) {
+    		if (item instanceof Food) {
+    			foodList.add((Food) item);
+    		}
+    	}
+    	return foodList;
+    }
+    /**
      * Gets the max crop capacity of the farm
      * @return maxCropCapacity
      */
