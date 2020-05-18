@@ -10,14 +10,16 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.ComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 
 public class StartWindow1 {
 
 	private JFrame frame;
 	private JTextField nameField;
 	private JTextField ageField;
-	private JTextField gameLengthField;
+	private JComboBox<Integer> numDaysBox;
 
 	/**
 	 * Launch the application.
@@ -84,13 +86,14 @@ public class StartWindow1 {
 		lengthLabel.setBounds(10, 185, 150, 20);
 		frame.getContentPane().add(lengthLabel);
 		
-		gameLengthField = new JTextField();
-		gameLengthField.setBounds(170, 185, 107, 20);
-		frame.getContentPane().add(gameLengthField);
-		gameLengthField.setColumns(10);
-		
 		JButton nextButton = new JButton("NEXT");
 		nextButton.setBounds(170, 216, 73, 23);
 		frame.getContentPane().add(nextButton);
+		
+		Integer[] numDays = {5, 6, 7, 8, 9, 10};
+		numDaysBox = new JComboBox(numDays);
+
+		numDaysBox.setBounds(180, 182, 63, 22);
+		frame.getContentPane().add(numDaysBox);
 	}
 }
