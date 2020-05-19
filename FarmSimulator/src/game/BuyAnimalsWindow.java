@@ -3,12 +3,26 @@ package game;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import java.awt.FlowLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class BuyAnimalsWindow {
 	
 	private GameGUI game;
 	
 	private JFrame frame;
+	private JTextField quantityField;
 
 	/**
 	 * Create the application.
@@ -27,6 +41,97 @@ public class BuyAnimalsWindow {
 		setFrame(frame);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JLabel titleLabel = new JLabel("Animal Store");
+		titleLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		String[] animals = new String[] {"Select Animal", "Chicken", "Pig", "Cow"};
+		JComboBox<String> selectAnimal = new JComboBox(animals) ;
+		selectAnimal.setToolTipText("");
+		
+		JButton buyAnimal = new JButton("Buy ");
+		
+		JButton exit = new JButton("EXIT");
+		exit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		
+		JLabel animalPrice = new JLabel("Animal Price:");
+		animalPrice.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		JLabel animalBonus = new JLabel("Daily Bonus Received:");
+		animalBonus.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		JLabel displayPrice = new JLabel("Select Animal");
+		
+		JLabel displayBonus = new JLabel("Select Animal");		
+		
+		quantityField = new JTextField();
+		quantityField.setColumns(10);
+		
+		JLabel quantityPrompt = new JLabel("Enter Quantity:");
+		quantityPrompt.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(quantityPrompt, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(quantityField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
+							.addGap(60)
+							.addComponent(exit))
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(groupLayout.createSequentialGroup()
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+									.addGroup(groupLayout.createSequentialGroup()
+										.addContainerGap()
+										.addComponent(animalBonus, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE))
+									.addGroup(groupLayout.createSequentialGroup()
+										.addGap(23)
+										.addComponent(animalPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)))
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+									.addComponent(displayBonus, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+									.addComponent(displayPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(selectAnimal, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
+							.addGroup(groupLayout.createSequentialGroup()
+								.addGap(148)
+								.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(123, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(30)
+					.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(selectAnimal, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+					.addGap(27)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(animalPrice)
+						.addComponent(displayPrice))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(animalBonus)
+						.addComponent(displayBonus))
+					.addGap(33)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(buyAnimal)
+						.addComponent(exit)
+						.addComponent(quantityField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(quantityPrompt))
+					.addContainerGap(43, Short.MAX_VALUE))
+		);
+		frame.getContentPane().setLayout(groupLayout);
 	}
 
 	public JFrame getFrame() {
@@ -36,5 +141,4 @@ public class BuyAnimalsWindow {
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
 }

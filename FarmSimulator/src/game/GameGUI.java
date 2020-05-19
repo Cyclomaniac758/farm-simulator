@@ -10,6 +10,8 @@ import crops.*;
 
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
 import animals.*;
 
 public class GameGUI {
@@ -18,6 +20,7 @@ public class GameGUI {
 	private int numDays;
 	private int currentDay;
 	private GeneralStore store;
+	private HomeWindow window;
 		
 	
 		
@@ -111,6 +114,10 @@ public class GameGUI {
 		this.setCurrentDay(1);
 	}
 	
+	public int getCurrentDay() {
+		return currentDay;
+		
+	}
 	public void setCurrentDay(int num) {
 		currentDay = num;
 	}
@@ -507,11 +514,17 @@ public class GameGUI {
 		}
 	}
 	
+	public void setHomeWindow(HomeWindow window) {
+		this.window = window;
+		window.getFrame().setVisible(true);
+	}
+	public void showHomeWindow(JFrame frame) {
+		window.getFrame().setVisible(true);
+	}
 	
 	public static void main(String[] args) {
 		GameGUI game = new GameGUI();
-		
-		HomeWindow window = new HomeWindow(game);
-		window.getFrame().setVisible(true);
+		game.setCurrentDay(100);
+		game.setHomeWindow(new HomeWindow(game));
 	}
 }

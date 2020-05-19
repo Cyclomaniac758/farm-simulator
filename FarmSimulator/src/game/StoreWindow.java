@@ -23,6 +23,7 @@ import net.miginfocom.swing.MigLayout;
 public class StoreWindow {
 	
 	private GameGUI game;
+	private JFrame homeWindow;
 	
 	private JFrame frame;
 
@@ -31,8 +32,9 @@ public class StoreWindow {
 	 * Create the application.
 	 * @param game 
 	 */
-	public StoreWindow(GameGUI game) {
+	public StoreWindow(GameGUI game, JFrame frame2) {
 		this.game = game;
+		this.homeWindow = frame2;
 		initialize();
 	}
 
@@ -54,7 +56,7 @@ public class StoreWindow {
 		cropsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BuyCropsWindow window = new BuyCropsWindow(game);
-				
+				window.getFrame().setVisible(true);
 			}
 		});
 		
@@ -71,7 +73,8 @@ public class StoreWindow {
 		JButton itemsButton = new JButton("Items");
 		itemsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				BuyItemsWindow window = new BuyItemsWindow(game);
+				window.getFrame().setVisible(true);
 			}
 		});
 		frame.getContentPane().add(itemsButton, "cell 5 10,alignx left,aligny center");
@@ -79,13 +82,17 @@ public class StoreWindow {
 		JButton exitButton = new JButton("EXIT");
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HomeWindow window = new HomeWindow(game);
-				window.getFrame().setVisible(true);
+				homeWindow.setVisible(true);
 				frame.dispose();
 			}
 		});
 		
 		JButton inventoryButton = new JButton("Inventory");
+		inventoryButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FarmHouseWindow window = new FarmHouseWindow(game);
+			}
+		});
 		frame.getContentPane().add(inventoryButton, "cell 3 20,alignx center,aligny center");
 		frame.getContentPane().add(exitButton, "cell 5 20,alignx left");
 	}

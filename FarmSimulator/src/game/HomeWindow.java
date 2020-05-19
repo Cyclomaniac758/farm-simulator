@@ -11,6 +11,8 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class HomeWindow {
 	
@@ -24,6 +26,8 @@ public class HomeWindow {
 	private JButton proceedDayButton;
 	private JButton btnNewButton;
 	private JButton visitStoreButton;
+	private JLabel dayNumLabel;
+	private JLabel day;
 
 	/**
 	 * Launch the application.
@@ -93,7 +97,7 @@ public class HomeWindow {
 		visitFarmhouseButton = new JButton("Visit Farmhouse");
 		visitFarmhouseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FarmHouseWindow window = new FarmHouseWindow();
+				FarmHouseWindow window = new FarmHouseWindow(game);
 				frame.dispose();
 			}
 		});
@@ -132,18 +136,34 @@ public class HomeWindow {
 		visitStoreButton = new JButton("Visit Store");
 		visitStoreButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StoreWindow window = new StoreWindow(game);
+				StoreWindow window = new StoreWindow(game, frame);
 				window.getFrame().setVisible(true);
-				frame.dispose();
+				frame.setVisible(false);
 			}
 		});
 		visitStoreButton.setBounds(67, 415, 111, 23);
 		frame.getContentPane().add(visitStoreButton);
 		
+		dayNumLabel = new JLabel("Day:");
+		dayNumLabel.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		dayNumLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		dayNumLabel.setBounds(194, 25, 85, 14);
+		frame.getContentPane().add(dayNumLabel);
+		
+		day = new JLabel("");
+		day.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		day.setBounds(305, 25, 49, 14);
+		day.setText(String.valueOf(game.getCurrentDay()));
+		frame.getContentPane().add(day);
+		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(0, -200, 1600, 900);
+		lblNewLabel.setBounds(0, -200, 1586, 900);
 		lblNewLabel.setIcon(new ImageIcon(HomeWindow.class.getResource("/img/GUITime.jpg")));
 		frame.getContentPane().add(lblNewLabel);
+		
+		
+		
+		
 		
 
 		

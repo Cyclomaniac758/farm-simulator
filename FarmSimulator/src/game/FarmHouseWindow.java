@@ -5,29 +5,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 public class FarmHouseWindow {
-
+	
+	private GameGUI game;
+	
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FarmHouseWindow window = new FarmHouseWindow();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
+	 * @param game 
 	 */
-	public FarmHouseWindow() {
+	public FarmHouseWindow(GameGUI game) {
+		this.game = game;
 		initialize();
 	}
 
