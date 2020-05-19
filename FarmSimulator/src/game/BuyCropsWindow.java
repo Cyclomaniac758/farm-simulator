@@ -7,27 +7,14 @@ import javax.swing.JFrame;
 public class BuyCropsWindow {
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BuyCropsWindow window = new BuyCropsWindow();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private GameGUI game;
 
 	/**
 	 * Create the application.
+	 * @param game 
 	 */
-	public BuyCropsWindow() {
+	public BuyCropsWindow(GameGUI game) {
+		this.game = game;
 		initialize();
 	}
 

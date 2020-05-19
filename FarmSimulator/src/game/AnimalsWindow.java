@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
@@ -40,6 +41,7 @@ public class AnimalsWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setVisible(true);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[][][][][][][grow][][]", "[][][][grow][][][][][]"));
@@ -51,6 +53,10 @@ public class AnimalsWindow {
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setBounds(40, 65, 70, 107);
 		panel.add(lblNewLabel_1);
+	}
+
+	public Window getFrame() {
+		return frame;
 	}
 
 }

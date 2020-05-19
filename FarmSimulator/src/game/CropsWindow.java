@@ -1,33 +1,22 @@
 package game;
 
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 
 public class CropsWindow {
-
+	
+	private GameGUI game;
+	
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CropsWindow window = new CropsWindow();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
+	 * @param game 
 	 */
-	public CropsWindow() {
+	public CropsWindow(GameGUI game) {
+		this.game = game;
 		initialize();
 	}
 
@@ -38,6 +27,10 @@ public class CropsWindow {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public Window getFrame() {
+		return frame;
 	}
 
 }

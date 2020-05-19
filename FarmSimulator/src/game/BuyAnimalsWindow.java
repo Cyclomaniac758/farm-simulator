@@ -5,29 +5,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 public class BuyAnimalsWindow {
-
+	
+	private GameGUI game;
+	
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BuyAnimalsWindow window = new BuyAnimalsWindow();
-					window.getFrame().setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
+	 * @param game 
 	 */
-	public BuyAnimalsWindow() {
+	public BuyAnimalsWindow(GameGUI game) {
+		this.game = game;
 		initialize();
 	}
 
