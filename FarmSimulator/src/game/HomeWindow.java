@@ -27,34 +27,19 @@ public class HomeWindow {
 	private JButton btnNewButton;
 	private JButton visitStoreButton;
 	private JLabel dayNumLabel;
-	private JLabel day;
+	private JLabel displayDay;
+	private JButton quitButton;
+	private JLabel backgroundPic;
+	private JLabel remActionsLabel;
+	private JLabel displayActions;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HomeWindow window = new HomeWindow();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
-	public HomeWindow(){
-		initialize();
-	}
+
 
 	/**
 	 * Create the application.
 	 */
 	public HomeWindow(GameGUI game) {
 		this.game = game;
-		Farm farm = game.getFarm();
 		initialize();
 	}
 	
@@ -67,7 +52,7 @@ public class HomeWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1600, 900);
+		frame.setBounds(100, 100, 1000, 666);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -77,31 +62,31 @@ public class HomeWindow {
 			public void actionPerformed(ActionEvent e) {
 				CropsWindow window = new CropsWindow(game);
 				window.getFrame().setVisible(true);
-				frame.dispose();
+				frame.setVisible(false);;
 			}
 		});
-		viewCropsButton.setBounds(545, 338, 102, 23);
+		viewCropsButton.setBounds(252, 354, 102, 23);
 		frame.getContentPane().add(viewCropsButton);
 		
 		visiAnimalsButton = new JButton("Visit Animals");
 		visiAnimalsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AnimalsWindow window = new AnimalsWindow();
-				//window.getFrame().setVisible(true);
-				frame.dispose();
+				AnimalsWindow window = new AnimalsWindow(game);
+				window.getFrame().setVisible(true);
+				frame.setVisible(false);
 			}
 		});
-		visiAnimalsButton.setBounds(1220, 489, 159, 23);
+		visiAnimalsButton.setBounds(643, 492, 159, 23);
 		frame.getContentPane().add(visiAnimalsButton);
 		
 		visitFarmhouseButton = new JButton("Visit Farmhouse");
 		visitFarmhouseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FarmHouseWindow window = new FarmHouseWindow(game);
-				frame.dispose();
+				FarmHouseWindow window = new FarmHouseWindow(game, frame);
+				frame.setVisible(false);
 			}
 		});
-		visitFarmhouseButton.setBounds(1006, 136, 159, 34);
+		visitFarmhouseButton.setBounds(577, 180, 159, 34);
 		frame.getContentPane().add(visitFarmhouseButton);
 		
 		helpButton = new JButton("Help");
@@ -141,7 +126,7 @@ public class HomeWindow {
 				frame.setVisible(false);
 			}
 		});
-		visitStoreButton.setBounds(67, 415, 111, 23);
+		visitStoreButton.setBounds(66, 537, 111, 23);
 		frame.getContentPane().add(visitStoreButton);
 		
 		dayNumLabel = new JLabel("Day:");
@@ -150,16 +135,43 @@ public class HomeWindow {
 		dayNumLabel.setBounds(194, 25, 85, 14);
 		frame.getContentPane().add(dayNumLabel);
 		
-		day = new JLabel("");
-		day.setFont(new Font("STXinwei", Font.PLAIN, 15));
-		day.setBounds(305, 25, 49, 14);
-		day.setText(String.valueOf(game.getCurrentDay()));
-		frame.getContentPane().add(day);
+		displayDay = new JLabel("");
+		displayDay.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		displayDay.setBounds(305, 25, 49, 14);
+		displayDay.setText(String.valueOf(game.getCurrentDay()));
+		frame.getContentPane().add(displayDay);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(0, -200, 1586, 900);
-		lblNewLabel.setIcon(new ImageIcon(HomeWindow.class.getResource("/img/GUITime.jpg")));
-		frame.getContentPane().add(lblNewLabel);
+		quitButton = new JButton("Quit");
+		quitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				game.endGame();
+			}
+		});
+		quitButton.setBounds(855, 29, 121, 34);
+		frame.getContentPane().add(quitButton);
+		
+		remActionsLabel = new JLabel("Actions Remaining:");
+		remActionsLabel.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		remActionsLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		remActionsLabel.setBounds(141, 50, 138, 23);
+		frame.getContentPane().add(remActionsLabel);
+		
+		displayActions = new JLabel("");
+		displayActions.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		displayActions.setBounds(305, 50, 49, 14);
+		displayActions.setText(String.valueOf(game.getActionsRemaining()));
+		frame.getContentPane().add(displayActions);
+		
+		backgroundPic = new JLabel("New label");
+		backgroundPic.setIcon(new ImageIcon(HomeWindow.class.getResource("/img/g3.png")));
+		backgroundPic.setBounds(0, 0, 986, 629);
+		frame.getContentPane().add(backgroundPic);
+		
+		
+		
+		
+		
+		
 		
 		
 		

@@ -13,6 +13,6 @@ public class Incubator extends cropTools {
 		setImpact(2);
 		setItemName("Incubator");
 		setItemPrice(150);
-		setItemUse("speed up the crop growth process");
+		setItemUse("<html>Speed up the crop growth process by " + getImpact() + " days<br>(this item can be used multiple times).<html>");
 	}
 }

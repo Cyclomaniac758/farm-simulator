@@ -14,6 +14,6 @@ public class WaterFood extends Food {
 		
 		setItemName("WaterFood");
 		setItemPrice(0);
-		setItemUse("increase an animals healthiness");
+		setItemUse("Increase an animals healthiness by " + getHealthiness() + " times." );
 	}
 }

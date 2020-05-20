@@ -57,6 +57,10 @@ public abstract class item {
 		itemUse = use;
 	}
 	
+	public String getItemUse() {
+		return itemUse;
+	}
+	
 	public String toString() {
 		return String.format("%15s%15s", itemName, price);
 	}

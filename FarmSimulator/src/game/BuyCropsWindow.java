@@ -15,10 +15,15 @@ import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import crops.*;
+
 public class BuyCropsWindow {
 
 	private JFrame frame;
 	private GameGUI game;
+	private JLabel displayPrice;
+	private JLabel displayGrowTime;
+	private JLabel displaySellPrice;
 
 	/**
 	 * Create the application.
@@ -43,9 +48,14 @@ public class BuyCropsWindow {
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		String[] crops = new String[] {"Select Crop", "Carrots", "Wheat", "Tomatoes", "Corn",
-				"Lemon Tree", "Apply Tree"};
+				"Lemon Tree", "Apple Tree"};
 		JComboBox<String> selectItem = new JComboBox(crops) ;
 		selectItem.setToolTipText("Select the crop you would like to view");
+		selectItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				changeCrop(crops[selectItem.getSelectedIndex()]);
+			}
+		});
 		
 		JButton buyAnimal = new JButton("Buy ");
 		
@@ -62,14 +72,14 @@ public class BuyCropsWindow {
 		JLabel itemEffect = new JLabel("Grow Time:");
 		itemEffect.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		JLabel displayPrice = new JLabel("Select Crop");
+		displayPrice = new JLabel("Select Crop");
 		
-		JLabel displayGrowTime = new JLabel("Select Crop");		
+		displayGrowTime = new JLabel("Select Crop");		
 		
 		JLabel cropSellPrice = new JLabel("Sell Price:");
 		cropSellPrice.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		JLabel displaySellPrice = new JLabel("Select Crop");
+		displaySellPrice = new JLabel("Select Crop");
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -132,6 +142,40 @@ public class BuyCropsWindow {
 					.addGap(7))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+	}
+
+	public void changeCrop(String string) {
+		Crops crop;
+		switch(string) {
+		case "Carrots":
+			crop = new Carrots();
+			break;
+		case "Wheat":
+			crop = new Wheat();
+			break;
+		case "Tomatoes":
+			crop = new Tomatoes();
+			break;
+		case "Corn":
+			crop = new Corn();
+			break;
+		case "Lemon Tree":
+			crop = new LemonTree();
+			break;
+		case "Apple Tree":
+			crop = new AppleTree();
+			break;
+		case "Select Crop":
+			displayPrice.setText("Select Crop");
+			displayGrowTime.setText("Select Crop");
+			displaySellPrice.setText("Select Crop");
+			return;
+		default:
+			return;
+		}
+		displayPrice.setText(String.valueOf(crop.getBuyPrice()));
+		displayGrowTime.setText(String.valueOf(crop.getGrowTime()));
+		displaySellPrice.setText(String.valueOf(crop.getSellPrice()));
 	}
 
 	public JFrame getFrame() {

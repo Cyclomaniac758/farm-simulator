@@ -11,6 +11,6 @@ public class Fertilizer extends cropTools {
 		setImpact(3);
 		setItemName("Fertilizer");
 		setItemPrice(100);
-		setItemUse("speed up the crop growth process");
+		setItemUse("Speed up the crop growth process by " + getImpact() + " days.");
 	}	
 }

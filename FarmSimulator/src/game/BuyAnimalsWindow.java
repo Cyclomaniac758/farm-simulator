@@ -11,6 +11,9 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+
+import animals.*;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -23,6 +26,8 @@ public class BuyAnimalsWindow {
 	
 	private JFrame frame;
 	private JTextField quantityField;
+	private JLabel displayPrice;
+	private JLabel displayBonus;
 
 	/**
 	 * Create the application.
@@ -48,7 +53,12 @@ public class BuyAnimalsWindow {
 		
 		String[] animals = new String[] {"Select Animal", "Chicken", "Pig", "Cow"};
 		JComboBox<String> selectAnimal = new JComboBox(animals) ;
-		selectAnimal.setToolTipText("");
+		selectAnimal.setToolTipText("Select the animal you would like to view");
+		selectAnimal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				changeAnimal(animals[selectAnimal.getSelectedIndex()]);
+			}
+		});
 		
 		JButton buyAnimal = new JButton("Buy ");
 		
@@ -65,9 +75,9 @@ public class BuyAnimalsWindow {
 		JLabel animalBonus = new JLabel("Daily Bonus Received:");
 		animalBonus.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		JLabel displayPrice = new JLabel("Select Animal");
+		displayPrice = new JLabel("Select Animal");
 		
-		JLabel displayBonus = new JLabel("Select Animal");		
+		displayBonus = new JLabel("Select Animal");		
 		
 		quantityField = new JTextField();
 		quantityField.setColumns(10);
@@ -91,13 +101,9 @@ public class BuyAnimalsWindow {
 							.addComponent(exit))
 						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
 							.addGroup(groupLayout.createSequentialGroup()
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-									.addGroup(groupLayout.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(animalBonus, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE))
-									.addGroup(groupLayout.createSequentialGroup()
-										.addGap(23)
-										.addComponent(animalPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+									.addComponent(animalPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+									.addComponent(animalBonus, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(ComponentPlacement.UNRELATED)
 								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 									.addComponent(displayBonus, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
@@ -132,6 +138,29 @@ public class BuyAnimalsWindow {
 					.addContainerGap(43, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+	}
+
+	protected void changeAnimal(String string) {
+		Animals animal;
+		switch(string) {
+		case "Chicken":
+			animal = new Chicken();
+			break;
+		case "Pig":
+			animal = new Pig();
+			break;
+		case "Cow":
+			animal = new Cow();
+			break;
+		case "Select Animal":
+			displayPrice.setText("Select Animal");
+			displayBonus.setText("Select Animal");
+			return;
+		default:
+			return;
+		}
+		displayPrice.setText(String.valueOf(animal.getBuyPrice()));
+		displayBonus.setText(String.valueOf(animal.getDailyEarnings()));
 	}
 
 	public JFrame getFrame() {

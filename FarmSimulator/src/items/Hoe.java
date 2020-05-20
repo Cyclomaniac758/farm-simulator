@@ -8,6 +8,6 @@ public class Hoe extends cropTools {
 		setImpact(2);
 		setItemName("Hoe");
 		setItemPrice(50);
-		setItemUse("speed up the crop growth process");
+		setItemUse("Speed up the crop growth process by " + getImpact() + " days.");
 	}
 }

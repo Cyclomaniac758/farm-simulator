@@ -303,8 +303,11 @@ public class Farm {
 	 * @param item
 	 */
 	public void removeItem(item item) {
-		int index = itemList.indexOf(item);
+		if (item instanceof Incubator) {
+		} else {
+			int index = itemList.indexOf(item);
 		itemList.remove(index);
+		}
 	}
 	/**
 	 * Called at the end of everyday, 
@@ -332,47 +335,53 @@ public class Farm {
 	/**
 	 * Prints out the crops currently on the farm
 	 */
-	public void printCropList() {
+	public String printCropList() {
 		if (cropList.size() == 0) {
-			System.out.println("You own no crops");
+			return "You own no crops";
 		} else {
+			String result = new String();
+			result.concat("Crops:\n");
 			int num = 1;
-			System.out.println("Crops:");
 			for (Crops crop : cropList) {
-				System.out.println(num + ": " + crop.getCropName() + ": Days remaining= " + crop.getGrowTime());
+				result.concat(num + ": " + crop.getCropName() + ": Days remaining= " + crop.getGrowTime() + "\n");
 				num += 1;
 			}	
+			return result;
 		}
 	}
 	/**
 	 * prints out the animals currently on the farm
 	 */
-	public void printAnimalList() {
+	public String printAnimalList() {
 		if (animalList.size() == 0) {
-			System.out.println("You own no animals");
+			return "You own no animals";
 		} else {
-			System.out.println("Animals:");
+			String result = new String();
+			result.concat("Animals:\n");
 			int num = 1;
 			for (Animals animal : animalList) {
-				System.out.println(num + ": " + animal.getAnimalName());
+				result.concat(num + ": " + animal.getAnimalName() + "\n");
 				num += 1;
 			}
-		
+			return result;
 		}
 	}
 	/**
-	 * Print itemList
+	 * Return itemList as string
+	 * @return String
 	 */
-	public void printItemList() {
+	public String printItemList() {
 		if (itemList.size() == 0) {
-			System.out.println("You own no items");
+			return "You own no items";
 		} else {
-			System.out.println("Items:");
+			String result = new String();
+			result.concat("Items:\n");
 			int num = 1;
 			for (item item: itemList) {
-				System.out.println(num + ". " + item.getItemName());
+				result.concat(num + ". " + item.getItemName() + "\n");
 				num += 1;
 			}
+			return result;
 		
 		}
 	}
@@ -381,6 +390,6 @@ public class Farm {
 	 * String representation of the farm
 	 */
 	public String toString() {
-		return String.format("the name of the farm is %s\nthe farmer is %s\nmoney count = %s", getFarmName(), getFarmer().getName(), getFarmMoney());
+		return String.format("<html>Farm: %s<br><br>Congradulations %s<br>Money Count: %s<html>", getFarmName(), getFarmer().getName(), getFarmMoney());
 	}
 }

@@ -21,6 +21,7 @@ public class GameGUI {
 	private int currentDay;
 	private GeneralStore store;
 	private HomeWindow window;
+	private GameGUI game;
 		
 	
 		
@@ -34,7 +35,6 @@ public class GameGUI {
 	public void startGame() {
 		setGameLength();
 		createFarm();
-		createFarmer();
 		System.out.println("Time to start farming. *RULES*"
 				+ "\n");
 		System.out.println("Day" + currentDay + ".\nDo activities");
@@ -73,24 +73,8 @@ public class GameGUI {
 		}
 	}
 	
-	public void createFarmer() {
-		Scanner scan = new Scanner(System.in);
-		boolean tracker = false;
-		String userName = new String();
-		while (tracker == false) {
-			System.out.println("Enter farmer name");
-			userName = scan.next();
-			int len = userName.length();
-			if (userName.matches("^[a-zA-Z]*$") && len > 3 && len < 15) {
-				tracker = true;
-			} else {
-				System.out.println("Invalid name");
-			}
-		} 
-		System.out.println("Enter your age");
-		int age = scan.nextInt();
-		farmer = new Farmer(userName, age, farm);
-		farm.setFarmer(farmer);
+	public void createFarmer(Farmer farmer) {
+		this.farmer = farmer;
 		
 	}
 	
@@ -171,13 +155,16 @@ public class GameGUI {
 		}
 	}
 	
-	public void viewFarmStatus() {
-		farm.printAnimalList();
-		farm.printCropList();
-		farm.printItemList();
-		System.out.println("You have $" + farm.getFarmMoney().getMoneyAmount());
+	public String viewFarmStatus() {
+		return ("<html>" + farm.printAnimalList() + "<br>" +
+		farm.printCropList() + "<br>" +
+		farm.printItemList() + "<br>" + 
+		"You have $" + farm.getFarmMoney().getMoneyAmount() + "<html>");
 	}
 	
+	public int getActionsRemaining() {
+		return farmer.getNumActions();
+	}
 	
 	public void visitStore() {
 		Scanner scan = new Scanner(System.in);
@@ -500,31 +487,40 @@ public class GameGUI {
 		}
 	}
 	public void endGame() {
-		Scanner scan = new Scanner(System.in);
-		double earnedValue = farm.getFarmMoney().getMoneyAmount();
-		System.out.println("Game completed\nTotal money earned: " + earnedValue);
-		System.out.println("1. Restart\n2. Exit game");
-		int num = scan.nextInt();
-		if (num == 1) {
-			startGame();
-		} else if (num == 2) {
-			System.out.println("Till next time!");
-		} else {
-			System.out.println("Enter a valid option");
-		}
+		window.getFrame().dispose();
+		GameOverWindow window = new GameOverWindow(game);
+		window.getFrame().setVisible(true);
 	}
 	
 	public void setHomeWindow(HomeWindow window) {
 		this.window = window;
 		window.getFrame().setVisible(true);
 	}
-	public void showHomeWindow(JFrame frame) {
+	public void showHomeWindow() {
 		window.getFrame().setVisible(true);
+	}
+	
+	private void setGame(GameGUI game) {
+		game.game = game;
+		
+	}
+	
+	public void restart() {
+		game = new GameGUI();
+		game.setCurrentDay(9);
+		game.setHomeWindow(new HomeWindow(game));
 	}
 	
 	public static void main(String[] args) {
 		GameGUI game = new GameGUI();
+		FamilyFarm farm = new FamilyFarm("beepboop");
+		Farmer farmer = new Farmer("foo", 3, farm);
+		game.createFarmer(farmer);
+		game.setGame(game);
+		game.setFarm(farm);
 		game.setCurrentDay(100);
 		game.setHomeWindow(new HomeWindow(game));
 	}
+
+	
 }

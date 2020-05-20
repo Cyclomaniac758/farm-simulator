@@ -13,6 +13,6 @@ public class Grain extends Food{
 		setHealthiness(1.40000);
 		setItemName("Grain");
 		setItemPrice(20);
-		setItemUse("increase an animals healthiness");
+		setItemUse("Increase an animals healthiness by " + getHealthiness() + " times.");
 	}
 }

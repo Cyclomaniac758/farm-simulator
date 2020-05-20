@@ -13,6 +13,6 @@ public class GrowthHormone extends Food {
 		setHealthiness((double) 1.6);
 		setItemName("Growth Hormone");
 		setItemPrice(30);
-		setItemUse("increase an animals healthiness");
+		setItemUse("Increase an animals healthiness by " + getHealthiness() + " times.");
 	}
 }

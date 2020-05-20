@@ -19,6 +19,10 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import net.miginfocom.swing.MigLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
 
 public class StoreWindow {
 	
@@ -43,14 +47,16 @@ public class StoreWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 1000, 666);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[71px][][61px][61px][][57px][79px][1px]", "[38px][23px][][][][][][][][][][][][][][][][][][][]"));
 		
-		JLabel lblNewLabel = new JLabel("General Store");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Sitka Subheading", Font.PLAIN, 30));
-		frame.getContentPane().add(lblNewLabel, "cell 3 1,alignx left,aligny center");
+		JButton itemsButton = new JButton("Items");
+		itemsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BuyItemsWindow window = new BuyItemsWindow(game);
+				window.getFrame().setVisible(true);
+			}
+		});
 		
 		JButton cropsButton = new JButton("Crops");
 		cropsButton.addActionListener(new ActionListener() {
@@ -67,17 +73,6 @@ public class StoreWindow {
 				window.getFrame().setVisible(true);
 			}
 		});
-		frame.getContentPane().add(animalsButton, "cell 2 10,alignx left,aligny center");
-		frame.getContentPane().add(cropsButton, "cell 3 10,alignx center,aligny center");
-		
-		JButton itemsButton = new JButton("Items");
-		itemsButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				BuyItemsWindow window = new BuyItemsWindow(game);
-				window.getFrame().setVisible(true);
-			}
-		});
-		frame.getContentPane().add(itemsButton, "cell 5 10,alignx left,aligny center");
 		
 		JButton exitButton = new JButton("EXIT");
 		exitButton.addActionListener(new ActionListener() {
@@ -90,11 +85,56 @@ public class StoreWindow {
 		JButton inventoryButton = new JButton("Inventory");
 		inventoryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FarmHouseWindow window = new FarmHouseWindow(game);
+				FarmHouseWindow window = new FarmHouseWindow(game, frame);
+				frame.setVisible(false);
 			}
 		});
-		frame.getContentPane().add(inventoryButton, "cell 3 20,alignx center,aligny center");
-		frame.getContentPane().add(exitButton, "cell 5 20,alignx left");
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(StoreWindow.class.getResource("/img/gen2.png")));
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(308)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(362, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(727, Short.MAX_VALUE)
+					.addComponent(exitButton, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
+					.addGap(144))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(89)
+					.addComponent(animalsButton, GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE)
+					.addGap(48)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(inventoryButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(cropsButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
+					.addGap(54)
+					.addComponent(itemsButton, GroupLayout.PREFERRED_SIZE, 233, GroupLayout.PREFERRED_SIZE)
+					.addGap(97))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(71)
+					.addComponent(lblNewLabel)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(125)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(cropsButton, GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+								.addComponent(itemsButton, GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(129)
+							.addComponent(animalsButton, GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)))
+					.addGap(92)
+					.addComponent(inventoryButton, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+					.addGap(49)
+					.addComponent(exitButton, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+					.addGap(62))
+		);
+		frame.getContentPane().setLayout(groupLayout);
 	}
 
 	public Window getFrame() {
