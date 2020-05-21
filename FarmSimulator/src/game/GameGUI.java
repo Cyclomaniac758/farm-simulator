@@ -78,6 +78,11 @@ public class GameGUI {
 		
 	}
 	
+	public void setGameLength(int length) {
+		numDays = length;
+		this.setCurrentDay(1);
+	}
+	
 	public void setGameLength() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("How many days should the game last? "
@@ -500,7 +505,7 @@ public class GameGUI {
 		window.getFrame().setVisible(true);
 	}
 	
-	private void setGame(GameGUI game) {
+	public void setGame(GameGUI game) {
 		game.game = game;
 		
 	}
