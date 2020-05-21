@@ -16,11 +16,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import farm.*;
+
 public class GameOverWindow {
 
 	private JFrame frame;
 	
 	private GameGUI game;
+	private Farm farm;
 
 
 	/**
@@ -29,6 +32,7 @@ public class GameOverWindow {
 	 */
 	public GameOverWindow(GameGUI game) {
 		this.game = game;
+		this.farm = game.getFarm();
 		initialize();
 	}
 
@@ -45,6 +49,7 @@ public class GameOverWindow {
 		titleLabel.setFont(new Font("STFangsong", Font.BOLD, 40));
 		
 		JLabel moneyEarned = new JLabel("");
+		moneyEarned.setText(game.getFarm().toString());
 		
 		JButton restartButton = new JButton("RESTART");
 		restartButton.addActionListener(new ActionListener() {
@@ -60,7 +65,6 @@ public class GameOverWindow {
 				frame.dispose();
 			}
 		});
-		//moneyEarned.setText(game.getFarm().toString());
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(

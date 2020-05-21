@@ -4,8 +4,12 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Window;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -25,31 +29,17 @@ public class StartWindow1 {
 	
 	private JTextField nameField;
 	private JTextField ageField;
-	private JComboBox<Integer> numDays;
+	private JComboBox<String> numDays;
 	
 	private GameGUI game;
 	private Farmer farmer;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StartWindow1 window = new StartWindow1();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public StartWindow1() {
+	public StartWindow1(GameGUI game) {
+		this.game = game;
 		initialize();
 	}
 
@@ -97,27 +87,34 @@ public class StartWindow1 {
 		lengthLabel.setBounds(173, 221, 150, 20);
 		frame.getContentPane().add(lengthLabel);
 		
-		numDays = new JComboBox<Integer>();
+		String[] days = new String[] {"Select", "5", "6", "7", "8", "9", "10"};
+		JComboBox<String> numDays = new JComboBox(days);
 		numDays.setBounds(335, 219, 107, 27);
 		frame.getContentPane().add(numDays);
-		
 		numDays.setToolTipText("Select the number of days you want the game to last");
-		numDays.setModel(new DefaultComboBoxModel(new Integer[] {5, 6, 7, 8, 9, 10}));
 		
 		
 		JButton nextButton = new JButton("NEXT");
 		nextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Integer gameLength = (Integer) numDays.getSelectedItem();
+				int gameLength = Integer.parseInt((String) numDays.getSelectedItem());
 				String farmerName = nameField.getText();
-				Integer farmerAge = Integer.parseInt(ageField.getText());
-				
-				if (farmerName.length() > 2 && farmerName.length() < 13) {
-					StartWindow2 window = new StartWindow2(game, frame, gameLength, farmerName, farmerAge);
-					window.getFrame().setVisible(true);
-					frame.setVisible(false);
-					
+				int farmerAge = 0;
+				try {
+					farmerAge = Integer.parseInt(ageField.getText());
+					if (farmerName.length() > 3 && farmerName.length() < 15 && farmerName.matches("^[a-zA-Z]*$")) {
+						StartWindow2 window = new StartWindow2(game, frame, gameLength, farmerName, farmerAge);
+						window.getFrame().setVisible(true);
+						frame.setVisible(false);
+					} else {
+						JOptionPane.showMessageDialog(null,  "Farmer name must be between 3 and 15 characters long and be composed of alphabet characters","ALERT", JOptionPane.ERROR_MESSAGE);
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Age input must be an integer");
 				}
+				
+				
+				
 				
 				
 			}
@@ -126,5 +123,9 @@ public class StartWindow1 {
 		nextButton.setBounds(335, 280, 73, 23);
 		frame.getContentPane().add(nextButton);
 	
+	}
+
+	public Window getFrame() {
+		return frame;
 	}
 }

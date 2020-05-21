@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Window;
 
 import javax.swing.JFrame;
+import javax.swing.ComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -16,12 +17,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 
+import crops.*;
+
 public class CropsWindow {
 	
 	private GameGUI game;
 	
 	private JFrame frame;
-
+	private JComboBox<Crops> selectCrop;
 	/**
 	 * Create the application.
 	 * @param game 
@@ -29,6 +32,13 @@ public class CropsWindow {
 	public CropsWindow(GameGUI game) {
 		this.game = game;
 		initialize();
+	}
+	
+	public void refreshCrops() {
+		selectCrop.removeAllItems();
+		for (Crops crop: game.getFarm().getCropList()) {
+			selectCrop.addItem(crop);
+		}
 	}
 
 	/**
@@ -53,8 +63,9 @@ public class CropsWindow {
 		
 		JButton tendCropButton = new JButton("Tend Crop");
 		
-		JComboBox selectCrop = new JComboBox();
+		selectCrop = new JComboBox<Crops>();
 		selectCrop.setToolTipText("Select crop from inventory.");
+		refreshCrops();
 		
 		JLabel totalTimeLabel = new JLabel("Total growing time:");
 		totalTimeLabel.setHorizontalAlignment(SwingConstants.RIGHT);

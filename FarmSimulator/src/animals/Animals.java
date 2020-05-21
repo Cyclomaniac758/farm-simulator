@@ -1,5 +1,7 @@
 package animals;
 
+import java.math.BigDecimal;
+
 /**
  * Animal class
  * @author Michael
@@ -50,10 +52,10 @@ public class Animals {
   	}
   	/**
   	 * Sets the happiness level of the animal
-  	 * @param happiness
+  	 * @param newHappiness
   	 */
-  	public void setHappinessLevel(double happiness) {
-  		happinessLevel = happiness;
+  	public void setHappinessLevel(double newHappiness) {
+  		happinessLevel = newHappiness;
   		if (happinessLevel > 1) {
   			happinessLevel = 1;
   		}

@@ -7,11 +7,16 @@ import java.awt.event.ActionListener;
 import farm.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+
+import exceptions.NoMoreActionsException;
+
 import java.awt.Font;
 
 public class HomeWindow {
@@ -102,6 +107,7 @@ public class HomeWindow {
 		proceedDayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.nextDay();
+				displayDay.setText(String.valueOf(game.getCurrentDay()));
 			}
 		});
 		proceedDayButton.setBounds(10, 64, 121, 42);
@@ -110,7 +116,17 @@ public class HomeWindow {
 		btnNewButton = new JButton("Tend Land");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.tendLand();
+				try {
+					Farm farm = game.getFarm();
+					game.tendLand();
+					String text = "Farm crop capacity increased to " + farm.getMaxCropCapacity() + "\n" + 
+					"Your animals are now " + String.format("%.2f", farm.getAnimalHappinessModifier()) + " times happier";
+					JOptionPane.showMessageDialog(null, text);
+					displayActions.setText(String.valueOf(game.getActionsRemaining()));
+				} catch (NoMoreActionsException ex) {
+					JOptionPane.showMessageDialog(null, ex.getMessage());
+				}
+				 
 			}
 		});
 		btnNewButton.setBounds(10, 117, 121, 42);
@@ -153,7 +169,7 @@ public class HomeWindow {
 		remActionsLabel = new JLabel("Actions Remaining:");
 		remActionsLabel.setFont(new Font("STXinwei", Font.PLAIN, 15));
 		remActionsLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		remActionsLabel.setBounds(141, 50, 138, 23);
+		remActionsLabel.setBounds(141, 46, 138, 23);
 		frame.getContentPane().add(remActionsLabel);
 		
 		displayActions = new JLabel("");

@@ -1,5 +1,7 @@
 package farm;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import crops.*;
 import animals.*;
@@ -340,10 +342,10 @@ public class Farm {
 			return "You own no crops";
 		} else {
 			String result = new String();
-			result.concat("Crops:\n");
+			result.concat("Crops:<br>");
 			int num = 1;
 			for (Crops crop : cropList) {
-				result.concat(num + ": " + crop.getCropName() + ": Days remaining= " + crop.getGrowTime() + "\n");
+				result.concat(num + ": " + crop.getCropName() + ": Days remaining= " + crop.getGrowTime() + "<br>");
 				num += 1;
 			}	
 			return result;
@@ -390,6 +392,6 @@ public class Farm {
 	 * String representation of the farm
 	 */
 	public String toString() {
-		return String.format("<html>Farm: %s<br><br>Congradulations %s<br>Money Count: %s<html>", getFarmName(), getFarmer().getName(), getFarmMoney());
+		return String.format("<html>Farm: %s<br>Congradulations %s<br>Money Count: %s<html>", getFarmName(), getFarmer().getName(), getFarmMoney());
 	}
 }

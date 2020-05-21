@@ -39,6 +39,7 @@ public class StoreWindow {
 	public StoreWindow(GameGUI game, JFrame frame2) {
 		this.game = game;
 		this.homeWindow = frame2;
+		game.createStore();
 		initialize();
 	}
 

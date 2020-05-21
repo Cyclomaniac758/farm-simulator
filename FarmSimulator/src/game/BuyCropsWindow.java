@@ -11,11 +11,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import crops.*;
+import javax.swing.JTextField;
 
 public class BuyCropsWindow {
 
@@ -24,6 +26,7 @@ public class BuyCropsWindow {
 	private JLabel displayPrice;
 	private JLabel displayGrowTime;
 	private JLabel displaySellPrice;
+	private JTextField numCrops;
 
 	/**
 	 * Create the application.
@@ -58,6 +61,29 @@ public class BuyCropsWindow {
 		});
 		
 		JButton buyAnimal = new JButton("Buy ");
+		buyAnimal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String crop = (String) selectItem.getSelectedItem();
+				if (crop == "Select Crop") {
+					JOptionPane.showMessageDialog(null, "Select a crop to buy");
+				} else {
+					int num = 0;
+					try {
+						num = Integer.parseInt(numCrops.getText());
+						try {
+							game.buyCrops(crop, num);
+							JOptionPane.showMessageDialog(null,  "Bought " + num + " units of " + crop);
+						} catch (IllegalStateException exc) {
+							JOptionPane.showMessageDialog(null, exc.getMessage());
+						}
+					} catch (NumberFormatException ex) {
+						JOptionPane.showMessageDialog(null, "Input must be an integer");
+					}
+				}
+				
+				
+			}
+		});
 		
 		JButton exit = new JButton("EXIT");
 		exit.addActionListener(new ActionListener() {
@@ -81,40 +107,55 @@ public class BuyCropsWindow {
 		
 		displaySellPrice = new JLabel("Select Crop");
 		
+		JLabel lblNewLabel = new JLabel("Enter Quantity:");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		numCrops = new JTextField();
+		numCrops.setColumns(10);
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(127)
-							.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
-							.addGap(59)
-							.addComponent(exit))
-						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(164)
 							.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-							.addGroup(groupLayout.createSequentialGroup()
-								.addGap(148)
-								.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))
-							.addGroup(groupLayout.createSequentialGroup()
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-									.addGroup(groupLayout.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(cropSellPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-									.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(itemEffect, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
-									.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-										.addGap(23)
-										.addComponent(cropPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-									.addComponent(displaySellPrice, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-									.addComponent(displayGrowTime, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-									.addComponent(displayPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-					.addContainerGap(132, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGap(148)
+											.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+												.addGroup(groupLayout.createSequentialGroup()
+													.addContainerGap()
+													.addComponent(cropSellPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+												.addGroup(groupLayout.createSequentialGroup()
+													.addContainerGap()
+													.addComponent(itemEffect, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
+												.addGroup(groupLayout.createSequentialGroup()
+													.addGap(23)
+													.addComponent(cropPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
+												.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+													.addContainerGap()
+													.addComponent(numCrops, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)))
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(displaySellPrice, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+												.addComponent(displayGrowTime, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+												.addComponent(displayPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+									.addPreferredGap(ComponentPlacement.RELATED))
+								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+									.addContainerGap()
+									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
+									.addGap(43)))
+							.addComponent(exit)))
+					.addContainerGap(94, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -137,8 +178,10 @@ public class BuyCropsWindow {
 						.addComponent(displaySellPrice))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(exit)
 						.addComponent(buyAnimal)
-						.addComponent(exit))
+						.addComponent(lblNewLabel)
+						.addComponent(numCrops, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(7))
 		);
 		frame.getContentPane().setLayout(groupLayout);
@@ -185,5 +228,4 @@ public class BuyCropsWindow {
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
 }

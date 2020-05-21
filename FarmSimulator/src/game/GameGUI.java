@@ -32,16 +32,9 @@ public class GameGUI {
 	public void setFarm(Farm farm) {
 		this.farm = farm;
 	}
-	public void startGame() {
-		setGameLength();
-		createFarm();
-		System.out.println("Time to start farming. *RULES*"
-				+ "\n");
-		System.out.println("Day" + currentDay + ".\nDo activities");
-		while (currentDay < numDays+1) {
-			playGame();
-		}
-		endGame();
+	
+	public void createStore() {
+		this.store = new GeneralStore(farm);
 	}
 	
 	public void createFarm() {
@@ -153,10 +146,9 @@ public class GameGUI {
 			farmer.restoreActions();
 			farm.progressGrowth();
 			farm.addAnimalEarnings();
-			System.out.println("Day" + currentDay + ".\nDo activities");
 			
 		} else {
-			currentDay += 1;
+			endGame();
 		}
 	}
 	
@@ -189,7 +181,7 @@ public class GameGUI {
 					break;
 			case 3: System.out.println(store.viewItems());
 					break;
-			case 4: buyCrops();
+			case 4: buyCrops("g", 1);
 					break;
 			case 5: buyAnimals();
 					break;
@@ -206,54 +198,26 @@ public class GameGUI {
 		}
 	}
 	
-	public void buyCrops() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println(store.viewCrops());
-		int num = scan.nextInt();
-		System.out.println("Enter crop quantity");
-		int num2 = scan.nextInt();
-		switch (num) {
-		case 1: try {
-					store.buyCarrots(num2);
-				} catch (IllegalStateException e) {
-					System.out.println(e.getMessage());
-				}
-				break;
-		case 2: try {
-					store.buyWheat(num2);
-				} catch (IllegalStateException e) {
-					System.out.println(e.getMessage());
-				}
-				break;
-		case 3: 
-			try {
-			store.buyTomatoes(num2);
-			} catch (IllegalStateException e) {
-			System.out.println(e.getMessage());
-			}
-		break;
-		case 4:
-			try {
-				store.buyCorn(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+	public void buyCrops(String crop, int num) {
+		switch (crop) {
+		case "Carrots":
+			store.buyCarrots(num);
 			break;
-		case 5:
-			try {
-				store.buyLemonTree(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Wheat":
+			store.buyWheat(num);
 			break;
-		case 6:
-			try {
-				store.buyAppleTree(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Tomatoes": 
+			store.buyTomatoes(num);
 			break;
-		case 7: break;
+		case "Corn":
+			store.buyCorn(num);
+			break;
+		case "Lemon Tree":
+			store.buyLemonTree(num);
+			break;
+		case "Apple Tree":
+			store.buyAppleTree(num);
+			break;
 		}
 	}
 	
@@ -485,11 +449,7 @@ public class GameGUI {
 	}
 	
 	public void tendLand() {
-		try {
-			farmer.tendLand();
-		} catch (NoMoreActionsException e) {
-			System.out.println(e.getMessage());
-		}
+		farmer.tendLand();
 	}
 	public void endGame() {
 		window.getFrame().dispose();
@@ -510,6 +470,7 @@ public class GameGUI {
 		
 	}
 	
+	
 	public void restart() {
 		game = new GameGUI();
 		game.setCurrentDay(9);
@@ -518,13 +479,8 @@ public class GameGUI {
 	
 	public static void main(String[] args) {
 		GameGUI game = new GameGUI();
-		FamilyFarm farm = new FamilyFarm("beepboop");
-		Farmer farmer = new Farmer("foo", 3, farm);
-		game.createFarmer(farmer);
-		game.setGame(game);
-		game.setFarm(farm);
-		game.setCurrentDay(100);
-		game.setHomeWindow(new HomeWindow(game));
+		StartWindow1 window = new StartWindow1(game);
+		window.getFrame().setVisible(true);
 	}
 
 	

@@ -63,7 +63,7 @@ public class StartWindow2 {
 		textField.setToolTipText("Enter your farm's name, must be between 4-16 characters");
 		getFrame().getContentPane().add(textField);
 		textField.setColumns(10);
-		farmName = textField.getText();
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("Select Farm Type");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -73,43 +73,47 @@ public class StartWindow2 {
 		JButton familyFarmButton = new JButton("Family");
 		familyFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				farmName = textField.getText();
 				farm = new FamilyFarm(farmName);
 				farmTypeChosen = true;
 			}
 		});
 		familyFarmButton.setToolTipText("Family\r\nFarm");
-		familyFarmButton.setBounds(172, 250, 89, 60);
+		familyFarmButton.setBounds(81, 250, 108, 60);
 		getFrame().getContentPane().add(familyFarmButton);
 		
 		JButton commercialFarmButton = new JButton("Commercial");
 		commercialFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				farmName = textField.getText();
 				farm = new CommercialFarm(farmName);
 				farmTypeChosen = true;
 			}
 		});
 		
-		commercialFarmButton.setBounds(273, 250, 91, 60);
+		commercialFarmButton.setBounds(221, 250, 108, 60);
 		getFrame().getContentPane().add(commercialFarmButton);
 		
 		JButton livestockFarmButton = new JButton("Livestock");
 		livestockFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				farmName = textField.getText();
 				farm = new LivestockFarm(farmName);
 				farmTypeChosen = true;
 			}
 		});
-		livestockFarmButton.setBounds(376, 250, 91, 60);
+		livestockFarmButton.setBounds(371, 250, 108, 60);
 		getFrame().getContentPane().add(livestockFarmButton);
 		
 		JButton cropFarmButton = new JButton("Crop");
 		cropFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				farmName = textField.getText();
 				farm = new OrchardFarm(farmName);
 				farmTypeChosen = true;
 			}
 		});
-		cropFarmButton.setBounds(479, 250, 91, 60);
+		cropFarmButton.setBounds(509, 250, 114, 60);
 		getFrame().getContentPane().add(cropFarmButton);
 		
 		JButton farmInfoButton = new JButton("INFO");
@@ -134,14 +138,15 @@ public class StartWindow2 {
 					game.setGame(game);
 					game.setFarm(farm);
 					game.setGameLength(gameLength);
-					game.setCurrentDay(0);
+					game.setCurrentDay(1);
+					game.getFarm().setFarmer(farmer);
 					game.setHomeWindow(new HomeWindow(game));
-					frame.setVisible(false);
+					frame.dispose();
 				}
 				
 			}
 		});
-		nextButton.setBounds(310, 340, 136, 23);
+		nextButton.setBounds(285, 340, 136, 23);
 		getFrame().getContentPane().add(nextButton);
 		
 		

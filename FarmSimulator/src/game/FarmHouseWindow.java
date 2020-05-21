@@ -42,13 +42,9 @@ public class FarmHouseWindow {
 		frame.setBounds(100, 100, 686, 464);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblNewLabel = new JLabel("Inventory");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Sitka Subheading", Font.PLAIN, 30));
-		
-		JTextPane inventoryList = new JTextPane();
-		inventoryList.setEditable(false);
-		//inventoryList.setText(game.viewFarmStatus());
+		JLabel titleLabel = new JLabel("Inventory");
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		titleLabel.setFont(new Font("Sitka Subheading", Font.PLAIN, 30));
 		
 		
 		JButton returnButton = new JButton("EXIT");
@@ -59,6 +55,10 @@ public class FarmHouseWindow {
 			}
 		});
 		
+		JLabel inventoryLabel = new JLabel("");
+		inventoryLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		inventoryLabel.setText(game.viewFarmStatus());
+		
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -66,24 +66,24 @@ public class FarmHouseWindow {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(97)
-							.addComponent(inventoryList, GroupLayout.PREFERRED_SIZE, 459, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(212)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 228, GroupLayout.PREFERRED_SIZE))
+							.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 228, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(278)
-							.addComponent(returnButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(116, Short.MAX_VALUE))
+							.addComponent(returnButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(100)
+							.addComponent(inventoryLabel, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(117, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(38)
-					.addComponent(lblNewLabel)
-					.addGap(45)
-					.addComponent(inventoryList, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+					.addComponent(titleLabel)
+					.addGap(38)
+					.addComponent(inventoryLabel, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
 					.addComponent(returnButton, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 					.addGap(32))
 		);
