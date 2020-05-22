@@ -104,8 +104,8 @@ public class Farmer {
 		double currentHealthiness = animal.getHealthiness();
 		double newHealthiness = currentHealthiness * item.getHealthiness();
 		animal.setHealthiness(newHealthiness);
-		if (animal.getHealthiness() > 100) {
-			animal.setHealthiness(100);
+		if (animal.getHealthiness() > 1) {
+			animal.setHealthiness(1);
 		}
 		farm.removeItem(item);
 	}
@@ -113,11 +113,9 @@ public class Farmer {
 	public void playWithAnimals() {
 		deductAction();
 		for (Animals animal: farm.getAnimalList()) {
-			System.out.println(animal.getHappinessLevel());
 			double currentHappiness = animal.getHappinessLevel();
 			double newHappiness = currentHappiness * 1.1;
 			animal.setHappinessLevel(newHappiness);
-			System.out.println(animal.getHappinessLevel());
 		}
 	}
 	
@@ -132,6 +130,9 @@ public class Farmer {
 		farm.setMaxCropCapacity(currentCapacity + 1);
 		double currentHappiness = farm.getAnimalHappinessModifier();
 		farm.setAnimalHappinessModifier(currentHappiness*1.2);
+		if (farm.getAnimalHappinessModifier() >= 1) {
+			farm.setAnimalHappinessModifier(1);
+		}
 	}
 	
 

@@ -24,6 +24,11 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 
+/**
+ * General store window
+ * @author Icarus
+ *
+ */
 public class StoreWindow {
 	
 	private GameGUI game;
@@ -87,6 +92,7 @@ public class StoreWindow {
 		inventoryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FarmHouseWindow window = new FarmHouseWindow(game, frame);
+				window.getFrame().setVisible(true);
 				frame.setVisible(false);
 			}
 		});

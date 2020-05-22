@@ -8,13 +8,22 @@ import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
+import java.awt.Window;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
+/**
+ * Inventory window
+ * @author Icarus
+ *
+ */
 public class FarmHouseWindow {
 	
 	private GameGUI game;
@@ -38,7 +47,6 @@ public class FarmHouseWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setVisible(true);
 		frame.setBounds(100, 100, 686, 464);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -55,9 +63,7 @@ public class FarmHouseWindow {
 			}
 		});
 		
-		JLabel inventoryLabel = new JLabel("");
-		inventoryLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		inventoryLabel.setText(game.viewFarmStatus());
+		JScrollPane scrollPane = new JScrollPane();
 		
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -66,27 +72,35 @@ public class FarmHouseWindow {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(212)
-							.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 228, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(278)
 							.addComponent(returnButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(100)
-							.addComponent(inventoryLabel, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(117, Short.MAX_VALUE))
+							.addGap(204)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 228, GroupLayout.PREFERRED_SIZE)
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(297, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(38)
 					.addComponent(titleLabel)
-					.addGap(38)
-					.addComponent(inventoryLabel, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+					.addGap(31)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+					.addGap(22)
 					.addComponent(returnButton, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 					.addGap(32))
 		);
+		
+		JTextPane inventoryPane = new JTextPane();
+		scrollPane.setViewportView(inventoryPane);
+		inventoryPane.setEditable(false);
+		inventoryPane.setText(game.viewFarmStatus());
 		frame.getContentPane().setLayout(groupLayout);
+	}
+
+	public Window getFrame() {
+		return frame;
 	}
 }

@@ -52,18 +52,18 @@ public class BuyCropsWindow {
 		
 		String[] crops = new String[] {"Select Crop", "Carrots", "Wheat", "Tomatoes", "Corn",
 				"Lemon Tree", "Apple Tree"};
-		JComboBox<String> selectItem = new JComboBox(crops) ;
-		selectItem.setToolTipText("Select the crop you would like to view");
-		selectItem.addActionListener(new ActionListener() {
+		JComboBox<String> selectCrop = new JComboBox(crops) ;
+		selectCrop.setToolTipText("Select the crop you would like to view");
+		selectCrop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				changeCrop(crops[selectItem.getSelectedIndex()]);
+				changeCrop(crops[selectCrop.getSelectedIndex()]);
 			}
 		});
 		
-		JButton buyAnimal = new JButton("Buy ");
-		buyAnimal.addActionListener(new ActionListener() {
+		JButton buyCrop = new JButton("Buy ");
+		buyCrop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String crop = (String) selectItem.getSelectedItem();
+				String crop = (String) selectCrop.getSelectedItem();
 				if (crop == "Select Crop") {
 					JOptionPane.showMessageDialog(null, "Select a crop to buy");
 				} else {
@@ -77,7 +77,7 @@ public class BuyCropsWindow {
 							JOptionPane.showMessageDialog(null, exc.getMessage());
 						}
 					} catch (NumberFormatException ex) {
-						JOptionPane.showMessageDialog(null, "Input must be an integer");
+						JOptionPane.showMessageDialog(null, "Enter a number");
 					}
 				}
 				
@@ -120,7 +120,7 @@ public class BuyCropsWindow {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(164)
-							.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
+							.addComponent(selectCrop, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
 								.addGroup(groupLayout.createSequentialGroup()
@@ -152,7 +152,7 @@ public class BuyCropsWindow {
 									.addContainerGap()
 									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
+									.addComponent(buyCrop, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
 									.addGap(43)))
 							.addComponent(exit)))
 					.addContainerGap(94, Short.MAX_VALUE))
@@ -163,7 +163,7 @@ public class BuyCropsWindow {
 					.addGap(30)
 					.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+					.addComponent(selectCrop, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 					.addGap(27)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(cropPrice)
@@ -179,7 +179,7 @@ public class BuyCropsWindow {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(exit)
-						.addComponent(buyAnimal)
+						.addComponent(buyCrop)
 						.addComponent(lblNewLabel)
 						.addComponent(numCrops, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(7))

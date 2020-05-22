@@ -104,7 +104,7 @@ public class Animals {
   	}
   	
   	public String toString() {
-  		return String.format("%12s%15s%15s", getAnimalName(), getBuyPrice(), getDailyEarnings());
+  		return String.format("%s", getAnimalName());
   	}
 
 }

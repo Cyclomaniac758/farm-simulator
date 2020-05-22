@@ -285,7 +285,6 @@ public class Farm {
 	 */
 	public void addAnimal(Animals animal) {
 		if (animalList.size() < maxAnimalCapacity) {
-		animal.setHappinessLevel(animalHappinessModifier * animal.getHappinessLevel());
 		animalList.add(animal);
 		farmMoney.minusMoney(animal.getBuyPrice());
 		} else {
@@ -324,6 +323,22 @@ public class Farm {
 		}
 	}
 	/**
+	 * Reduce all the animals healthiness levels by 20%.
+	 */
+	public void deductAnimalHealthiness() {
+		for (Animals animal: animalList) {
+			animal.setHealthiness(animal.getHealthiness()*.8);
+		}
+	}
+	/**
+	 * Reduce all the animals happiness levels by 10%.
+	 */
+	public void deductAnimalHappiness() {
+		for (Animals animal: animalList) {
+			animal.setHappinessLevel(animal.getHappinessLevel()*.9);
+		}
+	}
+	/**
 	 * Called at the end of every day, lessens the days left for crops to grow if they're days left = 0 sells the crops
 	 */
 	public void progressGrowth() {
@@ -334,35 +349,37 @@ public class Farm {
 			}
 		}
 	}
+	
 	/**
 	 * Prints out the crops currently on the farm
 	 */
 	public String printCropList() {
 		if (cropList.size() == 0) {
-			return "You own no crops";
+			return "You own no crops\n";
 		} else {
-			String result = new String();
-			result.concat("Crops:<br>");
-			int num = 1;
-			for (Crops crop : cropList) {
-				result.concat(num + ": " + crop.getCropName() + ": Days remaining= " + crop.getGrowTime() + "<br>");
-				num += 1;
-			}	
-			return result;
+		String result = new String();
+		result = result + "Crops:\n";
+		int num = 1;
+		for (Crops crop : cropList) {
+			result = result + num + ": " + crop.getCropName() + ": Days remaining= " + crop.getGrowTime() + "\n";
+			num += 1;
 		}
+		return result;
+		}
+		
 	}
 	/**
 	 * prints out the animals currently on the farm
 	 */
 	public String printAnimalList() {
 		if (animalList.size() == 0) {
-			return "You own no animals";
+			return "You own no animals\n";
 		} else {
 			String result = new String();
-			result.concat("Animals:\n");
+			result = result.concat("Animals:\n");
 			int num = 1;
 			for (Animals animal : animalList) {
-				result.concat(num + ": " + animal.getAnimalName() + "\n");
+				result = result.concat(num + ": " + animal.getAnimalName() + "\n");
 				num += 1;
 			}
 			return result;
@@ -374,13 +391,13 @@ public class Farm {
 	 */
 	public String printItemList() {
 		if (itemList.size() == 0) {
-			return "You own no items";
+			return "You own no items\n";
 		} else {
 			String result = new String();
-			result.concat("Items:\n");
+			result = result.concat("Items:\n");
 			int num = 1;
 			for (item item: itemList) {
-				result.concat(num + ". " + item.getItemName() + "\n");
+				result = result.concat(num + ". " + item.getItemName() + "\n");
 				num += 1;
 			}
 			return result;
@@ -394,4 +411,5 @@ public class Farm {
 	public String toString() {
 		return String.format("<html>Farm: %s<br>Congradulations %s<br>Money Count: %s<html>", getFarmName(), getFarmer().getName(), getFarmMoney());
 	}
+	
 }

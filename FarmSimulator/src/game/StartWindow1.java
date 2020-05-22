@@ -97,11 +97,12 @@ public class StartWindow1 {
 		JButton nextButton = new JButton("NEXT");
 		nextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int gameLength = Integer.parseInt((String) numDays.getSelectedItem());
+				
 				String farmerName = nameField.getText();
 				int farmerAge = 0;
 				try {
 					farmerAge = Integer.parseInt(ageField.getText());
+					int gameLength = Integer.parseInt((String) numDays.getSelectedItem());
 					if (farmerName.length() > 3 && farmerName.length() < 15 && farmerName.matches("^[a-zA-Z]*$")) {
 						StartWindow2 window = new StartWindow2(game, frame, gameLength, farmerName, farmerAge);
 						window.getFrame().setVisible(true);
@@ -110,7 +111,7 @@ public class StartWindow1 {
 						JOptionPane.showMessageDialog(null,  "Farmer name must be between 3 and 15 characters long and be composed of alphabet characters","ALERT", JOptionPane.ERROR_MESSAGE);
 					}
 				} catch (NumberFormatException ex) {
-					JOptionPane.showMessageDialog(null, "Age input must be an integer");
+					JOptionPane.showMessageDialog(null, "Number missing");
 				}
 				
 				

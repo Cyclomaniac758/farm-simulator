@@ -12,6 +12,6 @@ public class AppleTree extends Crops {
     setCropName("Apple Tree");
     setBuyPrice(200);
     setSellPrice(500);
-    setGrowTime(3);
+    setTotalGrowTime(3);
   }
 }

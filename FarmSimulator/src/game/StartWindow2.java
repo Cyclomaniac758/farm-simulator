@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -130,18 +132,25 @@ public class StartWindow2 {
 		nextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				farmName = textField.getText();
-				if (farmName.length() > 3 && farmName.length() < 17 && farmTypeChosen == true) {
-					game = new GameGUI();
-					game.setFarm(farm);
-					Farmer farmer = new Farmer(farmerName, farmerAge, farm);
-					game.createFarmer(farmer);
-					game.setGame(game);
-					game.setFarm(farm);
-					game.setGameLength(gameLength);
-					game.setCurrentDay(1);
-					game.getFarm().setFarmer(farmer);
-					game.setHomeWindow(new HomeWindow(game));
-					frame.dispose();
+				if (farmName.length() > 3 && farmName.length() < 17) {
+					if (farmTypeChosen == true) {
+						game = new GameGUI();
+						game.setFarm(farm);
+						Farmer farmer = new Farmer(farmerName, farmerAge, farm);
+						game.createFarmer(farmer);
+						game.setGame(game);
+						game.setFarm(farm);
+						game.setGameLength(gameLength);
+						game.setCurrentDay(1);
+						game.getFarm().setFarmer(farmer);
+						game.setHomeWindow(new HomeWindow(game));
+						frame.dispose();
+					} else {
+						JOptionPane.showMessageDialog(null, "Select a farm type");
+					}
+					
+				} else {
+					JOptionPane.showMessageDialog(null, "Farm name must be between 3 and 17 letters");
 				}
 				
 			}

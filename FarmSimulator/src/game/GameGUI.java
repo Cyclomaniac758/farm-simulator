@@ -14,6 +14,11 @@ import javax.swing.JFrame;
 
 import animals.*;
 
+/**
+ * GUI Game controller class
+ * @author Icarus
+ *
+ */
 public class GameGUI {
 	private Farm farm;
 	private Farmer farmer;
@@ -35,6 +40,10 @@ public class GameGUI {
 	
 	public void createStore() {
 		this.store = new GeneralStore(farm);
+	}
+	
+	public GeneralStore getStore() {
+		return store;
 	}
 	
 	public void createFarm() {
@@ -122,16 +131,13 @@ public class GameGUI {
 			visitStore();
 			break;
 		case 4:
-			tendCrops();
 			break;
 		case 5:
-			feedAnimals();
 			break;
 		case 6:
 			playWithAnimals();
 			break;
 		case 7:
-			harvestCrops();
 			break;
 		case 8:
 			tendLand();
@@ -146,6 +152,8 @@ public class GameGUI {
 			farmer.restoreActions();
 			farm.progressGrowth();
 			farm.addAnimalEarnings();
+			farm.deductAnimalHealthiness();
+			farm.deductAnimalHappiness();
 			
 		} else {
 			endGame();
@@ -153,10 +161,10 @@ public class GameGUI {
 	}
 	
 	public String viewFarmStatus() {
-		return ("<html>" + farm.printAnimalList() + "<br>" +
-		farm.printCropList() + "<br>" +
-		farm.printItemList() + "<br>" + 
-		"You have $" + farm.getFarmMoney().getMoneyAmount() + "<html>");
+		return ("You have $" + farm.getFarmMoney().getMoneyAmount() + "\n" + 
+		farm.printCropList() +
+		farm.printItemList() + 
+		farm.printAnimalList());
 	}
 	
 	public int getActionsRemaining() {
@@ -164,38 +172,6 @@ public class GameGUI {
 	}
 	
 	public void visitStore() {
-		Scanner scan = new Scanner(System.in);
-		store = new GeneralStore(farm);
-		store.viewCrops();
-		store.viewAnimals();
-		System.out.println("General Store\n1. View crops\n2. View animals"
-				+ "\n3. View items\n4. Buy crops\n5. Buy animals"
-				+ "\n6. Buy items\n7. Show current inventory\n"
-				+ "8. Exit store");
-		int num = scan.nextInt();
-		while (num != 8) {
-			switch (num) {
-			case 1: System.out.println(store.viewCrops());
-					break;
-			case 2: System.out.println(store.viewAnimals());
-					break;
-			case 3: System.out.println(store.viewItems());
-					break;
-			case 4: buyCrops("g", 1);
-					break;
-			case 5: buyAnimals();
-					break;
-			case 6: buyItems();
-					break;
-			case 7: viewFarmStatus();
-					break;
-			}
-			System.out.println("General Store\n1. View crops\n2. View animals"
-					+ "\n3. View items\n4. Buy crops\n5. Buy animals"
-					+ "\n6. Buy items\n7. Show current inventory\n"
-					+ "8. Exit store");
-			num = scan.nextInt();
-		}
 	}
 	
 	public void buyCrops(String crop, int num) {
@@ -221,184 +197,54 @@ public class GameGUI {
 		}
 	}
 	
-	public void buyAnimals() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println(store.viewAnimals());
-		int num = scan.nextInt();
-		System.out.println("Enter animal quantity");
-		int num2 = scan.nextInt();
-		switch (num) {
-		case 1:
-			try {
-				store.buyChicken(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+	public void buyAnimals(String animal, int num) {
+		switch (animal) {
+		case "Chicken":
+			store.buyChicken(num);
 			break;
-		case 2:
-			try {
-				store.buyPig(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Pig":
+			store.buyPig(num);
 			break;
-		case 3:
-			try {
-				store.buyCow(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
-			break;
-		case 4:
+		case "Cow":
+			store.buyCow(num);
 			break;
 		}
 	}
 	
-	public void buyItems() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println(store.viewItems() + "\n\n Enter tool number");
-		int num = scan.nextInt();
-		System.out.println("Enter item quantity");
-		int num2 = scan.nextInt();
-		switch (num) {
-		case 1:
-			try {
-				store.buyWater(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+	public void buyItems(String item, int num) {
+		switch (item) {
+		case "Water For Crops":
+			store.buyWater(num);
 			break;
-		case 2: 
-			try {
-				store.buyHoe(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Hoe": 
+			store.buyHoe(num);
 			break;
-		case 3:
-			try {
-				store.buyFertilizer(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Fertilizer":
+			store.buyFertilizer(num);
 			break;
-		case 4:
-			try {
-				store.buyIncubator(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Incubator":
+			store.buyIncubator(num);
 			break;
-		case 5:
-			try {
-				store.buyWaterFood(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Water For Animals":
+			store.buyWaterFood(num);
 			break;
-		case 6: 
-			try {
-				store.buyGrain(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Grain": 
+			store.buyGrain(num);
 			break;
-		case 7:
-			try {
-				store.buyGrowthHormone(num2);
-			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());
-			}
+		case "Growth Hormone":
+			store.buyGrowthHormone(num);
 			break;
 		}
 	}
 	/**
 	 * Use crop tool to tend crop
 	 */
-	public void tendCrops() {
-		if (farm.getCropList().size() == 0) {
-			farm.printCropList();
-		} else if (farm.getItemList().size() == 0) {
-			farm.printItemList();
-		} else {
-			if (containsCropTool() == true) {
-				Scanner scan = new Scanner(System.in);
-				System.out.println("Choose your crop to tend to");
-				farm.printCropList();
-				int num = scan.nextInt();
-				Crops crop = farm.getCropList().get(num-1);
-				boolean validTool = false;
-				while (validTool == false) {
-					System.out.println("Choose your item to use");
-					farm.printItemList();
-					int num1 = scan.nextInt();
-					if (farm.getItemList().get(num1-1) instanceof cropTools) {
-						cropTools item = (cropTools) farm.getItemList().get(num1-1);
-						try {
-							farmer.useCropTool(item, crop);
-						} catch (NoMoreActionsException e) {
-							System.out.println(e.getMessage());
-						}
-						validTool = true;
-					} else {
-						System.out.println("Select a valid tool");
-					}
-				} 
-			} else {
-					System.out.println("You dont own any crop tools");
-			}
-		}
-	}
-	/**
-	 * itemList contains cropTool
-	 * @return boolean Crop tool in items
-	 */
-	public boolean containsCropTool() {
-		int index = farm.getItemList().size()-1;
-		boolean hasCropTool = false;
-		while (index>=0 && hasCropTool == false) {
-			if (farm.getItemList().get(index) instanceof cropTools) {
-				hasCropTool = true;
-			} else {
-				index += -1;
-			}
-		}
-		return hasCropTool;
+	public void tendCrops(cropTools item, Crops crop) {
+		farmer.useCropTool(item, crop);
 	}
 	
-	public void feedAnimals() {
-		if (farm.getAnimalList().size() == 0) {
-			farm.printAnimalList();
-		} else if (farm.getItemList().size() == 0) {
-			farm.printItemList();
-		} else {
-			if (containsFood() == true) {
-				Scanner scan = new Scanner(System.in);
-				System.out.println("Choose your animal to feed");
-				farm.printAnimalList();
-				int num = scan.nextInt();
-				Animals animal = farm.getAnimalList().get(num-1);
-				boolean validTool = false;
-				while (validTool == false) {
-					System.out.println("Choose your item to use");
-					farm.printItemList();
-					int num1 = scan.nextInt();
-					if (farm.getItemList().get(num1-1) instanceof Food) {
-						Food item = (Food) farm.getItemList().get(num1-1);
-						try {
-							farmer.useFood(item, animal);
-						} catch (NoMoreActionsException e) {
-							System.out.println(e.getMessage());
-						}
-						validTool = true;
-					} else {
-						System.out.println("Select a item");
-					}
-				} 
-			} else {
-					System.out.println("You dont own any food");
-			}
-		}
+	public void feedAnimals(Food item, Animals animal) {
+		farmer.useFood(item, animal);
 	}
 	
 	public boolean containsFood() {
@@ -415,37 +261,11 @@ public class GameGUI {
 	}
 	
 	public void playWithAnimals() {
-		if (farm.getAnimalList().size() > 0) {
-			try {
-				farmer.playWithAnimals();
-			} catch (NoMoreActionsException e) {
-				System.out.println(e.getMessage());
-			}
-		} else {
-			System.out.println("You own no animals");
-		}
+		farmer.playWithAnimals();
 	}
 	
-	public void harvestCrops() {
-		Scanner scan = new Scanner(System.in);
-		if (farm.getCropList().size() == 0) {
-			System.out.println("You have no crops");
-		} else {
-			System.out.println("Select your crop to harvest");
-			farm.printCropList();
-			int num = scan.nextInt();
-			Crops crop = farm.getCropList().get(num-1);
-			if (crop.getGrowTime() > 0) {
-				System.out.println("Crop is not ready yet");
-			} else {
-				try {
-					farmer.harvestCrop(crop);
-				} catch (NoMoreActionsException e) {
-					System.out.println(e.getMessage());
-				}
-				
-			}
-		}
+	public void harvestCrops(Crops crop) {
+		farmer.harvestCrop(crop);
 	}
 	
 	public void tendLand() {

@@ -62,6 +62,6 @@ public abstract class item {
 	}
 	
 	public String toString() {
-		return String.format("%15s%15s", itemName, price);
+		return String.format("%s", itemName);
 	}
 }

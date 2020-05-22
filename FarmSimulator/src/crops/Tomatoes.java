@@ -12,6 +12,6 @@ public class Tomatoes extends Crops {
     setCropName("Tomatoes");
     setBuyPrice(25);
     setSellPrice(40);
-    setGrowTime(1);
+    setTotalGrowTime(1);
   }
 }

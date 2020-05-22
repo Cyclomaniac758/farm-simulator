@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import farm.*;
+import generalStore.GeneralStore;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,6 +21,11 @@ import exceptions.NoMoreActionsException;
 
 import java.awt.Font;
 
+/**
+ * Main game window
+ * @author Icarus
+ *
+ */
 public class HomeWindow {
 	
 	private GameGUI game;
@@ -29,7 +36,7 @@ public class HomeWindow {
 	private JButton visitFarmhouseButton;
 	private JButton helpButton;
 	private JButton proceedDayButton;
-	private JButton btnNewButton;
+	private JButton tendLandButton;
 	private JButton visitStoreButton;
 	private JLabel dayNumLabel;
 	private JLabel displayDay;
@@ -51,6 +58,10 @@ public class HomeWindow {
 	public JFrame getFrame() {
 		return frame;
 	}
+	
+	public void updateActions() {
+		displayActions.setText(String.valueOf(game.getFarm().getFarmer().getNumActions()));
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -67,7 +78,7 @@ public class HomeWindow {
 			public void actionPerformed(ActionEvent e) {
 				CropsWindow window = new CropsWindow(game);
 				window.getFrame().setVisible(true);
-				frame.setVisible(false);;
+				frame.setVisible(false);
 			}
 		});
 		viewCropsButton.setBounds(252, 354, 102, 23);
@@ -88,6 +99,7 @@ public class HomeWindow {
 		visitFarmhouseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FarmHouseWindow window = new FarmHouseWindow(game, frame);
+				window.getFrame().setVisible(true);
 				frame.setVisible(false);
 			}
 		});
@@ -108,29 +120,31 @@ public class HomeWindow {
 			public void actionPerformed(ActionEvent e) {
 				game.nextDay();
 				displayDay.setText(String.valueOf(game.getCurrentDay()));
+				updateActions();
 			}
 		});
 		proceedDayButton.setBounds(10, 64, 121, 42);
 		frame.getContentPane().add(proceedDayButton);
 		
-		btnNewButton = new JButton("Tend Land");
-		btnNewButton.addActionListener(new ActionListener() {
+		tendLandButton = new JButton("Tend Land");
+		tendLandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Farm farm = game.getFarm();
 					game.tendLand();
 					String text = "Farm crop capacity increased to " + farm.getMaxCropCapacity() + "\n" + 
-					"Your animals are now " + String.format("%.2f", farm.getAnimalHappinessModifier()) + " times happier";
+					"Your animals are now 1.2 times happier"
+							+ "\nActions left: " + game.getFarm().getFarmer().getNumActions();
 					JOptionPane.showMessageDialog(null, text);
-					displayActions.setText(String.valueOf(game.getActionsRemaining()));
+					updateActions();
 				} catch (NoMoreActionsException ex) {
 					JOptionPane.showMessageDialog(null, ex.getMessage());
 				}
 				 
 			}
 		});
-		btnNewButton.setBounds(10, 117, 121, 42);
-		frame.getContentPane().add(btnNewButton);
+		tendLandButton.setBounds(10, 117, 121, 42);
+		frame.getContentPane().add(tendLandButton);
 		
 
 		

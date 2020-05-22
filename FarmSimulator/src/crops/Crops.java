@@ -19,9 +19,13 @@ public class Crops {
 	 */
 	private int sellPrice;
 	/**
-	 * The number of days it takes for the crop to grow
+	 * The number of days remaining until the crop can be harvested
 	 */
 	private int growTime;
+	/**
+	 * Total grow time for a crop
+	 */
+	private int totalGrowTime;
 	/**
 	 * Sets the name of the crop
 	 * @param name
@@ -51,6 +55,14 @@ public class Crops {
 		growTime = growingTime;
 	}
 	/**
+	 * Set the total growing time of the crop
+	 * @param growTime
+	 */
+	public void setTotalGrowTime(int growTime) {
+		totalGrowTime = growTime;
+		setGrowTime(growTime);
+	}
+	/**
 	 * Gets the crop name
 	 * @return
 	 */
@@ -78,8 +90,15 @@ public class Crops {
 	public int getGrowTime() {
 		return growTime;
 	}
+	/**
+	 * Get the total grow time for the crop
+	 * @return totalGrowTime
+	 */
+	public int getTotalGrowTime() {
+		return totalGrowTime;
+	}
 	
 	public String toString() {
-		return String.format("%10s%10s%10s%10s", getCropName(), getBuyPrice(), getSellPrice(), getGrowTime());
+		return String.format("%s", getCropName());
 	}
 }

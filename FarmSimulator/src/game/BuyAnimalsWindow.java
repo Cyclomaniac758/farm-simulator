@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -25,7 +27,7 @@ public class BuyAnimalsWindow {
 	private GameGUI game;
 	
 	private JFrame frame;
-	private JTextField quantityField;
+	private JTextField numAnimals;
 	private JLabel displayPrice;
 	private JLabel displayBonus;
 
@@ -61,6 +63,32 @@ public class BuyAnimalsWindow {
 		});
 		
 		JButton buyAnimal = new JButton("Buy ");
+		buyAnimal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String animal = (String) selectAnimal.getSelectedItem();
+				if (animal == "Select Animal") {
+					JOptionPane.showMessageDialog(null, "Select an animal to buy");
+				} else {
+					int num = 0;
+					try {
+						num = Integer.parseInt(numAnimals.getText());
+						try {
+							game.buyAnimals(animal, num);
+							if (num == 1) {
+								JOptionPane.showMessageDialog(null,  "Bought " + num + " " + animal);
+							} else {
+								JOptionPane.showMessageDialog(null,  "Bought " + num + " " + animal + "s");
+							}
+							
+						} catch (IllegalStateException exc) {
+							JOptionPane.showMessageDialog(null, exc.getMessage());
+						}
+					} catch (NumberFormatException ex) {
+						JOptionPane.showMessageDialog(null, "Enter a number");
+					}
+				}
+			}
+		});
 		
 		JButton exit = new JButton("EXIT");
 		exit.addActionListener(new ActionListener() {
@@ -79,8 +107,8 @@ public class BuyAnimalsWindow {
 		
 		displayBonus = new JLabel("Select Animal");		
 		
-		quantityField = new JTextField();
-		quantityField.setColumns(10);
+		numAnimals = new JTextField();
+		numAnimals.setColumns(10);
 		
 		JLabel quantityPrompt = new JLabel("Enter Quantity:");
 		quantityPrompt.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -94,7 +122,7 @@ public class BuyAnimalsWindow {
 							.addContainerGap()
 							.addComponent(quantityPrompt, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(quantityField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+							.addComponent(numAnimals, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
 							.addGap(60)
@@ -133,7 +161,7 @@ public class BuyAnimalsWindow {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(buyAnimal)
 						.addComponent(exit)
-						.addComponent(quantityField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(numAnimals, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(quantityPrompt))
 					.addContainerGap(43, Short.MAX_VALUE))
 		);

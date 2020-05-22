@@ -12,6 +12,6 @@ public class Wheat extends Crops {
     setCropName("Wheat");
     setBuyPrice(20);
     setSellPrice(25);
-    setGrowTime(1);
+    setTotalGrowTime(1);
   }
 }

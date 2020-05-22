@@ -10,6 +10,8 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
@@ -23,7 +25,7 @@ public class BuyItemsWindow {
 	private GameGUI game;
 	
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField numItems;
 	private JLabel displayPrice;
 	private JLabel displayEffect;
 
@@ -61,6 +63,27 @@ public class BuyItemsWindow {
 		});
 		
 		JButton buyAnimal = new JButton("Buy ");
+		buyAnimal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = (String) selectItem.getSelectedItem();
+				if (item == "Select Item") {
+					JOptionPane.showMessageDialog(null, "Select an item to buy");
+				} else {
+					int num = 0;
+					try {
+						num = Integer.parseInt(numItems.getText());
+						try {
+							game.buyItems(item, num);
+							JOptionPane.showMessageDialog(null,  "Bought " + num + " units of " + item);
+						} catch (IllegalStateException exc) {
+							JOptionPane.showMessageDialog(null, exc.getMessage());
+						}
+					} catch (NumberFormatException ex) {
+						JOptionPane.showMessageDialog(null, "Enter a number");
+					}
+				}
+			}
+		});
 		
 		JButton exit = new JButton("EXIT");
 		exit.addActionListener(new ActionListener() {
@@ -79,8 +102,8 @@ public class BuyItemsWindow {
 		
 		displayEffect = new JLabel("Select Item");
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		numItems = new JTextField();
+		numItems.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Enter Quantity:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -106,7 +129,7 @@ public class BuyItemsWindow {
 							.addContainerGap()
 							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+							.addComponent(numItems, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
 							.addGap(59)
@@ -137,7 +160,7 @@ public class BuyItemsWindow {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(buyAnimal)
 						.addComponent(exit)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(numItems, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel))
 					.addContainerGap(87, Short.MAX_VALUE))
 		);
