@@ -8,19 +8,19 @@ import money.*;
 import items.*;
 
 /**
- * Class OrchardFarm extends Farm
+ * Class CropFarm extends Farm
  * @author Michael Peters
  *
  */
-public class OrchardFarm extends Farm {
+public class CropFarm extends Farm {
 	/**
 	 * Constructor of OrchardFarm class
 	 * @param name
 	 */
-	public OrchardFarm(String name) {
+	public CropFarm(String name) {
 		setFarmName(name);
 	    setFarmMoney(new Money(2000));
-	    setFarmType("Orchard");
+	    setFarmType("Crop");
 	    setGrowingSpeedModifier(1);
 	    setAnimalHappinessModifier(1.2);
 	    setAnimalHealthinessModifier(1.0);

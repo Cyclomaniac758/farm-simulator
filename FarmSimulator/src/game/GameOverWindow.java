@@ -12,6 +12,8 @@ import java.awt.Window;
 
 import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -52,14 +54,17 @@ public class GameOverWindow {
 		moneyEarned.setText(game.getFarm().toString());
 		
 		JButton restartButton = new JButton("RESTART");
+		restartButton.setToolTipText("Restart the game");
 		restartButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.restart();
+				StartWindow1 startWindow = new StartWindow1(game);
 				frame.dispose();
+				startWindow.frame.setVisible(true);
 			}
 		});
 		
 		JButton exitButton = new JButton("EXIT");
+		exitButton.setToolTipText("Exit the game");
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();

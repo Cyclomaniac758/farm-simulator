@@ -32,9 +32,9 @@ public class HomeWindow {
 	
 	private JFrame frame;
 	private JButton viewCropsButton;
-	private JButton visiAnimalsButton;
+	private JButton visitAnimalsButton;
 	private JButton visitFarmhouseButton;
-	private JButton helpButton;
+	private JButton rulesButton;
 	private JButton proceedDayButton;
 	private JButton tendLandButton;
 	private JButton visitStoreButton;
@@ -44,7 +44,12 @@ public class HomeWindow {
 	private JLabel backgroundPic;
 	private JLabel remActionsLabel;
 	private JLabel displayActions;
-
+	private JLabel farmerLabel;
+	private JLabel displayFarmer;
+	private JLabel farmLabel;
+	private JLabel displayFarm;
+	private JLabel farmTypeLabel;
+	private JLabel displayFarmType;
 
 
 	/**
@@ -74,6 +79,7 @@ public class HomeWindow {
 		
 		
 		viewCropsButton = new JButton("View Crops");
+		viewCropsButton.setToolTipText("View the crops on your farm");
 		viewCropsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CropsWindow window = new CropsWindow(game);
@@ -84,18 +90,20 @@ public class HomeWindow {
 		viewCropsButton.setBounds(252, 354, 102, 23);
 		frame.getContentPane().add(viewCropsButton);
 		
-		visiAnimalsButton = new JButton("Visit Animals");
-		visiAnimalsButton.addActionListener(new ActionListener() {
+		visitAnimalsButton = new JButton("Visit Animals");
+		visitAnimalsButton.setToolTipText("Visit the animals on your farm");
+		visitAnimalsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AnimalsWindow window = new AnimalsWindow(game);
 				window.getFrame().setVisible(true);
 				frame.setVisible(false);
 			}
 		});
-		visiAnimalsButton.setBounds(643, 492, 159, 23);
-		frame.getContentPane().add(visiAnimalsButton);
+		visitAnimalsButton.setBounds(643, 492, 159, 23);
+		frame.getContentPane().add(visitAnimalsButton);
 		
 		visitFarmhouseButton = new JButton("Visit Farmhouse");
+		visitFarmhouseButton.setToolTipText("Visit the farmhouse and check your inventory");
 		visitFarmhouseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FarmHouseWindow window = new FarmHouseWindow(game, frame);
@@ -106,16 +114,18 @@ public class HomeWindow {
 		visitFarmhouseButton.setBounds(577, 180, 159, 34);
 		frame.getContentPane().add(visitFarmhouseButton);
 		
-		helpButton = new JButton("Help");
-		helpButton.addActionListener(new ActionListener() {
+		rulesButton = new JButton("Rules");
+		rulesButton.setToolTipText("View the rules");
+		rulesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HelpWindow window = new HelpWindow();
+				RulesWindow window = new RulesWindow();
 			}
 		});
-		helpButton.setBounds(10, 11, 121, 42);
-		frame.getContentPane().add(helpButton);
+		rulesButton.setBounds(10, 11, 121, 42);
+		frame.getContentPane().add(rulesButton);
 		
 		proceedDayButton = new JButton("Proceed Day");
+		proceedDayButton.setToolTipText("Proceed to the next day");
 		proceedDayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.nextDay();
@@ -127,6 +137,7 @@ public class HomeWindow {
 		frame.getContentPane().add(proceedDayButton);
 		
 		tendLandButton = new JButton("Tend Land");
+		tendLandButton.setToolTipText("Tend the land to increase animal happiness and increase crop capacity");
 		tendLandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -149,6 +160,7 @@ public class HomeWindow {
 
 		
 		visitStoreButton = new JButton("Visit Store");
+		visitStoreButton.setToolTipText("Visit the store");
 		visitStoreButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				StoreWindow window = new StoreWindow(game, frame);
@@ -192,10 +204,49 @@ public class HomeWindow {
 		displayActions.setText(String.valueOf(game.getActionsRemaining()));
 		frame.getContentPane().add(displayActions);
 		
+		farmerLabel = new JLabel("Farmer:");
+		farmerLabel.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		farmerLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		farmerLabel.setBounds(182, 72, 97, 23);
+		frame.getContentPane().add(farmerLabel);
+		
+		displayFarmer = new JLabel("");
+		displayFarmer.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		displayFarmer.setBounds(305, 75, 175, 16);
+		displayFarmer.setText(String.valueOf(game.getFarmer().getName()));
+		frame.getContentPane().add(displayFarmer);
+		
+		
+		farmLabel = new JLabel("Farm:");
+		farmLabel.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		farmLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		farmLabel.setBounds(182, 98, 97, 23);
+		frame.getContentPane().add(farmLabel);
+		
+		displayFarm = new JLabel("");
+		displayFarm.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		displayFarm.setBounds(305, 101, 250, 16);
+		displayFarm.setText(String.valueOf(game.getFarm().getFarmName()));
+		frame.getContentPane().add(displayFarm);
+		
+		farmTypeLabel = new JLabel("Farm Type:");
+		farmTypeLabel.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		farmTypeLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		farmTypeLabel.setBounds(182, 125, 97, 23);
+		frame.getContentPane().add(farmTypeLabel);
+		
+		displayFarmType = new JLabel("");
+		displayFarmType.setFont(new Font("STXinwei", Font.PLAIN, 15));
+		displayFarmType.setBounds(305, 128, 250, 16);
+		displayFarmType.setText(String.valueOf(game.getFarm().getFarmType()));
+		frame.getContentPane().add(displayFarmType);
+		
+		
 		backgroundPic = new JLabel("New label");
 		backgroundPic.setIcon(new ImageIcon(HomeWindow.class.getResource("/img/g3.png")));
 		backgroundPic.setBounds(0, 0, 986, 629);
 		frame.getContentPane().add(backgroundPic);
+		
 		
 		
 		
@@ -217,5 +268,4 @@ public class HomeWindow {
 		
 		
 	}
-
 }

@@ -52,7 +52,7 @@ public class Game {
 				farm = new LivestockFarm(name);
 				found = true;
 			} else if (num == 4) {
-				farm = new OrchardFarm(name);
+				farm = new CropFarm(name);
 				found = true;
 			} else {
 				System.out.println("Enter a valid number");

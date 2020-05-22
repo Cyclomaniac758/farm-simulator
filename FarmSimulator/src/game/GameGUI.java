@@ -38,6 +38,15 @@ public class GameGUI {
 		this.farm = farm;
 	}
 	
+	public Farmer getFarmer() {
+		return farmer;
+	}
+	
+	public void setFarmer() {
+		this.farmer = farmer;
+	}
+	
+	
 	public void createStore() {
 		this.store = new GeneralStore(farm);
 	}
@@ -67,7 +76,7 @@ public class GameGUI {
 				farm = new LivestockFarm(name);
 				found = true;
 			} else if (num == 4) {
-				farm = new OrchardFarm(name);
+				farm = new CropFarm(name);
 				found = true;
 			} else {
 				System.out.println("Enter a valid number");

@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -111,7 +113,7 @@ public class StartWindow2 {
 		cropFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				farmName = textField.getText();
-				farm = new OrchardFarm(farmName);
+				farm = new CropFarm(farmName);
 				farmTypeChosen = true;
 			}
 		});
@@ -121,7 +123,8 @@ public class StartWindow2 {
 		JButton farmInfoButton = new JButton("INFO");
 		farmInfoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				FarmInformation window = new FarmInformation();
+				window.frame.setVisible(true);
 			}
 		});
 		farmInfoButton.setBounds(376, 140, 70, 23);

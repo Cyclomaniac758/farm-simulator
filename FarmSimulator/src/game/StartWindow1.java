@@ -25,7 +25,7 @@ import farmer.*;
 
 public class StartWindow1 {
 
-	private JFrame frame;
+	public JFrame frame;
 	
 	private JTextField nameField;
 	private JTextField ageField;

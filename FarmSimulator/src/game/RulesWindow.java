@@ -11,8 +11,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
+import java.awt.SystemColor;
 
-public class HelpWindow {
+public class RulesWindow {
 
 	private JFrame frame;
 
@@ -23,7 +24,7 @@ public class HelpWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HelpWindow window = new HelpWindow();
+					RulesWindow window = new RulesWindow();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +36,7 @@ public class HelpWindow {
 	/**
 	 * Create the application.
 	 */
-	public HelpWindow() {
+	public RulesWindow() {
 		initialize();
 	}
 
@@ -45,7 +46,7 @@ public class HelpWindow {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setVisible(true);
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 400, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -61,13 +62,14 @@ public class HelpWindow {
 				frame.dispose();
 			}
 		});
-		btnNewButton.setBounds(96, 208, 186, 23);
+		btnNewButton.setBounds(96, 238, 186, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JTextPane txtpnRulesVisit = new JTextPane();
+		txtpnRulesVisit.setBackground(SystemColor.text);
 		txtpnRulesVisit.setEditable(false);
-		txtpnRulesVisit.setText("RULES:\r\n1. Visit the store to buy crops, animals and \r\nitems.\r\n2. Items can be used to increase animal \r\nbonus's and speed up crop growth.\r\n3. You are limited to two actions a day not\r\nincluding buying items.\r\n4. Create your dream farm.");
-		txtpnRulesVisit.setBounds(70, 59, 248, 138);
+		txtpnRulesVisit.setText("RULES:\r\n1. Visit the store to buy crops, animals and \r\nitems.\r\n2. Items can be used to increase animal \r\nbonus's and speed up crop growth.\r\n3. You are limited to two actions a day not including buying items.\r\n4. Create your dream farm.");
+		txtpnRulesVisit.setBounds(70, 59, 248, 167);
 		frame.getContentPane().add(txtpnRulesVisit);
 	}
 }
