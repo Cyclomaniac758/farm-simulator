@@ -51,10 +51,10 @@ public class AnimalsWindow {
 		try {
 			double num = animal.getHappinessLevel() * game.getFarm().getAnimalHappinessModifier();
 			double num2 = animal.getHealthiness() * game.getFarm().getAnimallHealthinessModifier();
-			if (num > 1) {
-				num = 1;
-			} else if (num2 > 1) {
-				num2 = 1;
+			if (num > game.getFarm().getAnimalHappinessModifier()) {
+				num = game.getFarm().getAnimalHappinessModifier();
+			} else if (num2 > game.getFarm().getAnimallHealthinessModifier()) {
+				num2 = game.getFarm().getAnimallHealthinessModifier();
 			}
 			displayHappiness.setText(String.format("%.2f", num));
 			displayHealthiness.setText(String.format("%.2f", num2));
