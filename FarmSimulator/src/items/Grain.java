@@ -1,7 +1,7 @@
 package items;
 
 /**
- * Class Grain, sets the parameter values for the item
+ * Class Grain, sets the parameter values for the Food item
  * @author Icarus
  *
  */

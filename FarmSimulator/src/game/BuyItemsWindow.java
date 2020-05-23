@@ -175,7 +175,7 @@ public class BuyItemsWindow {
 	}
 
 	protected void changeItem(String string) {
-		item item;
+		Item item;
 		switch(string) {
 		case "Water For Crops":
 			item = new Water();

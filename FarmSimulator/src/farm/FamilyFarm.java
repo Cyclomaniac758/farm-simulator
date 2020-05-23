@@ -25,7 +25,7 @@ public class FamilyFarm extends Farm {
 		setAnimalHealthinessModifier(1.0);
 		setCropList(new ArrayList<Crops>());
 		setAnimalList(new ArrayList<Animals>());
-		setItemList(new ArrayList<item>());
+		setItemList(new ArrayList<Item>());
     	setMaxCropCapacity(18);
     	setMaxAnimalCapacity(6);
 	}

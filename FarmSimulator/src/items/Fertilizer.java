@@ -1,5 +1,9 @@
 package items;
-
+/**
+ *  Class Fertilizer, sets the parameter values for the crop tool item
+ * @author Icarus
+ *
+ */
 public class Fertilizer extends CropTools {
 	/**
 	 * set the parameter values of the item Fertilizer

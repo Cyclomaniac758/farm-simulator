@@ -1,7 +1,7 @@
 package exceptions;
 
 /**
- * 
+ * When the user tries to complete an action and they have used all daily actions this class is used to handle it
  * @author Icarus
  *
  */

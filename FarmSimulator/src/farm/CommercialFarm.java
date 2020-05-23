@@ -27,7 +27,7 @@ public class CommercialFarm extends Farm {
     	setAnimalHealthinessModifier(0.9);
     	setCropList(new ArrayList<Crops>());
     	setAnimalList(new ArrayList<Animals>());
-    	setItemList(new ArrayList<item>());
+    	setItemList(new ArrayList<Item>());
     	setMaxCropCapacity(20);
     	setMaxAnimalCapacity(10);
 	}

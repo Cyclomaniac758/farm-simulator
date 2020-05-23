@@ -34,7 +34,7 @@ public class CropsWindow {
 	
 	private JFrame frame;
 	private JComboBox<Crops> selectCrop;
-	private JComboBox<item> selectItem;
+	private JComboBox<Item> selectItem;
 	
 	private JLabel displayTotalGrowTime;
 	private JLabel displayRemainingDays;
@@ -65,7 +65,7 @@ public class CropsWindow {
 	 * Refreshes the values of displayItemImpact
 	 * @param item
 	 */
-	public void changeItem(item item) {
+	public void changeItem(Item item) {
 		try {
 			displayItemImpact.setText(item.getItemUse());
 		} catch (NullPointerException e) {
@@ -86,7 +86,7 @@ public class CropsWindow {
 	 */
 	public void refreshItems() {
 		selectItem.removeAllItems();
-		for (item item: game.getFarm().getItemList()) {
+		for (Item item: game.getFarm().getItemList()) {
 			if (item instanceof CropTools) {
 				selectItem.addItem(item);
 			}
@@ -119,7 +119,7 @@ public class CropsWindow {
 				CropTools item = (CropTools) selectItem.getSelectedItem();
 				Crops crop = (Crops) selectCrop.getSelectedItem();
 				if (crop instanceof Crops) {
-					if (item instanceof item && crop.getGrowTime() != 0) {
+					if (item instanceof Item && crop.getGrowTime() != 0) {
 						try {
 							game.tendCrops(item, crop);
 							JOptionPane.showMessageDialog(null, "Crop tended\nActions remaining : " + game.getFarm().getFarmer().getNumActions());
@@ -171,7 +171,7 @@ public class CropsWindow {
 		selectItem.setToolTipText("Select item from inventory.");
 		selectItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				changeItem((item) selectItem.getSelectedItem());
+				changeItem((Item) selectItem.getSelectedItem());
 			}
 		});
 		refreshItems();

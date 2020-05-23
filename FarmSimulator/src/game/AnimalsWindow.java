@@ -27,7 +27,7 @@ public class AnimalsWindow {
 
 	private JFrame frame;
 	private JComboBox<Animals> selectAnimal;
-	private JComboBox<item> selectItem;
+	private JComboBox<Item> selectItem;
 	
 	
 	private GameGUI game;
@@ -69,7 +69,7 @@ public class AnimalsWindow {
 	 * Refreshes the values of
 	 * @param item
 	 */
-	public void changeItem(item item) {
+	public void changeItem(Item item) {
 		try {
 			displayItemImpact.setText(item.getItemUse());
 		} catch (NullPointerException e) {}
@@ -91,7 +91,7 @@ public class AnimalsWindow {
 	 */
 	public void refreshItems() {
 		selectItem.removeAllItems();
-		for (item item: game.getFarm().getItemList()) {
+		for (Item item: game.getFarm().getItemList()) {
 			if (item instanceof Food) {
 				selectItem.addItem(item);
 			}
@@ -142,11 +142,11 @@ public class AnimalsWindow {
 		});
 		refreshAnimals();
 		
-		selectItem = new JComboBox<item>();
+		selectItem = new JComboBox<Item>();
 		selectItem.setToolTipText("Select item from inventory.");
 		selectItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				changeItem((item) selectItem.getSelectedItem());
+				changeItem((Item) selectItem.getSelectedItem());
 			}
 		});
 		refreshItems();

@@ -54,7 +54,7 @@ public class Farm {
 	/**
 	 * ArrayList storing the owned items
 	 */
-	private ArrayList<item> itemList;
+	private ArrayList<Item> itemList;
 	/**
 	 * The max crop capacity of the farm
 	 */
@@ -132,7 +132,7 @@ public class Farm {
      * Gets the item list
      * @return ArrayList<item>
      */
-    public ArrayList<item> getItemList(){
+    public ArrayList<Item> getItemList(){
     	return itemList;
     }
     /**
@@ -141,7 +141,7 @@ public class Farm {
      */
     public ArrayList<CropTools> getCropToolList(){
     	ArrayList<CropTools> cropToolList = new ArrayList<CropTools>();
-    	for (item item: itemList) {
+    	for (Item item: itemList) {
     		if (item instanceof CropTools) {
     			cropToolList.add((CropTools) item);
     		}
@@ -151,7 +151,7 @@ public class Farm {
     
     public ArrayList<Food> getFoodList(){
     	ArrayList<Food> foodList = new ArrayList<Food>();
-    	for (item item: itemList) {
+    	for (Item item: itemList) {
     		if (item instanceof Food) {
     			foodList.add((Food) item);
     		}
@@ -239,7 +239,7 @@ public class Farm {
 	 * Set the list of owned items
 	 * @param itemList
 	 */
-	public void setItemList(ArrayList<item> itemsList) {
+	public void setItemList(ArrayList<Item> itemsList) {
 		itemList = itemsList;
 	}
 	/**
@@ -294,7 +294,7 @@ public class Farm {
 	 * Add item to itemList
 	 * @param item
 	 */
-	public void addItem(item item) {
+	public void addItem(Item item) {
 		itemList.add(item);
 		farmMoney.minusMoney(item.getItemPrice());
 	}
@@ -302,7 +302,7 @@ public class Farm {
 	 * Remove item from itemList
 	 * @param item
 	 */
-	public void removeItem(item item) {
+	public void removeItem(Item item) {
 		if (item instanceof Incubator) {
 		} else {
 			int index = itemList.indexOf(item);
@@ -395,7 +395,7 @@ public class Farm {
 			String result = new String();
 			result = result.concat("Items:\n");
 			int num = 1;
-			for (item item: itemList) {
+			for (Item item: itemList) {
 				result = result.concat(num + ". " + item.getItemName() + "\n");
 				num += 1;
 			}
@@ -408,7 +408,7 @@ public class Farm {
 	 * String representation of the farm
 	 */
 	public String toString() {
-		return String.format("<html>Farm: %s<br>Congradulations %s<br>Money Earned: %.2f<html>", getFarmName(), getFarmer().getName(), getFarmMoney().getMoneyAmount() - getFarmMoney().getStartingMoney());
+		return String.format("<html>Farm: %s<br>Congratulations %s<br>Money Count: %.2f<html>", getFarmName(), getFarmer().getName(), getFarmMoney().getMoneyAmount());
 	}
 	
 }
