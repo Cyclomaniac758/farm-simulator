@@ -1,6 +1,5 @@
 package farm;
 
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import crops.*;
@@ -21,7 +20,7 @@ public class Farm {
 	 */
 	private String farmName;
 	/**
-     * The amount of money the farm starts with
+     * The amount of money the farm has
      */
 	private Money farmMoney;
     /**
@@ -409,7 +408,7 @@ public class Farm {
 	 * String representation of the farm
 	 */
 	public String toString() {
-		return String.format("<html>Farm: %s<br>Congradulations %s<br>Money Count: %.2f<html>", getFarmName(), getFarmer().getName(), getFarmMoney().getMoneyAmount());
+		return String.format("<html>Farm: %s<br>Congradulations %s<br>Money Earned: %.2f<html>", getFarmName(), getFarmer().getName(), getFarmMoney().getMoneyAmount() - getFarmMoney().getStartingMoney());
 	}
 	
 }

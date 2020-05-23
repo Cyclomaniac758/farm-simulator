@@ -10,11 +10,16 @@ public class Money {
 	 */
 	private double moneyAmount;
 	/**
+	 * The farms starting amount of money
+	 */
+	private double startingMoney;
+	/**
 	 * Constructor of Money class
 	 * @param amount
 	 */
 	public Money(double money) {
 		moneyAmount = money;
+		startingMoney = money;
 	}
 	/**
 	 * Sets the moneyAmount value
@@ -22,6 +27,10 @@ public class Money {
 	 */
 	public void setMoneyAmount(int amount) {
 		moneyAmount = amount;
+	}
+	
+	public double getStartingMoney() {
+		return startingMoney;
 	}
 	/**
 	 * Gets the moneyAmount value
