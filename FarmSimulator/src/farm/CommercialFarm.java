@@ -30,6 +30,8 @@ public class CommercialFarm extends Farm {
     	setItemList(new ArrayList<Item>());
     	setMaxCropCapacity(20);
     	setMaxAnimalCapacity(10);
+    	setDeductHappinessRate(.8);
+    	setDeductHealthinessRate(.8);
 	}
 
 }

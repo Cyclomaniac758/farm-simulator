@@ -28,6 +28,8 @@ public class FamilyFarm extends Farm {
 		setItemList(new ArrayList<Item>());
     	setMaxCropCapacity(18);
     	setMaxAnimalCapacity(6);
+    	setDeductHappinessRate(.8);
+    	setDeductHealthinessRate(.8);
 	}
 
 }

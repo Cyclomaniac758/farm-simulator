@@ -29,6 +29,8 @@ public class CropFarm extends Farm {
 	    setItemList(new ArrayList<Item>());
     	setMaxCropCapacity(30);
     	setMaxAnimalCapacity(5);
+    	setDeductHappinessRate(.8);
+    	setDeductHealthinessRate(.8);
 	}
 
 

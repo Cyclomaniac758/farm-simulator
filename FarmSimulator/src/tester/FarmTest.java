@@ -211,7 +211,7 @@ class FarmTest {
 		assertEquals(1300, testFamilyFarm.getFarmMoney().getMoneyAmount());
 		assertEquals(1, testFamilyFarm.getAnimalList().size());
 		assertEquals("Cow", testFamilyFarm.getAnimalList().get(0).getAnimalName());
-		assertEquals(120, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
+		assertEquals(80, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
 	}
 	
 	@Test
@@ -241,12 +241,12 @@ class FarmTest {
 		
 		testFamilyFarm.removeItem(testFamilyFarm.getItemList().get(0));
 		
-		assertEquals(2, testFamilyFarm.getItemList().size());
-		assertEquals(1, testFamilyFarm.getCropToolList().size());
+		assertEquals(3, testFamilyFarm.getItemList().size());
+		assertEquals(2, testFamilyFarm.getCropToolList().size());
 		assertEquals(1, testFamilyFarm.getFoodList().size());
 		
 		testFamilyFarm.removeItem(testFamilyFarm.getItemList().get(1));
-		
+		testFamilyFarm.removeItem(testFamilyFarm.getItemList().get(1));
 		assertEquals(1, testFamilyFarm.getItemList().size());
 		assertEquals(1, testFamilyFarm.getCropToolList().size());
 		assertEquals(0, testFamilyFarm.getFoodList().size());
@@ -261,7 +261,7 @@ class FarmTest {
 		assertEquals(1300, testFamilyFarm.getFarmMoney().getMoneyAmount());
 		assertEquals(1, testFamilyFarm.getAnimalList().size());
 		assertEquals("Cow", testFamilyFarm.getAnimalList().get(0).getAnimalName());
-		assertEquals(120, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
+		assertEquals(80, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
 		
 		testFamilyFarm.addAnimalEarnings();
 		assertEquals(1420, testFamilyFarm.getFarmMoney().getMoneyAmount());
@@ -276,12 +276,11 @@ class FarmTest {
 		assertEquals(1300, testFamilyFarm.getFarmMoney().getMoneyAmount());
 		assertEquals(1, testFamilyFarm.getAnimalList().size());
 		assertEquals("Cow", testFamilyFarm.getAnimalList().get(0).getAnimalName());
-		assertEquals(120, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
+		assertEquals(1, testFamilyFarm.getAnimalList().get(0).getHealthiness());
 		
 		testFamilyFarm.deductAnimalHealthiness();
 		
 		assertEquals(0.8, testFamilyFarm.getAnimalList().get(0).getHealthiness());
-		assertEquals(96, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
 	}
 	
 	@Test
@@ -292,12 +291,11 @@ class FarmTest {
 		assertEquals(1300, testFamilyFarm.getFarmMoney().getMoneyAmount());
 		assertEquals(1, testFamilyFarm.getAnimalList().size());
 		assertEquals("Cow", testFamilyFarm.getAnimalList().get(0).getAnimalName());
-		assertEquals(120, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
-		
+		assertEquals(80, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
+		assertEquals(1, testFamilyFarm.getAnimalList().get(0).getHappinessLevel());
 		testFamilyFarm.deductAnimalHappiness();
 		
-		assertEquals(0.9, testFamilyFarm.getAnimalList().get(0).getHappinessLevel());
-		assertEquals(108, testFamilyFarm.getAnimalList().get(0).getDailyEarnings());
+		assertEquals(0.8, testFamilyFarm.getAnimalList().get(0).getHappinessLevel());
 	}
 	
 	@Test
