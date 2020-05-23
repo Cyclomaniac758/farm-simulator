@@ -2,10 +2,8 @@ package game;
 
 import farm.*;
 import farmer.*;
-import exceptions.*;
 import generalStore.*;
 import items.*;
-import money.*;
 import crops.*;
 
 import java.util.Scanner;
@@ -29,136 +27,79 @@ public class GameGUI {
 	private GameGUI game;
 		
 	
-		
+	/**
+	 * Return the farm object
+	 * @return farm object
+	 */
 	public Farm getFarm() {
 		return farm;
 	}
-	
+	/**
+	 * Set farm parameter
+	 * @param farm
+	 */
 	public void setFarm(Farm farm) {
 		this.farm = farm;
 	}
-	
+	/**
+	 * Return the farmer object
+	 * @return
+	 */
 	public Farmer getFarmer() {
 		return farmer;
 	}
-	
-	public void setFarmer() {
-		this.farmer = farmer;
+	/**
+	 * Set the farmer parameter
+	 * @param farmer
+	 */
+	public void setFarmer(Farmer farmer) {
+		this.farmer = farmer;	
 	}
-	
-	
+	/**
+	 * Create a GeneralStore object and store it in game
+	 */
 	public void createStore() {
 		this.store = new GeneralStore(farm);
 	}
-	
+	/**
+	 * Return the store object
+	 * @return store object
+	 */
 	public GeneralStore getStore() {
 		return store;
 	}
-	
-	public void createFarm() {
-		Scanner scan1 = new Scanner(System.in);
-		System.out.println("Enter your farm name");
-		String name = scan1.next();
-		System.out.println("Choose your farm type by entering the respective number.\n1. Family Farm\n2. Commercial Farm\n"
-				+ "3. Livestock Farm\n4. Crop Farm");
-		
-		
-		boolean found = false;
-		while (found == false) {
-			int num = scan1.nextInt();
-			if (num == 1) {
-				farm = new FamilyFarm(name);
-				found = true;
-			} else if (num == 2) {
-				farm = new CommercialFarm(name);
-				found = true;
-			} else if (num == 3) {
-				farm = new LivestockFarm(name);
-				found = true;
-			} else if (num == 4) {
-				farm = new CropFarm(name);
-				found = true;
-			} else {
-				System.out.println("Enter a valid number");
-			}
-		}
-	}
-	
-	public void createFarmer(Farmer farmer) {
-		this.farmer = farmer;
-		
-	}
-	
+	/**
+	 * Set the game length call setCurrentDay
+	 * @param length
+	 */
 	public void setGameLength(int length) {
 		numDays = length;
 		this.setCurrentDay(1);
 	}
-	
+	/**
+	 * Return the game length
+	 * @return game length
+	 */
 	public int getGameLenth() {
 		return numDays;
 	}
-	
-	public void setGameLength() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println("How many days should the game last? "
-				+ "(must be between 5 an 10)");
-		int length = scan.nextInt();
-		boolean valid = false;
-		if (length >= 5 && length <= 10) {
-		    valid = true;
-		}
-		while (valid != true) {
-			System.out.println("Invalid input, enter an integer between 5 and 10");
-			length = scan.nextInt();
-			if (length >= 5 && length <= 10) {
-			    valid = true;
-			}
-		}
-		numDays = length;
-		this.setCurrentDay(1);
-	}
-	
-	public int getCurrentDay() {
-		return currentDay;
-		
-	}
+	/**
+	 * Set the current day
+	 * @param num
+	 */
 	public void setCurrentDay(int num) {
 		currentDay = num;
 	}
-	
-	public void playGame() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println("\nEnter action number to complete the action"
-				+ "\n1. Proceed to next day\n2. View farm status\n3. Visit general store"
-				+ "\n4. Tend crops\n5. Feed animals\n6. Play with animals\n7. Harvest crops"
-				+ "\n8. Tend land");
-		int num = scan.nextInt();
-		switch (num) {
-		case 1: 
-			nextDay();
-			break;
-		case 2: 
-			viewFarmStatus();
-			break;
-		case 3: 
-			visitStore();
-			break;
-		case 4:
-			break;
-		case 5:
-			break;
-		case 6:
-			playWithAnimals();
-			break;
-		case 7:
-			break;
-		case 8:
-			tendLand();
-			break;
-		}
+	/**
+	 * Return the current day
+	 * @return current day
+	 */
+	public int getCurrentDay() {
+		return currentDay;
 	}
-
-
+	/**
+	 * Move to the next day
+	 */
 	public void nextDay() {
 		if (currentDay < numDays) {
 			currentDay += 1;
@@ -167,27 +108,33 @@ public class GameGUI {
 			farm.addAnimalEarnings();
 			farm.deductAnimalHealthiness();
 			farm.deductAnimalHappiness();
-			
 		} else {
 			currentDay += 1;
 			endGame();
 		}
 	}
-	
-	public String viewFarmStatus() {
+	/**
+	 * Return the current inventory of the farm
+	 * @return farm inventory
+	 */
+	public String viewFarmInventory() {
 		return ("You have $" + farm.getFarmMoney().getMoneyAmount() + "\n" + 
 		farm.printCropList() +
 		farm.printItemList() + 
 		farm.printAnimalList());
 	}
-	
+	/**
+	 * Return number of actions remaining in the day
+	 * @return actions remaining
+	 */
 	public int getActionsRemaining() {
 		return farmer.getNumActions();
 	}
-	
-	public void visitStore() {
-	}
-	
+	/**
+	 * Buy a certain number of a crop
+	 * @param crop
+	 * @param num
+	 */
 	public void buyCrops(String crop, int num) {
 		switch (crop) {
 		case "Carrots":
@@ -210,7 +157,11 @@ public class GameGUI {
 			break;
 		}
 	}
-	
+	/**
+	 * Buy a certain number of an animal
+	 * @param animal
+	 * @param num
+	 */
 	public void buyAnimals(String animal, int num) {
 		switch (animal) {
 		case "Chicken":
@@ -224,7 +175,11 @@ public class GameGUI {
 			break;
 		}
 	}
-	
+	/**
+	 * Buy a certain number of an item
+	 * @param item
+	 * @param num
+	 */
 	public void buyItems(String item, int num) {
 		switch (item) {
 		case "Water For Crops":
@@ -256,61 +211,65 @@ public class GameGUI {
 	public void tendCrops(CropTools item, Crops crop) {
 		farmer.useCropTool(item, crop);
 	}
-	
+	/**
+	 * Use food to feed animal
+	 * @param item
+	 * @param animal
+	 */
 	public void feedAnimals(Food item, Animals animal) {
 		farmer.useFood(item, animal);
 	}
-	
-	public boolean containsFood() {
-		int index = farm.getItemList().size()-1;
-		boolean hasFood = false;
-		while (index>=0 && hasFood == false) {
-			if (farm.getItemList().get(index) instanceof Food) {
-				hasFood = true;
-			} else {
-				index += -1;
-			}
-		}
-		return hasFood;
-	}
-	
+	/**
+	 * Play with farm animals
+	 */
 	public void playWithAnimals() {
 		farmer.playWithAnimals();
 	}
-	
+	/**
+	 * Harvest a crop
+	 * @param crop
+	 */
 	public void harvestCrops(Crops crop) {
 		farmer.harvestCrop(crop);
 	}
-	
+	/**
+	 * Tend the land
+	 */
 	public void tendLand() {
 		farmer.tendLand();
 	}
+	/**
+	 * End the game, opening the game over window
+	 */
 	public void endGame() {
 		window.getFrame().dispose();
-		GameOverWindow window = new GameOverWindow(game);
+		GameOverWindow window = new GameOverWindow(this);
 		window.getFrame().setVisible(true);
 	}
-	
+	/**
+	 * Setting the home window parameter
+	 * @param window
+	 */
 	public void setHomeWindow(HomeWindow window) {
 		this.window = window;
 		window.getFrame().setVisible(true);
 	}
+	/**
+	 * Make the home window visible
+	 */
 	public void showHomeWindow() {
 		window.getFrame().setVisible(true);
 	}
-	
-	public void setGame(GameGUI game) {
-		game.game = game;
-		
-	}
-	
-	
+	/**
+	 * Restart the game
+	 */
 	public void restart() {
 		game = new GameGUI();
-		game.setCurrentDay(9);
-		game.setHomeWindow(new HomeWindow(game));
 	}
-	
+	/**
+	 * Launches first start up window
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		GameGUI game = new GameGUI();
 		StartWindow1 window = new StartWindow1(game);
