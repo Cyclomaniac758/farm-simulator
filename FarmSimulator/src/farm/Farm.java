@@ -57,6 +57,14 @@ public class Farm {
 	 */
 	private ArrayList<item> itemList;
 	/**
+	 * ArrayList storing the owned food items
+	 */
+	private ArrayList<Food> foodList;
+	/**
+	 * ArrayList storing the owned crop tool items
+	 */
+	private ArrayList<CropTools> cropToolList;
+	/**
 	 * The max crop capacity of the farm
 	 */
 	private int maxCropCapacity;
@@ -141,7 +149,7 @@ public class Farm {
      * @return ArrayList<cropTools>
      */
     public ArrayList<CropTools> getCropToolList(){
-    	ArrayList<CropTools> cropToolList = new ArrayList<CropTools>();
+    	cropToolList = new ArrayList<CropTools>();
     	for (item item: itemList) {
     		if (item instanceof CropTools) {
     			cropToolList.add((CropTools) item);
@@ -151,7 +159,7 @@ public class Farm {
     }
     
     public ArrayList<Food> getFoodList(){
-    	ArrayList<Food> foodList = new ArrayList<Food>();
+    	foodList = new ArrayList<Food>();
     	for (item item: itemList) {
     		if (item instanceof Food) {
     			foodList.add((Food) item);
@@ -285,8 +293,10 @@ public class Farm {
 	 */
 	public void addAnimal(Animals animal) {
 		if (animalList.size() < maxAnimalCapacity) {
-		animalList.add(animal);
-		farmMoney.minusMoney(animal.getBuyPrice());
+			double earnings = animalHappinessModifier * animal.getHappinessLevel() * animal.getHealthiness() *  animal.getDailyEarnings();
+			animal.setDailyEarnings(earnings);
+			animalList.add(animal);
+			farmMoney.minusMoney(animal.getBuyPrice());
 		} else {
 			System.out.println("You have reached the maximum animal capacity for your farm. :)");
 		}
@@ -304,11 +314,8 @@ public class Farm {
 	 * @param item
 	 */
 	public void removeItem(item item) {
-		if (item instanceof Incubator) {
-		} else {
-			int index = itemList.indexOf(item);
+		int index = itemList.indexOf(item);
 		itemList.remove(index);
-		}
 	}
 	/**
 	 * Called at the end of everyday, 
@@ -316,10 +323,9 @@ public class Farm {
 	 */
 	public void addAnimalEarnings() {
 		for (Animals animal : animalList) {
-			double earnings = animal.getHealthiness() * animal.getHappinessLevel() * animal.getDailyEarnings();
-			farmMoney.addMoney(earnings);
+			farmMoney.addMoney(animal.getDailyEarnings());
 			System.out.println(animal.getClass());
-			System.out.println(String.format("Your %s earned $%s today", animal.getAnimalName(), earnings));
+			System.out.println(String.format("Your %s earned $%s today", animal.getAnimalName(), animal.getDailyEarnings()));
 		}
 	}
 	/**
@@ -328,6 +334,9 @@ public class Farm {
 	public void deductAnimalHealthiness() {
 		for (Animals animal: animalList) {
 			animal.setHealthiness(animal.getHealthiness()*.8);
+			double newEarnings = animal.getDailyEarnings()* animal.getHealthiness();
+			animal.setDailyEarnings(newEarnings);
+			
 		}
 	}
 	/**
@@ -336,6 +345,8 @@ public class Farm {
 	public void deductAnimalHappiness() {
 		for (Animals animal: animalList) {
 			animal.setHappinessLevel(animal.getHappinessLevel()*.9);
+			double newEarnings = animal.getDailyEarnings()* animal.getHappinessLevel();
+			animal.setDailyEarnings(newEarnings);
 		}
 	}
 	/**

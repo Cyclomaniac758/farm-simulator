@@ -111,11 +111,13 @@ public class Farmer {
 	}
 	
 	public void playWithAnimals() {
-		deductAction();
-		for (Animals animal: farm.getAnimalList()) {
-			double currentHappiness = animal.getHappinessLevel();
-			double newHappiness = currentHappiness * 1.1;
-			animal.setHappinessLevel(newHappiness);
+		if (farm.getAnimalList().size() > 0) {
+			deductAction();
+			for (Animals animal: farm.getAnimalList()) {
+				double currentHappiness = animal.getHappinessLevel();
+				double newHappiness = currentHappiness * 1.1;
+				animal.setHappinessLevel(newHappiness);
+			}
 		}
 	}
 	

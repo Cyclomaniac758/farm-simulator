@@ -19,7 +19,7 @@ public class Animals {
 	/**
 	 * The daily earnings of the animal
 	 */
-	private int dailyEarnings;
+	private double dailyEarnings;
 	/**
 	 * The happiness level of the animal
 	 */
@@ -47,7 +47,7 @@ public class Animals {
   	 * Sets the daily earnings of the animal
   	 * @param earnings
   	 */
-  	public void setDailyEarnings(int earnings) {
+  	public void setDailyEarnings(double earnings) {
   		dailyEarnings = earnings;
   	}
   	/**
@@ -85,7 +85,7 @@ public class Animals {
   	 * Gets the daily earnings of the animal
   	 * @return
   	 */
-  	public int getDailyEarnings() {
+  	public double getDailyEarnings() {
   		return dailyEarnings;
   	}
   	/**
