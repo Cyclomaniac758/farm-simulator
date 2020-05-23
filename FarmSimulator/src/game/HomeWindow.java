@@ -85,7 +85,9 @@ public class HomeWindow {
 		game.nextDay();
 		double moneyAfter = game.getFarm().getFarmMoney().getMoneyAmount();
 		double moneyGained = moneyAfter - moneyBefore;
-		JOptionPane.showMessageDialog(null, String.format("Day %s\nMoney earned overnight = %.2f", game.getCurrentDay(), moneyGained));
+		if (game.getCurrentDay() < game.getGameLenth()+1) {
+			JOptionPane.showMessageDialog(null, String.format("Day %s\nMoney earned overnight = %.2f", game.getCurrentDay(), moneyGained));
+		}
 		displayDay.setText(String.valueOf(game.getCurrentDay()));
 		refreshActions();
 		refreshMoney();
@@ -269,11 +271,13 @@ public class HomeWindow {
 		frame.getContentPane().add(displayFarmType);
 		
 		farmMoneyLabel = new JLabel("Money:");
+		farmMoneyLabel.setFont(new Font("STXinwei", Font.PLAIN, 15));
 		farmMoneyLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		farmMoneyLabel.setBounds(468, 25, 87, 14);
 		frame.getContentPane().add(farmMoneyLabel);
 		
 		displayFarmMoney = new JLabel(String.format("$%.2f",game.getFarm().getFarmMoney().getMoneyAmount()));
+		displayFarmMoney.setFont(new Font("STXinwei", Font.PLAIN, 15));
 		displayFarmMoney.setBounds(577, 25, 85, 14);
 		frame.getContentPane().add(displayFarmMoney);
 		

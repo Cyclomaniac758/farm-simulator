@@ -157,9 +157,9 @@ public class AnimalsWindow {
 				Food item = (Food) selectItem.getSelectedItem();
 				Animals animal = (Animals) selectAnimal.getSelectedItem();
 				if (animal instanceof Animals == false) {
-					JOptionPane.showMessageDialog(null, "No animal selected");
+					JOptionPane.showMessageDialog(null, "You have no animals\nVisit the store to buy animals");
 				} else if (item instanceof Food == false) {
-					JOptionPane.showMessageDialog(null, "No item selected");
+					JOptionPane.showMessageDialog(null, "You have no food items\nVisit the store to buy items");
 				} else if (animal.getHealthiness() >= 1) {
 					JOptionPane.showMessageDialog(null, "Animal healthiness is already full");
 				} else {
@@ -180,7 +180,7 @@ public class AnimalsWindow {
 			public void actionPerformed(ActionEvent e) {
 				boolean allHappy = checkAllHappy();
 				if (game.getFarm().getAnimalList().size() == 0) {
-					JOptionPane.showMessageDialog(null, "You own no animals");
+					JOptionPane.showMessageDialog(null, "You own no animals\nVisit the store to buy animals");
 				} else if (allHappy == true) {
 					JOptionPane.showMessageDialog(null, "All your animals are already happy");
 				} else {

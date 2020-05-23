@@ -94,6 +94,10 @@ public class GameGUI {
 		this.setCurrentDay(1);
 	}
 	
+	public int getGameLenth() {
+		return numDays;
+	}
+	
 	public void setGameLength() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("How many days should the game last? "
@@ -165,6 +169,7 @@ public class GameGUI {
 			farm.deductAnimalHappiness();
 			
 		} else {
+			currentDay += 1;
 			endGame();
 		}
 	}

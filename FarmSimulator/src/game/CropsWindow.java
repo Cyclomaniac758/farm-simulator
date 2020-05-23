@@ -132,11 +132,11 @@ public class CropsWindow {
 						if (crop.getGrowTime() == 0) {
 							JOptionPane.showMessageDialog(null, "Crop is already ready for harvest");
 						} else {
-							JOptionPane.showMessageDialog(null, "No item selected");
+							JOptionPane.showMessageDialog(null, "You have no items\nVisit the store to buy items");
 						}
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "No crop selected");
+					JOptionPane.showMessageDialog(null, "You have no crops\nVisit the store to buy crops");
 				}
 			}
 		});
@@ -182,7 +182,7 @@ public class CropsWindow {
 			public void actionPerformed(ActionEvent e) {
 				Crops crop = (Crops) selectCrop.getSelectedItem();
 				if (crop instanceof Crops == false) {
-					JOptionPane.showMessageDialog(null, "No crop selected");
+					JOptionPane.showMessageDialog(null, "You own no crops\nVisit the store to buy crops");
 				} else {
 					if (crop.getGrowTime() == 0) {
 					try {
