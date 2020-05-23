@@ -43,7 +43,7 @@ class StoreTest {
 		store.buyGrain(2);
 		assertEquals(2, farm.getItemList().size());
 		assertEquals(1460, farm.getFarmMoney().getMoneyAmount());
-		assertTrue(farm.getItemList().get(0) instanceof Water);
+		assertTrue(farm.getItemList().get(0) instanceof Grain);
 	}
 
 }
