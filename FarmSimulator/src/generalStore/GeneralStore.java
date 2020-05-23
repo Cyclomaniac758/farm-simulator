@@ -80,7 +80,8 @@ public class GeneralStore {
 	}
 	
 	/**
-	 * Buy water method
+	 * Buy water method, parameter num is the amount you would like to buy
+	 * @param num
 	 */
 	public void buyWater(int num) {
 		Water water = new Water();
@@ -96,7 +97,10 @@ public class GeneralStore {
 		}
 	}
 	
-	
+	/**
+	 * Buy Hoe method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyHoe(int num) {
 		Hoe hoe = new Hoe();
 		if (farm.getFarmMoney().getMoneyAmount() >= hoe.getItemPrice()*num) {
@@ -110,7 +114,10 @@ public class GeneralStore {
 		}
 	}
 	
-	
+	/**
+	 * Buy Fertilizer method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyFertilizer(int num) {
 		Fertilizer fert = new Fertilizer();
 		if (farm.getFarmMoney().getMoneyAmount() >= fert.getItemPrice()*num) {
@@ -123,7 +130,10 @@ public class GeneralStore {
 		}
 	}
 	
-	
+	/**
+	 * Buy Incubator method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyIncubator(int num) {
 		Incubator incubator = new Incubator();
 		if (farm.getFarmMoney().getMoneyAmount() >= incubator.getItemPrice()*num) {
@@ -135,7 +145,10 @@ public class GeneralStore {
 			throw new InsufficientFundsException("You can't afford this"); 
 		}
 	}
-	
+	/**
+	 * Buy WaterFood method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyWaterFood(int num) {
 		WaterFood water = new WaterFood();
 		if (farm.getFarmMoney().getMoneyAmount() >= water.getItemPrice()*num) {
@@ -148,7 +161,10 @@ public class GeneralStore {
 		}
 	}
 	
-	
+	/**
+	 * Buy Grain method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyGrain(int num) {
 		Grain grain = new Grain();
 		if (farm.getFarmMoney().getMoneyAmount() >= grain.getItemPrice()*num) {
@@ -160,7 +176,10 @@ public class GeneralStore {
 			throw new InsufficientFundsException("You can't afford this"); 
 		}
 	}
-	
+	/**
+	 * Buy Growth Hormone method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyGrowthHormone(int num) {
 		GrowthHormone growth_hormone = new GrowthHormone();
 		if (farm.getFarmMoney().getMoneyAmount() >= growth_hormone.getItemPrice()*num) {
@@ -172,7 +191,10 @@ public class GeneralStore {
 			throw new InsufficientFundsException("You can't afford this"); 
 		}
 	}
-	
+	/**
+	 * Buy carrots method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyCarrots(int num) {
 		Carrots carrot = new Carrots();
 		if (farm.getFarmMoney().getMoneyAmount() >= carrot.getBuyPrice()*num) {
@@ -191,7 +213,7 @@ public class GeneralStore {
 		
 	}
 	/**
-	 * Buy wheat
+	 * Buy wheat method, parameter num is the amount you would like to buy
 	 * @param num
 	 */
 	public void buyWheat(int num) {
@@ -211,7 +233,7 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy tomatoes
+	 * Buy tomatoes method, parameter num is the amount you would like to buy
 	 * @param num
 	 */
 	public void buyTomatoes(int num) {
@@ -231,7 +253,7 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy corn
+	 * Buy corn method, parameter num is the amount you would like to buy
 	 * @param num
 	 */
 	public void buyCorn(int num) {
@@ -251,7 +273,7 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy lemon tree
+	 * Buy lemon tree method, parameter num is the amount you would like to buy
 	 * @param num
 	 */
 	public void buyLemonTree(int num) {
@@ -270,7 +292,10 @@ public class GeneralStore {
 			throw new InsufficientFundsException("You can't afford this");
 		}
 	}
-	
+	/**
+	 * Buy apple tree method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyAppleTree(int num) {
 		AppleTree appleTree = new AppleTree();
 		if (farm.getFarmMoney().getMoneyAmount() >= appleTree.getBuyPrice()*num) {
@@ -288,7 +313,7 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy chickens
+	 * Buy chickens method, parameter num is the amount you would like to buy
 	 * @param num
 	 */
 	public void buyChicken(int num) {
@@ -308,7 +333,10 @@ public class GeneralStore {
 			throw new InsufficientFundsException("You can't afford this");
 		}
 	}
-	
+	/**
+	 * Buys pigs method, parameter num is the amount you would like to buy
+	 * @param num
+	 */
 	public void buyPig(int num) {
 		Pig pig = new Pig();
 		if (farm.getFarmMoney().getMoneyAmount() >= pig.getBuyPrice()*num) {
@@ -327,7 +355,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy cows
+	 * Buy cows method, parameter num is the amount you would like to buy
+	 * @param num
 	 */
 	public void buyCow(int num) {
 		Cow cow = new Cow();

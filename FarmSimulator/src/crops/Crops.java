@@ -97,7 +97,9 @@ public class Crops {
 	public int getTotalGrowTime() {
 		return totalGrowTime;
 	}
-	
+	/**
+	 * String representation of the crop
+	 */
 	public String toString() {
 		return String.format("%s", getCropName());
 	}

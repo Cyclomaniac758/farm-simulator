@@ -1,7 +1,7 @@
 package exceptions;
 
 /**
- * 
+ * When user does not have enough capacity this class is used to handle it
  * @author Icarus
  *
  */

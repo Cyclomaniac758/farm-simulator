@@ -102,7 +102,9 @@ public class Animals {
   	public double getHealthiness() {
   		return healthinessLevel;
   	}
-  	
+  	/**
+  	 * Provides a string representation of the animal
+  	 */
   	public String toString() {
   		return String.format("%s", getAnimalName());
   	}

@@ -86,7 +86,11 @@ public class Farmer {
 		numActions = 2;
 	}
 	
-	
+	/**
+	 * Use a crop tool item to reduce the grow time remaining of a crop to a minimum of 0, removes the item used
+	 * @param item
+	 * @param crop
+	 */
 	public void useCropTool(CropTools item, Crops crop) {
 		deductAction();
 		int currentTime = crop.getGrowTime();
@@ -98,7 +102,11 @@ public class Farmer {
 		farm.removeItem(item);
 	}
 	
-	
+	/**
+	 * Use a food item to increase the animal healthiness, removes the item used 
+	 * @param item
+	 * @param animal
+	 */
 	public void useFood(Food item, Animals animal) {
 		deductAction();
 		double currentHealthiness = animal.getHealthiness();
@@ -109,7 +117,9 @@ public class Farmer {
 		}
 		farm.removeItem(item);
 	}
-	
+	/**
+	 * Play with the animals to increase every animals happiness level, deducts an action
+	 */
 	public void playWithAnimals() {
 		if (farm.getAnimalList().size() > 0) {
 			deductAction();
@@ -120,12 +130,17 @@ public class Farmer {
 			}
 		}
 	}
-	
+	/**
+	 * Harvests a crop, deducts an action and remove the crop from the croplist of the farm
+	 * @param crop
+	 */
 	public void harvestCrop(Crops crop) {
 		deductAction();
 		farm.minusCrop(crop);
 	}
-	
+	/**
+	 * Tends the land to increase the max crop capacity by 1 and increase the every animal's happiness level
+	 */
 	public void tendLand() {
 		deductAction();
 		int currentCapacity = farm.getMaxCropCapacity();

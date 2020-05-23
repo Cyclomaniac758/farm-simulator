@@ -5,7 +5,7 @@ package items;
  * @author Icarus
  *
  */
-public abstract class item {
+public abstract class Item {
 	
 	/**
 	 * Name of item
@@ -52,15 +52,23 @@ public abstract class item {
 	public int getItemPrice() {
 		return price;
 	}
-	
+	/**
+	 * Sets the string when for when an item is used
+	 * @param use
+	 */
 	public void setItemUse(String use) {
 		itemUse = use;
 	}
-	
+	/**
+	 * Gets the string for when the item is used
+	 * @return
+	 */
 	public String getItemUse() {
 		return itemUse;
 	}
-	
+	/**
+	 * The string representation of the item
+	 */
 	public String toString() {
 		return String.format("%s", itemName);
 	}

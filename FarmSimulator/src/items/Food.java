@@ -1,6 +1,10 @@
 package items;
-
-public class Food extends item {
+/**
+ * Food parent class, extends from the Item class
+ * @author Icarus
+ *
+ */
+public class Food extends Item {
 	
 	/**
 	 * Float representing the proportional increase in healthiness associated with using the item

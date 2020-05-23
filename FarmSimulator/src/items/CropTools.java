@@ -1,6 +1,11 @@
 package items;
 
-public class CropTools extends item{
+/**
+ * Crop Tools parent class, extends from the item class
+ * @author Icarus
+ *
+ */
+public class CropTools extends Item{
 	
 	/**
 	 * Represents the decrease in number of days required to grow a crop after using the item
@@ -16,8 +21,8 @@ public class CropTools extends item{
 	}
 	
 	/**
-	 * Returns the items impact level
-	 * @return
+	 * Returns the items impact level on the crops growth time
+	 * @return the items impact level
 	 */
 	public int getImpact() {
 		return impact;

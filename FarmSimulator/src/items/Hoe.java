@@ -1,5 +1,9 @@
 package items;
-
+/**
+ * Class Hoe, sets the parameter values for the crop tool item
+ * @author Icarus
+ *
+ */
 public class Hoe extends CropTools {
 	/**
 	 * Set the parameters of the item Hoe
