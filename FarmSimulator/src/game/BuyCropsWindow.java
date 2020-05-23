@@ -27,6 +27,7 @@ public class BuyCropsWindow {
 	private JLabel displayGrowTime;
 	private JLabel displaySellPrice;
 	private JTextField numCrops;
+	private JLabel displayMoney;
 
 	/**
 	 * Create the application.
@@ -36,7 +37,12 @@ public class BuyCropsWindow {
 		this.game = game;
 		initialize();
 	}
-
+	/**
+	 * Refresh the displayed money value.
+	 */
+	public void refreshMoney() {
+		displayMoney.setText(String.format("$%.2f", game.getFarm().getFarmMoney().getMoneyAmount()));
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -72,6 +78,7 @@ public class BuyCropsWindow {
 						num = Integer.parseInt(numCrops.getText());
 						try {
 							game.buyCrops(crop, num);
+							refreshMoney();
 							JOptionPane.showMessageDialog(null,  "Bought " + num + " units of " + crop);
 						} catch (IllegalStateException exc) {
 							JOptionPane.showMessageDialog(null, exc.getMessage());
@@ -113,6 +120,10 @@ public class BuyCropsWindow {
 		numCrops = new JTextField();
 		numCrops.setColumns(10);
 		
+		displayMoney = new JLabel(String.format("$%.2f", game.getFarm().getFarmMoney().getMoneyAmount()));
+		
+		
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -122,14 +133,14 @@ public class BuyCropsWindow {
 							.addGap(164)
 							.addComponent(selectCrop, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
 										.addGroup(groupLayout.createSequentialGroup()
 											.addGap(148)
 											.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))
 										.addGroup(groupLayout.createSequentialGroup()
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+											.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
 												.addGroup(groupLayout.createSequentialGroup()
 													.addContainerGap()
 													.addComponent(cropSellPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -139,7 +150,7 @@ public class BuyCropsWindow {
 												.addGroup(groupLayout.createSequentialGroup()
 													.addGap(23)
 													.addComponent(cropPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
-												.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+												.addGroup(groupLayout.createSequentialGroup()
 													.addContainerGap()
 													.addComponent(numCrops, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)))
 											.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -148,20 +159,24 @@ public class BuyCropsWindow {
 												.addComponent(displayGrowTime, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
 												.addComponent(displayPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 									.addPreferredGap(ComponentPlacement.RELATED))
-								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+								.addGroup(groupLayout.createSequentialGroup()
 									.addContainerGap()
 									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addComponent(buyCrop, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
 									.addGap(43)))
-							.addComponent(exit)))
-					.addContainerGap(94, Short.MAX_VALUE))
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(exit)
+								.addComponent(displayMoney, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(64, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(30)
-					.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+						.addComponent(displayMoney))
 					.addGap(18)
 					.addComponent(selectCrop, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 					.addGap(27)

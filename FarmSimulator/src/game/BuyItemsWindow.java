@@ -28,7 +28,7 @@ public class BuyItemsWindow {
 	private JTextField numItems;
 	private JLabel displayPrice;
 	private JLabel displayEffect;
-
+	private JLabel displayMoney;
 
 	/**
 	 * Create the application.
@@ -38,14 +38,19 @@ public class BuyItemsWindow {
 		this.game = game;
 		initialize();
 	}
-
+	/**
+	 * Refresh the displayed money value.
+	 */
+	public void refreshMoney() {
+		displayMoney.setText(String.format("$%.2f", game.getFarm().getFarmMoney().getMoneyAmount()));
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
 		setFrame(frame);
-		frame.setBounds(100, 100, 600, 400);
+		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel titleLabel = new JLabel("Item Store");
@@ -74,6 +79,7 @@ public class BuyItemsWindow {
 						num = Integer.parseInt(numItems.getText());
 						try {
 							game.buyItems(item, num);
+							refreshMoney();
 							JOptionPane.showMessageDialog(null,  "Bought " + num + " units of " + item);
 						} catch (IllegalStateException exc) {
 							JOptionPane.showMessageDialog(null, exc.getMessage());
@@ -108,44 +114,45 @@ public class BuyItemsWindow {
 		JLabel lblNewLabel = new JLabel("Enter Quantity:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		
+		displayMoney = new JLabel(String.format("$%.2f", game.getFarm().getFarmMoney().getMoneyAmount()));
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addContainerGap()
-									.addComponent(itemEffect, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(23)
-									.addComponent(itemPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(displayEffect, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
-								.addComponent(displayPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(itemEffect, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)
+								.addComponent(itemPrice, GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(numItems, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
-							.addGap(59)
-							.addComponent(exit))
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(displayEffect, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+								.addComponent(displayPrice, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(numItems, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
+									.addGap(33)
+									.addComponent(exit))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(displayMoney, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(187)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
-								.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(160, Short.MAX_VALUE))
+							.addGap(161)
+							.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(58, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(30)
-					.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+						.addComponent(displayMoney))
 					.addGap(18)
 					.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 					.addGap(27)
@@ -154,15 +161,15 @@ public class BuyItemsWindow {
 						.addComponent(displayPrice))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(itemEffect)
-						.addComponent(displayEffect, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE))
-					.addGap(58)
+						.addComponent(displayEffect, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+						.addComponent(itemEffect))
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(buyAnimal)
-						.addComponent(exit)
+						.addComponent(lblNewLabel)
 						.addComponent(numItems, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel))
-					.addContainerGap(87, Short.MAX_VALUE))
+						.addComponent(buyAnimal)
+						.addComponent(exit))
+					.addContainerGap(52, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}

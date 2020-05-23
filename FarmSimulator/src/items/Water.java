@@ -1,6 +1,6 @@
 package items;
 
-public class Water extends cropTools{
+public class Water extends CropTools{
 	/**
 	 * Sets parameter values for item Water
 	 */

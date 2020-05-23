@@ -359,8 +359,8 @@ public class Game {
 					System.out.println("Choose your item to use");
 					farm.printItemList();
 					int num1 = scan.nextInt();
-					if (farm.getItemList().get(num1-1) instanceof cropTools) {
-						cropTools item = (cropTools) farm.getItemList().get(num1-1);
+					if (farm.getItemList().get(num1-1) instanceof CropTools) {
+						CropTools item = (CropTools) farm.getItemList().get(num1-1);
 						try {
 							farmer.useCropTool(item, crop);
 						} catch (NoMoreActionsException e) {
@@ -384,7 +384,7 @@ public class Game {
 		int index = farm.getItemList().size()-1;
 		boolean hasCropTool = false;
 		while (index>=0 && hasCropTool == false) {
-			if (farm.getItemList().get(index) instanceof cropTools) {
+			if (farm.getItemList().get(index) instanceof CropTools) {
 				hasCropTool = true;
 			} else {
 				index += -1;

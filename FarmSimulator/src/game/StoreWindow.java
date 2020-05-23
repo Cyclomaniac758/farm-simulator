@@ -33,7 +33,7 @@ public class StoreWindow {
 	
 	private GameGUI game;
 	private JFrame homeWindow;
-	
+	private JLabel displayMoney;
 	private JFrame frame;
 
 
@@ -41,9 +41,10 @@ public class StoreWindow {
 	 * Create the application.
 	 * @param game 
 	 */
-	public StoreWindow(GameGUI game, JFrame frame2) {
+	public StoreWindow(GameGUI game, JFrame frame2, JLabel displayMoney) {
 		this.game = game;
 		this.homeWindow = frame2;
+		this.displayMoney = displayMoney;
 		game.createStore();
 		initialize();
 	}
@@ -84,6 +85,7 @@ public class StoreWindow {
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				homeWindow.setVisible(true);
+				displayMoney.setText(String.format("$%.2f", game.getFarm().getFarmMoney().getMoneyAmount()));
 				frame.dispose();
 			}
 		});

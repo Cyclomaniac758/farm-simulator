@@ -1,6 +1,6 @@
 package items;
 
-public class Hoe extends cropTools {
+public class Hoe extends CropTools {
 	/**
 	 * Set the parameters of the item Hoe
 	 */

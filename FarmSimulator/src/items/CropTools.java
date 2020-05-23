@@ -1,6 +1,6 @@
 package items;
 
-public class cropTools extends item{
+public class CropTools extends item{
 	
 	/**
 	 * Represents the decrease in number of days required to grow a crop after using the item

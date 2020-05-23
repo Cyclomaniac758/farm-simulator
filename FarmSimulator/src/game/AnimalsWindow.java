@@ -220,7 +220,7 @@ public class AnimalsWindow {
 		happinessModifierLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JLabel displayHappinessModifier = new JLabel("Select Animal");
-		displayHappinessModifier.setText(String.valueOf(game.getFarm().getAnimalHappinessModifier()));
+		displayHappinessModifier.setText(String.format("%.2f", game.getFarm().getAnimalHappinessModifier()));
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(

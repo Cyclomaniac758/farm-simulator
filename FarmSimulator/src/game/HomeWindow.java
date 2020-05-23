@@ -50,6 +50,8 @@ public class HomeWindow {
 	private JLabel displayFarm;
 	private JLabel farmTypeLabel;
 	private JLabel displayFarmType;
+	private JLabel farmMoneyLabel;
+	private JLabel displayFarmMoney;
 
 
 	/**
@@ -63,9 +65,47 @@ public class HomeWindow {
 	public JFrame getFrame() {
 		return frame;
 	}
-	
-	public void updateActions() {
+	/**
+	 * Refresh the displayed number of actions remaining
+	 */
+	public void refreshActions() {
 		displayActions.setText(String.valueOf(game.getFarm().getFarmer().getNumActions()));
+	}
+	/**
+	 * Refresh the displayed money value
+	 */
+	public void refreshMoney() {
+		displayFarmMoney.setText(String.format("$%.2f", game.getFarm().getFarmMoney().getMoneyAmount()));
+	}
+	/**
+	 * Proceed to the next day
+	 */
+	public void proceedDay() {
+		double moneyBefore = game.getFarm().getFarmMoney().getMoneyAmount();
+		game.nextDay();
+		double moneyAfter = game.getFarm().getFarmMoney().getMoneyAmount();
+		double moneyGained = moneyAfter - moneyBefore;
+		JOptionPane.showMessageDialog(null, String.format("Day %s\nMoney earned overnight = %.2f", game.getCurrentDay(), moneyGained));
+		displayDay.setText(String.valueOf(game.getCurrentDay()));
+		refreshActions();
+		refreshMoney();
+	}
+	/**
+	 * Try to tend farm land
+	 * If farmer has no actions remaining, display error message
+	 */
+	public void tendLand() {
+		try {
+			Farm farm = game.getFarm();
+			game.tendLand();
+			String text = "Farm crop capacity increased to " + farm.getMaxCropCapacity() + "\n" + 
+			"Your animals are now 1.2 times happier"
+					+ "\nActions left: " + game.getFarm().getFarmer().getNumActions();
+			JOptionPane.showMessageDialog(null, text);
+			refreshActions();
+		} catch (NoMoreActionsException ex) {
+			JOptionPane.showMessageDialog(null, ex.getMessage());
+		}
 	}
 
 	/**
@@ -128,9 +168,7 @@ public class HomeWindow {
 		proceedDayButton.setToolTipText("Proceed to the next day");
 		proceedDayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.nextDay();
-				displayDay.setText(String.valueOf(game.getCurrentDay()));
-				updateActions();
+				proceedDay();
 			}
 		});
 		proceedDayButton.setBounds(10, 64, 121, 42);
@@ -140,18 +178,7 @@ public class HomeWindow {
 		tendLandButton.setToolTipText("Tend the land to increase animal happiness and increase crop capacity");
 		tendLandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					Farm farm = game.getFarm();
-					game.tendLand();
-					String text = "Farm crop capacity increased to " + farm.getMaxCropCapacity() + "\n" + 
-					"Your animals are now 1.2 times happier"
-							+ "\nActions left: " + game.getFarm().getFarmer().getNumActions();
-					JOptionPane.showMessageDialog(null, text);
-					updateActions();
-				} catch (NoMoreActionsException ex) {
-					JOptionPane.showMessageDialog(null, ex.getMessage());
-				}
-				 
+				 tendLand();
 			}
 		});
 		tendLandButton.setBounds(10, 117, 121, 42);
@@ -163,7 +190,7 @@ public class HomeWindow {
 		visitStoreButton.setToolTipText("Visit the store");
 		visitStoreButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StoreWindow window = new StoreWindow(game, frame);
+				StoreWindow window = new StoreWindow(game, frame, displayFarmMoney);
 				window.getFrame().setVisible(true);
 				frame.setVisible(false);
 			}
@@ -241,31 +268,18 @@ public class HomeWindow {
 		displayFarmType.setText(String.valueOf(game.getFarm().getFarmType()));
 		frame.getContentPane().add(displayFarmType);
 		
+		farmMoneyLabel = new JLabel("Money:");
+		farmMoneyLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		farmMoneyLabel.setBounds(468, 25, 87, 14);
+		frame.getContentPane().add(farmMoneyLabel);
+		
+		displayFarmMoney = new JLabel(String.format("$%.2f",game.getFarm().getFarmMoney().getMoneyAmount()));
+		displayFarmMoney.setBounds(577, 25, 85, 14);
+		frame.getContentPane().add(displayFarmMoney);
 		
 		backgroundPic = new JLabel("New label");
 		backgroundPic.setIcon(new ImageIcon(HomeWindow.class.getResource("/img/g3.png")));
 		backgroundPic.setBounds(0, 0, 986, 629);
 		frame.getContentPane().add(backgroundPic);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }

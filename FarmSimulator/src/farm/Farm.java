@@ -140,11 +140,11 @@ public class Farm {
      * Returns the items in itemList of type cropTools
      * @return ArrayList<cropTools>
      */
-    public ArrayList<cropTools> getCropToolList(){
-    	ArrayList<cropTools> cropToolList = new ArrayList<cropTools>();
+    public ArrayList<CropTools> getCropToolList(){
+    	ArrayList<CropTools> cropToolList = new ArrayList<CropTools>();
     	for (item item: itemList) {
-    		if (item instanceof cropTools) {
-    			cropToolList.add((cropTools) item);
+    		if (item instanceof CropTools) {
+    			cropToolList.add((CropTools) item);
     		}
     	}
     	return cropToolList;
@@ -409,7 +409,7 @@ public class Farm {
 	 * String representation of the farm
 	 */
 	public String toString() {
-		return String.format("<html>Farm: %s<br>Congradulations %s<br>Money Count: %s<html>", getFarmName(), getFarmer().getName(), getFarmMoney());
+		return String.format("<html>Farm: %s<br>Congradulations %s<br>Money Count: %.2f<html>", getFarmName(), getFarmer().getName(), getFarmMoney().getMoneyAmount());
 	}
 	
 }

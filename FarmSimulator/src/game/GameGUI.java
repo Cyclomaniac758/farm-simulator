@@ -248,7 +248,7 @@ public class GameGUI {
 	/**
 	 * Use crop tool to tend crop
 	 */
-	public void tendCrops(cropTools item, Crops crop) {
+	public void tendCrops(CropTools item, Crops crop) {
 		farmer.useCropTool(item, crop);
 	}
 	

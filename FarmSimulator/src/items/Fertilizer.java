@@ -1,6 +1,6 @@
 package items;
 
-public class Fertilizer extends cropTools {
+public class Fertilizer extends CropTools {
 	/**
 	 * set the parameter values of the item Fertilizer
 	 */

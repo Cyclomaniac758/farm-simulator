@@ -30,6 +30,7 @@ public class BuyAnimalsWindow {
 	private JTextField numAnimals;
 	private JLabel displayPrice;
 	private JLabel displayBonus;
+	private JLabel displayMoney;
 
 	/**
 	 * Create the application.
@@ -38,6 +39,12 @@ public class BuyAnimalsWindow {
 	public BuyAnimalsWindow(GameGUI game) {
 		this.game = game;
 		initialize();
+	}
+	/**
+	 * Refresh the displayed money value.
+	 */
+	public void refreshMoney() {
+		displayMoney.setText(String.format("$%.2f", game.getFarm().getFarmMoney().getMoneyAmount()));
 	}
 
 	/**
@@ -74,6 +81,7 @@ public class BuyAnimalsWindow {
 						num = Integer.parseInt(numAnimals.getText());
 						try {
 							game.buyAnimals(animal, num);
+							refreshMoney();
 							if (num == 1) {
 								JOptionPane.showMessageDialog(null,  "Bought " + num + " " + animal);
 							} else {
@@ -113,6 +121,9 @@ public class BuyAnimalsWindow {
 		JLabel quantityPrompt = new JLabel("Enter Quantity:");
 		quantityPrompt.setHorizontalAlignment(SwingConstants.RIGHT);
 		
+		displayMoney = new JLabel("New label");
+		displayMoney.setText(String.format("$%.2f", game.getFarm().getFarmMoney().getMoneyAmount()));
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -127,26 +138,31 @@ public class BuyAnimalsWindow {
 							.addComponent(buyAnimal, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
 							.addGap(60)
 							.addComponent(exit))
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-							.addGroup(groupLayout.createSequentialGroup()
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-									.addComponent(animalPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-									.addComponent(animalBonus, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-									.addComponent(displayBonus, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-									.addComponent(displayPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(selectAnimal, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
-							.addGroup(groupLayout.createSequentialGroup()
-								.addGap(148)
-								.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(123, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+										.addComponent(animalPrice, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+										.addComponent(animalBonus, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE))
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(displayBonus, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+										.addComponent(displayPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(selectAnimal, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(148)
+									.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(displayMoney, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(44, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(30)
-					.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+						.addComponent(displayMoney))
 					.addGap(18)
 					.addComponent(selectAnimal, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 					.addGap(27)

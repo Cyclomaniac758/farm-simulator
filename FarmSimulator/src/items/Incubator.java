@@ -5,7 +5,7 @@ package items;
  * @author Icarus
  *
  */
-public class Incubator extends cropTools {
+public class Incubator extends CropTools {
 	/**
 	 * Initialize the object parameters
 	 */

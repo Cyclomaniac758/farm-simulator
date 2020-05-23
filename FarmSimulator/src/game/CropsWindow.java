@@ -87,7 +87,7 @@ public class CropsWindow {
 	public void refreshItems() {
 		selectItem.removeAllItems();
 		for (item item: game.getFarm().getItemList()) {
-			if (item instanceof cropTools) {
+			if (item instanceof CropTools) {
 				selectItem.addItem(item);
 			}
 		}
@@ -116,7 +116,7 @@ public class CropsWindow {
 		JButton tendCropButton = new JButton("Tend Crop");
 		tendCropButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cropTools item = (cropTools) selectItem.getSelectedItem();
+				CropTools item = (CropTools) selectItem.getSelectedItem();
 				Crops crop = (Crops) selectCrop.getSelectedItem();
 				if (crop instanceof Crops) {
 					if (item instanceof item && crop.getGrowTime() != 0) {

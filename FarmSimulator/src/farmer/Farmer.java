@@ -87,7 +87,7 @@ public class Farmer {
 	}
 	
 	
-	public void useCropTool(cropTools item, Crops crop) {
+	public void useCropTool(CropTools item, Crops crop) {
 		deductAction();
 		int currentTime = crop.getGrowTime();
 		int newTime = currentTime - item.getImpact();
