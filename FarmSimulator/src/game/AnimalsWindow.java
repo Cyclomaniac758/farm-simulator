@@ -50,11 +50,11 @@ public class AnimalsWindow {
 	public void changeAnimal(Animals animal) {
 		try {
 			double num = animal.getHappinessLevel() * game.getFarm().getAnimalHappinessModifier();
-			double num2 = animal.getHealthiness() * game.getFarm().getAnimallHealthinessModifier();
+			double num2 = animal.getHealthiness() * game.getFarm().getAnimalHealthinessModifier();
 			if (num > game.getFarm().getAnimalHappinessModifier()) {
 				num = game.getFarm().getAnimalHappinessModifier();
-			} else if (num2 > game.getFarm().getAnimallHealthinessModifier()) {
-				num2 = game.getFarm().getAnimallHealthinessModifier();
+			} else if (num2 > game.getFarm().getAnimalHealthinessModifier()) {
+				num2 = game.getFarm().getAnimalHealthinessModifier();
 			}
 			displayHappiness.setText(String.format("%.2f", num));
 			displayHealthiness.setText(String.format("%.2f", num2));
@@ -214,7 +214,7 @@ public class AnimalsWindow {
 		healthinessModifierLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JLabel displayHealthinessModifier = new JLabel("Select Animal");
-		displayHealthinessModifier.setText(String.valueOf(game.getFarm().getAnimallHealthinessModifier()));
+		displayHealthinessModifier.setText(String.valueOf(game.getFarm().getAnimalHealthinessModifier()));
 		
 		JLabel happinessModifierLabel = new JLabel("Farm happiness modifier:");
 		happinessModifierLabel.setHorizontalAlignment(SwingConstants.RIGHT);

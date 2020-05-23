@@ -105,7 +105,7 @@ public class Farm {
      * Gets the animal healthiness modifier level
      * @return the healthiness modifier for the animal
      */
-    public double getAnimallHealthinessModifier() {
+    public double getAnimalHealthinessModifier() {
     	return animalHealthinessModifier;
     }
     /**
