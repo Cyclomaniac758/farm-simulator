@@ -145,10 +145,10 @@ public class Farmer {
 		deductAction();
 		int currentCapacity = farm.getMaxCropCapacity();
 		farm.setMaxCropCapacity(currentCapacity + 1);
-		double currentHappiness = farm.getAnimalHappinessModifier();
-		farm.setAnimalHappinessModifier(currentHappiness*1.2);
-		if (farm.getAnimalHappinessModifier() >= 1) {
-			farm.setAnimalHappinessModifier(1);
+		for (Animals animal: farm.getAnimalList()) {
+			double currentHappiness = animal.getHappinessLevel();
+			double newHappiness = currentHappiness * 1.2;
+			animal.setHappinessLevel(newHappiness);
 		}
 	}
 	
