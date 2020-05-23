@@ -182,7 +182,6 @@ public class GeneralStore {
 					Carrots carrot1 = new Carrots();
 					farm.addCrop(carrot1);
 				}
-				System.out.println("Bought " + num + " carrots for $" + num*carrot.getBuyPrice());
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
 			}
@@ -204,7 +203,6 @@ public class GeneralStore {
 					Wheat wheat1 = new Wheat();
 					farm.addCrop(wheat1);
 				}
-				System.out.println("Bought " + num + " wheat for $" + num*wheat.getBuyPrice());
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
 			}
@@ -225,7 +223,6 @@ public class GeneralStore {
 					Tomatoes tomatoe1 = new Tomatoes();
 					farm.addCrop(tomatoe1);
 				}
-				System.out.println("Bought " + num + " tomatoes for $" + num*tomatoe.getBuyPrice());
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
 			}
@@ -246,7 +243,6 @@ public class GeneralStore {
 					Corn corn1 = new Corn();
 					farm.addCrop(corn1);
 				}
-				System.out.println("Bought " + num + " corn for $" + num*corn.getBuyPrice());
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
 			}
@@ -267,7 +263,6 @@ public class GeneralStore {
 					LemonTree lemonTree1 = new LemonTree();
 					farm.addCrop(lemonTree1);
 				}
-				System.out.println("Bought " + num + " lemon trees for $" + num*lemonTree.getBuyPrice());
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
 			}
@@ -285,7 +280,6 @@ public class GeneralStore {
 					AppleTree appleTree1 = new AppleTree();
 					farm.addCrop(appleTree1);
 				}
-				System.out.println("Bought " + num + " apple trees for $" + num*appleTree.getBuyPrice());
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
 			}
@@ -306,7 +300,6 @@ public class GeneralStore {
 					Chicken chicken1 = new Chicken();
 					farm.addAnimal(chicken1);
 				}
-				System.out.println("Bought " + num + " chickens for $" + num*chicken.getBuyPrice());
 				
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
@@ -325,7 +318,6 @@ public class GeneralStore {
 					Pig pig1 = new Pig();
 					farm.addAnimal(pig1);
 				}
-				System.out.println("Bought " + num + " pigs for $" + num*pig.getBuyPrice());
 				
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
@@ -346,7 +338,6 @@ public class GeneralStore {
 				Cow cow1 = new Cow();
 				farm.addAnimal(cow1);
 				}
-				System.out.println("Bought " + num + " cows for $" + num*cow.getBuyPrice());
 			} else {
 				throw new InsufficientCapacityException("Not enough capacity");
 			}
