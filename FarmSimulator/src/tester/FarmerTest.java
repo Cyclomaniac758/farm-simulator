@@ -92,7 +92,7 @@ class FarmerTest {
 		testFarmer.tendLand();
 		
 		assertEquals(31, testCropFarm.getMaxCropCapacity());
-		assertEquals(1.44, testCropFarm.getAnimalHappinessModifier());
+		assertEquals(.9, testCropFarm.getDeductHappinessRate());
 	}
 	
 	@Test

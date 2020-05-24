@@ -23,6 +23,11 @@ import java.awt.event.ActionEvent;
 
 import farmer.*;
 
+/**
+ * First start window GUI
+ * @author Icarus
+ *
+ */
 public class StartWindow1 {
 
 	public JFrame frame;

@@ -13,6 +13,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
 
+/**
+ * Rules GUI
+ * @author Icarus
+ *
+ */
 public class RulesWindow {
 
 	private JFrame frame;

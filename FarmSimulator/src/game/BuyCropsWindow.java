@@ -19,6 +19,11 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import crops.*;
 import javax.swing.JTextField;
 
+/**
+ * Buy crops GUI
+ * @author Icarus
+ *
+ */
 public class BuyCropsWindow {
 
 	private JFrame frame;

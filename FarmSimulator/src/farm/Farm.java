@@ -297,11 +297,9 @@ public class Farm {
 	 * @param crop
 	 */
 	public void addCrop(Crops crop) {
-		if (cropList.size() < maxCropCapacity) {
-			crop.setGrowTime(cropGrowingSpeedModifier + crop.getGrowTime());
-			cropList.add(crop);
-			farmMoney.minusMoney(crop.getBuyPrice());
-		}
+		crop.setGrowTime(cropGrowingSpeedModifier + crop.getGrowTime());
+		cropList.add(crop);
+		farmMoney.minusMoney(crop.getBuyPrice());
 	}
 	/**
 	 * Called when a crop is sold, removes sold crop to the farms cropList
@@ -310,17 +308,14 @@ public class Farm {
 	public void minusCrop(Crops crop) {
 		cropList.remove(crop);
 		farmMoney.addMoney(crop.getSellPrice());
-		System.out.println(String.format("Sold %s for $%s", crop.getCropName(), crop.getSellPrice()));
 	}
 	/**
 	 * Called when a animal is bought, adds new animal to the farms animalList
 	 * @param animal
 	 */
 	public void addAnimal(Animals animal) {
-		if (animalList.size() < maxAnimalCapacity) {
-			animalList.add(animal);
-			farmMoney.minusMoney(animal.getBuyPrice());
-		}
+		animalList.add(animal);
+		farmMoney.minusMoney(animal.getBuyPrice());
 	}
 	/**
 	 * Add item to itemList
@@ -349,8 +344,6 @@ public class Farm {
 		for (Animals animal : animalList) {
 			double earnings = animal.getHealthiness() * animal.getHappinessLevel() * animal.getDailyEarnings() * getAnimalHappinessModifier() * getAnimalHealthinessModifier();
 			farmMoney.addMoney(earnings);
-			System.out.println(animal.getClass());
-			System.out.println(String.format("Your %s earned $%s today", animal.getAnimalName(), earnings));
 		}
 	}
 	/**
@@ -380,7 +373,6 @@ public class Farm {
 			}
 		}
 	}
-	
 	/**
 	 * Prints out the crops currently on the farm
 	 */

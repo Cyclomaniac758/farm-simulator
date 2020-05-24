@@ -11,6 +11,7 @@ import generalStore.*;
 import crops.*;
 import animals.*;
 import items.*;
+import exceptions.*;
 
 class StoreTest {
 	private GeneralStore store;
@@ -45,5 +46,4 @@ class StoreTest {
 		assertEquals(1460, farm.getFarmMoney().getMoneyAmount());
 		assertTrue(farm.getItemList().get(0) instanceof Grain);
 	}
-
 }

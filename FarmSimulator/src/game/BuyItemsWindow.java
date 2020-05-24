@@ -20,6 +20,11 @@ import javax.swing.JTextField;
 
 import items.*;
 
+/**
+ * Buy items GUI
+ * @author Icarus
+ *
+ */
 public class BuyItemsWindow {
 	
 	private GameGUI game;

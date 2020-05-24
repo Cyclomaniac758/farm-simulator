@@ -26,25 +26,6 @@ public class GeneralStore {
 	public GeneralStore(Farm userFarm) {
 		farm = userFarm;
 	}
-	
-	/**
-	 * Return string representation of the available crops
-	 * @return String Table of crop variables
-	 */
-	public String viewCrops() {
-		AppleTree apple = new AppleTree();
-		Carrots carrot = new Carrots();
-		Corn corn = new Corn();
-		LemonTree lemon = new LemonTree();
-		Tomatoes tomatoe = new Tomatoes();
-		Wheat wheat = new Wheat();
-		return String.format("%13s%10s%10s%10s\n1. %s\n2. %s\n3. %s\n4. %s\n5. %s\n6. %s\n", 
-				"Crop", "Buy", "Sell", "Time", carrot.toString(),
-				wheat.toString(), tomatoe.toString(), corn.toString(), 
-				lemon.toString(), apple.toString());
-		
-	}
-	
 	/**
 	 * Method returning a string representation of the animal attributes
 	 * @return String Table of animal values
@@ -90,8 +71,6 @@ public class GeneralStore {
 				Water water1 = new Water();
 				farm.addItem(water1);
 			}
-			
-			// add to inventory
 		} else {
 			throw new InsufficientFundsException("You can't afford this"); 
 		}
@@ -108,7 +87,6 @@ public class GeneralStore {
 				Hoe hoe1 = new Hoe();
 				farm.addItem(hoe1);
 			}
-			// add to inventory
 		} else {
 			throw new InsufficientFundsException("You can't afford this"); 
 		}

@@ -17,7 +17,11 @@ import java.awt.event.ActionEvent;
 import farm.*;
 import farmer.*;
 
-
+/**
+ * 2nd start window GUI
+ * @author Icarus
+ *
+ */
 public class StartWindow2 {
 
 	private JFrame frame;
@@ -47,7 +51,9 @@ public class StartWindow2 {
 		farmTypeChosen = false;
 		initialize();
 	}
-
+	/**
+	 *Start the main game
+	 */
 	public void startGame() {
 		game = new GameGUI();
 		game.setFarm(farm);

@@ -42,7 +42,6 @@ public class Farmer {
 		age = userAge;
 		farm = userFarm;
 	}
-	
 	/**
 	 * Sets the name of the farmer
 	 * @param name
@@ -50,8 +49,6 @@ public class Farmer {
 	public void setName(String userName) {
 		name = userName;
 	}
-	
-	
 	/**
 	 * Returns farmer name
 	 * @return name
@@ -59,7 +56,6 @@ public class Farmer {
 	public String getName() {
 		return name;
 	}
-
 	/**
 	 * returns the number of actions remaining for the day
 	 * @return numActions
@@ -67,7 +63,6 @@ public class Farmer {
 	public int getNumActions() {
 		return numActions;
 	}
-	
 	/**
 	 * Reduce the number of actions remaining by one
 	 */
@@ -78,14 +73,12 @@ public class Farmer {
 		numActions += -1;
 		}
 	}
-	
 	/**
 	 * Starting a new day, restore the number of actions remaining
 	 */
 	public void restoreActions() {
 		numActions = 2;
 	}
-	
 	/**
 	 * Use a crop tool item to reduce the grow time remaining of a crop to a minimum of 0, removes the item used
 	 * @param item
@@ -101,7 +94,6 @@ public class Farmer {
 		}
 		farm.removeItem(item);
 	}
-	
 	/**
 	 * Use a food item to increase the animal healthiness, removes the item used 
 	 * @param item
@@ -131,7 +123,7 @@ public class Farmer {
 		}
 	}
 	/**
-	 * Harvests a crop, deducts an action and remove the crop from the croplist of the farm
+	 * Harvests a crop, deducts an action and remove the crop from the farms cropList
 	 * @param crop
 	 */
 	public void harvestCrop(Crops crop) {
@@ -139,7 +131,7 @@ public class Farmer {
 		farm.minusCrop(crop);
 	}
 	/**
-	 * Tends the land to increase the max crop capacity by 1 and increase the every animal's happiness level
+	 * Tends the land to increase the max crop capacity by 1 and decrease the amount that animal happiness changes daily
 	 */
 	public void tendLand() {
 		deductAction();

@@ -22,6 +22,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
+/**
+ * Buy animals GUI
+ * @author Icarus
+ *
+ */
 public class BuyAnimalsWindow {
 	
 	private GameGUI game;

@@ -23,6 +23,11 @@ import animals.*;
 import exceptions.NoMoreActionsException;
 import items.*;
 
+/**
+ * Animals GUI
+ * @author Icarus
+ *
+ */
 public class AnimalsWindow {
 
 	private JFrame frame;

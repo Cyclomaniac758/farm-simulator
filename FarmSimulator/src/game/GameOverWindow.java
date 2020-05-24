@@ -20,6 +20,11 @@ import java.awt.event.ActionEvent;
 
 import farm.*;
 
+/**
+ * Game over GUI
+ * @author Icarus
+ *
+ */
 public class GameOverWindow {
 
 	private JFrame frame;

@@ -28,7 +28,10 @@ public class Money {
 	public void setMoneyAmount(int amount) {
 		moneyAmount = amount;
 	}
-	
+	/**
+	 * Get the amount of money the farm started with
+	 * @return
+	 */
 	public double getStartingMoney() {
 		return startingMoney;
 	}
