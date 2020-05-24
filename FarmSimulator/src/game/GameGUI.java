@@ -6,11 +6,6 @@ import generalStore.*;
 import items.*;
 import crops.*;
 import music.*;
-
-import java.util.Scanner;
-
-import javax.swing.JFrame;
-
 import animals.*;
 
 /**
@@ -293,7 +288,7 @@ public class GameGUI {
 	 */
 	public void playMusic() {
 		musicPlayer = new MusicPlayer();
-		musicPlayer.playMusic("MaryJaneLoop.wav");
+		musicPlayer.playMusic("C:\\Users\\rta11\\git\\farm-simulator\\FarmSimulator\\src\\img\\MaryJaneLoop.wav");
 	}
 	/**
 	 * Launches first start up window

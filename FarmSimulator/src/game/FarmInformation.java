@@ -17,21 +17,25 @@ import javax.swing.JTextPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * Farm Information GUI
+ * @author Icarus
+ *
+ */
 public class FarmInformation {
 
 	public JFrame frame;
-	
+	//JPanels
 	private JPanel familyPanel;
 	private JPanel commercialPanel;
 	private JPanel livestockPanel;
 	private JPanel cropPanel;
-	
+	//JLabels
 	private JLabel familyLabel;
 	private JLabel commercialLabel;
 	private JLabel livestockLabel;
 	private JLabel cropLabel;
-	
+	//JTextAreas
 	private JTextArea txtrTheCommercialFarm;
 	private JTextArea txtrTheFamilyFarm;
 	private JTextArea txtrTheLivestockFarm;
@@ -44,7 +48,6 @@ public class FarmInformation {
 	public FarmInformation() {
 		initialize();
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -97,7 +100,7 @@ public class FarmInformation {
 		commercialPanel.add(txtrTheCommercialFarm);
 		
 		
-		JPanel livestockPanel = new JPanel();
+		livestockPanel = new JPanel();
 		tabbedPane.addTab("Livestock", null, livestockPanel, null);
 		livestockPanel.setLayout(null);
 		
@@ -117,7 +120,7 @@ public class FarmInformation {
 		livestockPanel.add(txtrTheLivestockFarm);
 		
 		
-		JPanel cropPanel = new JPanel();
+		cropPanel = new JPanel();
 		tabbedPane.addTab("Crop", null, cropPanel, null);
 		cropPanel.setLayout(null);
 		

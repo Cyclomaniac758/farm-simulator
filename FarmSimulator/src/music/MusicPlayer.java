@@ -24,9 +24,11 @@ public class MusicPlayer {
 	 * Reference to the clip interface to get functionality to be able to play the music
 	 */
 	private Clip clip;
-	
+	/**
+	 * Start the music loop
+	 * @param musicLocation Path to music file
+	 */
 	public void playMusic(String musicLocation) {
-		
 		try {
 			musicPath = new File(musicLocation);
 		 
@@ -36,7 +38,6 @@ public class MusicPlayer {
 				clip.open(audioInput);
 				clip.start();
 				clip.loop(Clip.LOOP_CONTINUOUSLY);
-				
 			}
 			else {
 				System.out.println("Can't find file");
@@ -46,5 +47,4 @@ public class MusicPlayer {
 			ex.printStackTrace();
 		}
 	}
-
 }
