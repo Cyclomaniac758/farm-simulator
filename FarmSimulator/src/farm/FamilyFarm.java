@@ -26,7 +26,7 @@ public class FamilyFarm extends Farm {
 		setCropList(new ArrayList<Crops>());
 		setAnimalList(new ArrayList<Animals>());
 		setItemList(new ArrayList<Item>());
-    	setMaxCropCapacity(18);
+    	setMaxCropCapacity(2);
     	setMaxAnimalCapacity(6);
     	setDeductHappinessRate(.8);
     	setDeductHealthinessRate(.8);

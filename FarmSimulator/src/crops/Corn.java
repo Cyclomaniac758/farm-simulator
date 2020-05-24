@@ -11,8 +11,8 @@ public class Corn extends Crops {
    */
   public Corn(){
     setCropName("Corn");
-    setBuyPrice(50);
-    setSellPrice(80);
+    setBuyPrice(175);
+    setSellPrice(425);
     setTotalGrowTime(2);
   }
 }

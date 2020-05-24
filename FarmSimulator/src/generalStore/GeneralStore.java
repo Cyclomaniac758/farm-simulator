@@ -178,7 +178,7 @@ public class GeneralStore {
 		Carrots carrot = new Carrots();
 		if (farm.getFarmMoney().getMoneyAmount() >= carrot.getBuyPrice()*num) {
 			int capacity = farm.getCropList().size() + num;
-			if (capacity < farm.getMaxCropCapacity()) {
+			if (capacity <= farm.getMaxCropCapacity()) {
 				for (int i=0; i < num; i++) {
 					Carrots carrot1 = new Carrots();
 					farm.addCrop(carrot1);
@@ -199,7 +199,7 @@ public class GeneralStore {
 		Wheat wheat = new Wheat();
 		if (farm.getFarmMoney().getMoneyAmount() >= wheat.getBuyPrice()*num) {
 			int capacity = farm.getCropList().size() + num;
-			if (capacity < farm.getMaxCropCapacity()) {
+			if (capacity <= farm.getMaxCropCapacity()) {
 				for (int i=0; i < num; i++) {
 					Wheat wheat1 = new Wheat();
 					farm.addCrop(wheat1);
@@ -219,7 +219,7 @@ public class GeneralStore {
 		Tomatoes tomatoe = new Tomatoes();
 		if (farm.getFarmMoney().getMoneyAmount() >= tomatoe.getBuyPrice()*num) {
 			int capacity = farm.getCropList().size() + num;
-			if (capacity < farm.getMaxCropCapacity()) {
+			if (capacity <= farm.getMaxCropCapacity()) {
 				for (int i=0; i < num; i++) {
 					Tomatoes tomatoe1 = new Tomatoes();
 					farm.addCrop(tomatoe1);
@@ -239,7 +239,7 @@ public class GeneralStore {
 		Corn corn = new Corn();
 		if (farm.getFarmMoney().getMoneyAmount() >= corn.getBuyPrice()*num) {
 			int capacity = farm.getCropList().size() + num;
-			if (capacity < farm.getMaxCropCapacity()) {
+			if (capacity <= farm.getMaxCropCapacity()) {
 				for (int i=0; i < num; i++) {
 					Corn corn1 = new Corn();
 					farm.addCrop(corn1);
@@ -259,7 +259,7 @@ public class GeneralStore {
 		LemonTree lemonTree = new LemonTree();
 		if (farm.getFarmMoney().getMoneyAmount() >= lemonTree.getBuyPrice()*num) {
 			int capacity = farm.getCropList().size() + num;
-			if (capacity < farm.getMaxCropCapacity()) {
+			if (capacity <= farm.getMaxCropCapacity()) {
 				for (int i=0; i < num; i++) {
 					LemonTree lemonTree1 = new LemonTree();
 					farm.addCrop(lemonTree1);
@@ -279,7 +279,7 @@ public class GeneralStore {
 		AppleTree appleTree = new AppleTree();
 		if (farm.getFarmMoney().getMoneyAmount() >= appleTree.getBuyPrice()*num) {
 			int capacity = farm.getCropList().size() + num;
-			if (capacity < farm.getMaxCropCapacity()) {
+			if (capacity <= farm.getMaxCropCapacity()) {
 				for (int i=0; i < num; i++) {
 					AppleTree appleTree1 = new AppleTree();
 					farm.addCrop(appleTree1);
@@ -299,7 +299,7 @@ public class GeneralStore {
 		Chicken chicken = new Chicken();
 		if (farm.getFarmMoney().getMoneyAmount() >= chicken.getBuyPrice()*num) {
 			int capacity = farm.getAnimalList().size() + num;
-			if (capacity < farm.getMaxAnimalCapacity()) {
+			if (capacity <= farm.getMaxAnimalCapacity()) {
 				for (int i=0; i < num; i++) {
 					Chicken chicken1 = new Chicken();
 					farm.addAnimal(chicken1);
@@ -320,7 +320,7 @@ public class GeneralStore {
 		Pig pig = new Pig();
 		if (farm.getFarmMoney().getMoneyAmount() >= pig.getBuyPrice()*num) {
 			int capacity = farm.getAnimalList().size() + num;
-			if (capacity < farm.getMaxAnimalCapacity()) {
+			if (capacity <= farm.getMaxAnimalCapacity()) {
 				for (int i=0; i < num; i++) {
 					Pig pig1 = new Pig();
 					farm.addAnimal(pig1);
@@ -341,7 +341,7 @@ public class GeneralStore {
 		Cow cow = new Cow();
 		if (farm.getFarmMoney().getMoneyAmount() >= cow.getBuyPrice()*num) {
 			int capacity = farm.getAnimalList().size() + num;
-			if (capacity < farm.getMaxAnimalCapacity()) {
+			if (capacity <= farm.getMaxAnimalCapacity()) {
 				for (int i=0; i < num; i++) {
 				Cow cow1 = new Cow();
 				farm.addAnimal(cow1);

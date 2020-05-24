@@ -137,8 +137,8 @@ public class GameGUI {
 	public String viewFarmInventory() {
 		return ("You have $" + farm.getFarmMoney().getMoneyAmount() + "\n" + 
 		farm.printCropList() +
-		farm.printItemList() + 
-		farm.printAnimalList());
+		farm.printAnimalList() + 
+		farm.printItemList());
 	}
 	/**
 	 * Return number of actions remaining in the day
@@ -261,7 +261,7 @@ public class GameGUI {
 	 * End the game, opening the game over window
 	 */
 	public void endGame() {
-		window.getFrame().dispose();
+		window.dispose();
 		GameOverWindow window = new GameOverWindow(this);
 		window.getFrame().setVisible(true);
 	}

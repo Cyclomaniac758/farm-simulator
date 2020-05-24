@@ -93,7 +93,7 @@ class FarmTest {
 	@Test
 	public void getMaxCropCapacityTest() {
 		FamilyFarm testFamilyFarm = new FamilyFarm("Pakarikari");
-		assertEquals(18, testFamilyFarm.getMaxCropCapacity());
+		assertEquals(2, testFamilyFarm.getMaxCropCapacity());
 	}
 	
 	@Test

@@ -70,10 +70,10 @@ public class FarmInformation {
 		familyPanel.add(familyLabel);
 		
 		txtrTheFamilyFarm = new JTextArea();
-		txtrTheFamilyFarm.setText("The family farm allows you to\r\nbegin with 1500 dollars, and start with\nvery happy animals increasing their daily earnings. \nHowever, due to the small size of your farm you \nwill have a lower capacity for animals and crops.");
+		txtrTheFamilyFarm.setText("The family farm allows your\r\nanimals to lead very happy\r\nlives increasing their daily\r\nearnings. However, due to the\r\nsmall size of your farm you\r\nwill have a lower capacity for\r\nanimals and crops, and longer grow times.");
 		txtrTheFamilyFarm.setAlignmentX(SwingConstants.CENTER);
 		txtrTheFamilyFarm.setBackground(SystemColor.window);
-		txtrTheFamilyFarm.setBounds(10, 60, 316, 123);
+		txtrTheFamilyFarm.setBounds(10, 60, 333, 142);
 		txtrTheFamilyFarm.setEditable(false);
 		familyPanel.add(txtrTheFamilyFarm);
 		
@@ -89,10 +89,10 @@ public class FarmInformation {
 		commercialPanel.add(commercialLabel);
 		
 		txtrTheCommercialFarm = new JTextArea();
-		txtrTheCommercialFarm.setText("The commercial farm allows you to\r\nbegin with 3000 dollars, and start with\r\na larger animal and crop capacity than\r\nthe Family farm. However, due to the\r\ncramped lifestyle of the animals their \r\nhappiness is affected.");
+		txtrTheCommercialFarm.setText("The commercial farm allows you to\r\nfarm more crops and animals\r\nwith the downside of having less\nhealthy and happy animals.");
 		txtrTheCommercialFarm.setAlignmentX(SwingConstants.CENTER);
 		txtrTheCommercialFarm.setBackground(SystemColor.window);
-		txtrTheCommercialFarm.setBounds(10, 60, 316, 123);
+		txtrTheCommercialFarm.setBounds(10, 60, 316, 95);
 		txtrTheCommercialFarm.setEditable(false);
 		commercialPanel.add(txtrTheCommercialFarm);
 		
@@ -108,10 +108,11 @@ public class FarmInformation {
 		livestockPanel.add(livestockLabel);
 		
 		txtrTheLivestockFarm = new JTextArea();
-		txtrTheLivestockFarm.setText("The livestock farm allows you to\r\nbegin with 2500 dollars, and start with\nthe base animal and crop max capacity.\nThe animals also have base happiness levels.");
+		txtrTheLivestockFarm.setText("The livestock farm allows you to\r\nstart with the base animal and"
+				+ "\ncrop max capacity.The animals\nalso have base happiness levels.");
 		txtrTheLivestockFarm.setBackground(SystemColor.window);
 		txtrTheLivestockFarm.setAlignmentX(SwingConstants.CENTER);
-		txtrTheLivestockFarm.setBounds(10, 60, 316, 123);
+		txtrTheLivestockFarm.setBounds(10, 60, 316, 95);
 		txtrTheLivestockFarm.setEditable(false);
 		livestockPanel.add(txtrTheLivestockFarm);
 		
@@ -127,10 +128,10 @@ public class FarmInformation {
 		cropPanel.add(cropLabel);
 		
 		txtrTheCropFarm = new JTextArea();
-		txtrTheCropFarm.setText("The crop farm allows you to\r\nbegin with 2000 dollars, and start with\r\na smaller animal and but much larger crop \ncapacity than the all the other farms. \nDue to the plentifullness of crops, the animals \nare slightly happier than on a normal farm.");
+		txtrTheCropFarm.setText("The crop farm allows you to\r\nstart with a smaller animal but much\nlarger crop capacity than the all\nthe other farms. Due to the farms crop environment\nthe animals are slightly happier than on a normal farm.");
 		txtrTheCropFarm.setAlignmentX(SwingConstants.CENTER);
 		txtrTheCropFarm.setBackground(SystemColor.window);
-		txtrTheCropFarm.setBounds(10, 60, 316, 123);
+		txtrTheCropFarm.setBounds(10, 60, 316, 100);
 		txtrTheCropFarm.setEditable(false);
 		cropPanel.add(txtrTheCropFarm);
 		

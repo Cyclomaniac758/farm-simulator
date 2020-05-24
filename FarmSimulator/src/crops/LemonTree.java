@@ -10,8 +10,8 @@ public class LemonTree extends Crops {
    */
   public LemonTree() {
     setCropName("Lemon Tree");
-    setBuyPrice(175);
-    setSellPrice(425);
+    setBuyPrice(200);
+    setSellPrice(500);
     setTotalGrowTime(3);
   }
 }

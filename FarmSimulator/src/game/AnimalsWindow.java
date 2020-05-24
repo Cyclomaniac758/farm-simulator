@@ -43,6 +43,7 @@ public class AnimalsWindow {
 	private JLabel displayHealthiness;
 	private JLabel displayHappiness;
 	private JLabel displayItemImpact;
+	private JLabel displaySpace;
 
 	/**
 	 * Create the application.
@@ -107,7 +108,18 @@ public class AnimalsWindow {
 			}
 		}
 	}
-	
+	/**
+	 * Refresh the farms crop space label
+	 */
+	public void refreshSpace() {
+		int space = game.getFarm().getMaxAnimalCapacity() - game.getFarm().getAnimalList().size();
+		int totalSpace = game.getFarm().getMaxAnimalCapacity();
+		displaySpace.setText(String.format("%s/%s", space, totalSpace));
+	}
+	/**
+	 * Return whether the farm animals are already at max happiness
+	 * @return Whether all the animals are happy already
+	 */
 	public boolean checkAllHappy() {
 		boolean result = true;
 		for (Animals animal: game.getFarm().getAnimalList()) {
@@ -232,6 +244,14 @@ public class AnimalsWindow {
 		JLabel displayHappinessModifier = new JLabel("Select Animal");
 		displayHappinessModifier.setText(String.format("%.2f", game.getFarm().getAnimalHappinessModifier()));
 		
+		JLabel lblNewLabel = new JLabel("Available Space:");
+		lblNewLabel.setFont(new Font("STFangsong", Font.BOLD, 20));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		displaySpace = new JLabel("New label");
+		displaySpace.setFont(new Font("STFangsong", Font.BOLD, 20));
+		refreshSpace();
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -278,7 +298,11 @@ public class AnimalsWindow {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(346)
 					.addComponent(titleLabel, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-					.addGap(414))
+					.addGap(51)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(displaySpace, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
+					.addGap(92))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(288)
 					.addComponent(selectAnimal, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
@@ -288,7 +312,10 @@ public class AnimalsWindow {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(38)
-					.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel)
+						.addComponent(displaySpace))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(selectAnimal, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 					.addGap(26)

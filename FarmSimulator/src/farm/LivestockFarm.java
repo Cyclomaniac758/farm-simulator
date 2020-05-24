@@ -19,7 +19,7 @@ public class LivestockFarm extends Farm {
 	 */
 	public LivestockFarm(String name) {
 		setFarmName(name);
-    	setFarmMoney(new Money(2500));
+    	setFarmMoney(new Money(1500));
     	setFarmType("Livestock");
     	setGrowingSpeedModifier(2);
     	setAnimalHappinessModifier(1.0);
@@ -27,7 +27,7 @@ public class LivestockFarm extends Farm {
     	setCropList(new ArrayList<Crops>());
     	setAnimalList(new ArrayList<Animals>());
     	setItemList(new ArrayList<Item>());
-    	setMaxCropCapacity(10);
+    	setMaxCropCapacity(3);
     	setMaxAnimalCapacity(15);
     	setDeductHappinessRate(.8);
     	setDeductHealthinessRate(.8);

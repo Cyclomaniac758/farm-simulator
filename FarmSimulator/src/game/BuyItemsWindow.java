@@ -150,8 +150,8 @@ public class BuyItemsWindow {
 									.addGap(18)
 									.addComponent(displayMoney, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(161)
-							.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))
+							.addGap(129)
+							.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(58, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(

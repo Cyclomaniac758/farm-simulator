@@ -221,6 +221,7 @@ public class HomeWindow {
 		quitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.endGame();
+				frame.dispose();
 			}
 		});
 		quitButton.setBounds(855, 29, 121, 34);
@@ -290,5 +291,9 @@ public class HomeWindow {
 		backgroundPic.setIcon(new ImageIcon(HomeWindow.class.getResource("/img/g3.png")));
 		backgroundPic.setBounds(0, 0, 986, 629);
 		frame.getContentPane().add(backgroundPic);
+	}
+
+	public void dispose() {
+		frame.dispose();
 	}
 }

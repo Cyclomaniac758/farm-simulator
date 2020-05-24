@@ -101,7 +101,7 @@ class FarmerTest {
 		
 		testFarmer.tendLand();
 		
-		assertEquals(31, testCropFarm.getMaxCropCapacity());
+		assertEquals(11, testCropFarm.getMaxCropCapacity());
 		assertEquals(.9, testCropFarm.getDeductHappinessRate());
 	}
 	
@@ -112,7 +112,7 @@ class FarmerTest {
 		testCropFarm.addAnimal(new Pig());
 		testCropFarm.addItem(new Grain());
 		
-		assertEquals(1830.0, testCropFarm.getFarmMoney().getMoneyAmount());
+		assertEquals(1330.0, testCropFarm.getFarmMoney().getMoneyAmount());
 		assertEquals(1, testCropFarm.getAnimalList().size());
 		assertEquals(1, testCropFarm.getFoodList().size());
 		
@@ -129,13 +129,13 @@ class FarmerTest {
 		CropFarm testCropFarm = new CropFarm("My Crop Farm");
 		Farmer testFarmer = new Farmer("Michael", 19, testCropFarm);
 		testCropFarm.addCrop(new Wheat());
-		assertEquals(1980.0, testCropFarm.getFarmMoney().getMoneyAmount());
+		assertEquals(1480, testCropFarm.getFarmMoney().getMoneyAmount());
 		
 		testCropFarm.getCropList().get(0).setGrowTime(0);
 		testFarmer.harvestCrop(testCropFarm.getCropList().get(0));
 		assertEquals(0, testCropFarm.getCropList().size());
 		assertEquals(1, testFarmer.getNumActions());
-		assertEquals(2005.0, testCropFarm.getFarmMoney().getMoneyAmount());
+		assertEquals(1505, testCropFarm.getFarmMoney().getMoneyAmount());
 	}
 	
 	@Test 
@@ -145,7 +145,7 @@ class FarmerTest {
 		testCropFarm.addCrop(new Wheat());
 		testCropFarm.addItem(new Fertilizer());
 		
-		assertEquals(1880.0, testCropFarm.getFarmMoney().getMoneyAmount());
+		assertEquals(1380, testCropFarm.getFarmMoney().getMoneyAmount());
 		assertEquals(1, testCropFarm.getCropList().size());
 		assertEquals(1, testCropFarm.getCropToolList().size());
 		assertEquals(2, testCropFarm.getCropList().get(0).getGrowTime());
@@ -164,14 +164,14 @@ class FarmerTest {
 		testCropFarm.addCrop(new AppleTree());
 		testCropFarm.addItem(new Fertilizer());
 		
-		assertEquals(1700.0, testCropFarm.getFarmMoney().getMoneyAmount());
+		assertEquals(1000, testCropFarm.getFarmMoney().getMoneyAmount());
 		assertEquals(1, testCropFarm.getCropList().size());
 		assertEquals(1, testCropFarm.getCropToolList().size());
-		assertEquals(4, testCropFarm.getCropList().get(0).getGrowTime());
+		assertEquals(5, testCropFarm.getCropList().get(0).getGrowTime());
 		
 		testFarmer.useCropTool(testCropFarm.getCropToolList().get(0), testCropFarm.getCropList().get(0));
 		
-		assertEquals(1, testCropFarm.getCropList().get(0).getGrowTime());
+		assertEquals(2, testCropFarm.getCropList().get(0).getGrowTime());
 		assertEquals(true, testCropFarm.getCropToolList().isEmpty());
 		assertEquals(1, testFarmer.getNumActions());
 	}

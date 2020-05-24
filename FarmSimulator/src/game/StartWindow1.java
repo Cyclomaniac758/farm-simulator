@@ -104,13 +104,12 @@ public class StartWindow1 {
 		JButton nextButton = new JButton("NEXT");
 		nextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				String farmerName = nameField.getText();
 				int farmerAge = 0;
 				try {
 					farmerAge = Integer.parseInt(ageField.getText());
 					int gameLength = Integer.parseInt((String) numDays.getSelectedItem());
-					if (farmerName.length() > 3 && farmerName.length() < 15 && farmerName.matches("^[a-zA-Z]*$")) {
+					if (farmerName.length() >= 3 && farmerName.length() <= 15 && farmerName.matches("^[a-zA-Z]*$")) {
 						StartWindow2 window = new StartWindow2(game, gameLength, farmerName, farmerAge);
 						window.getFrame().setVisible(true);
 						frame.dispose();
@@ -120,11 +119,6 @@ public class StartWindow1 {
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Number missing");
 				}
-				
-				
-				
-				
-				
 			}
 
 		});

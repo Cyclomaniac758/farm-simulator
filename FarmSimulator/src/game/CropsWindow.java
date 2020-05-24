@@ -42,6 +42,7 @@ public class CropsWindow {
 	private JLabel displayTotalGrowTime;
 	private JLabel displayRemainingDays;
 	private JLabel displayItemImpact;
+	private JLabel displaySpace;
 	/**
 	 * Create the application.
 	 * @param game Game object 
@@ -96,7 +97,14 @@ public class CropsWindow {
 			}
 		}
 	}
-
+	/**
+	 * Refresh the farms crop space label
+	 */
+	public void refreshSpace() {
+		int space = game.getFarm().getMaxCropCapacity() - game.getFarm().getCropList().size();
+		int totalSpace = game.getFarm().getMaxCropCapacity();
+		displaySpace.setText(String.format("%s/%s", space, totalSpace));
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -194,6 +202,7 @@ public class CropsWindow {
 						game.harvestCrops(crop);
 						JOptionPane.showMessageDialog(null, "Sold " + crop + " for " + price + " dollars\n" + "Actions remaining: " + game.getFarm().getFarmer().getNumActions());
 						refreshCrops();
+						refreshSpace();
 					} catch (NoMoreActionsException ex) {
 						JOptionPane.showMessageDialog(null, ex.getMessage(), "Alert", JOptionPane.ERROR_MESSAGE);
 					}
@@ -210,13 +219,25 @@ public class CropsWindow {
 		
 		JLabel displayModifier = new JLabel(String.valueOf(game.getFarm().getGrowingSpeedModifier()));
 		
+		JLabel spaceLabel = new JLabel("Available Space:");
+		spaceLabel.setFont(new Font("STFangsong", Font.BOLD, 20));
+		spaceLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		displaySpace = new JLabel("New label");
+		displaySpace.setFont(new Font("STFangsong", Font.BOLD, 20));
+		refreshSpace();
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(312)
 					.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 311, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(363, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(spaceLabel, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(displaySpace, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(136, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
@@ -226,8 +247,8 @@ public class CropsWindow {
 										.addGroup(groupLayout.createSequentialGroup()
 											.addGap(285)
 											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(growTimeModifier, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-												.addComponent(remainingLabel, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
+												.addComponent(growTimeModifier, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+												.addComponent(remainingLabel, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
 										.addGroup(groupLayout.createSequentialGroup()
 											.addContainerGap()
 											.addComponent(totalTimeLabel, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE)))
@@ -236,7 +257,7 @@ public class CropsWindow {
 										.addComponent(displayModifier, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
 										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 											.addComponent(displayTotalGrowTime, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
-											.addComponent(displayRemainingDays, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))))
+											.addComponent(displayRemainingDays, GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addContainerGap()
 									.addComponent(selectCrop, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
@@ -250,11 +271,11 @@ public class CropsWindow {
 						.addComponent(tendCropButton, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE))
 					.addGap(190))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(139)
+					.addGap(290)
 					.addComponent(itemImpactLabel, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(displayItemImpact, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-					.addGap(412))
+					.addGap(18)
+					.addComponent(displayItemImpact, GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+					.addGap(253))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(394)
 					.addComponent(returnButton, GroupLayout.PREFERRED_SIZE, 167, GroupLayout.PREFERRED_SIZE)
@@ -263,13 +284,20 @@ public class CropsWindow {
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(40)
-					.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(40)
+							.addComponent(titleLabel, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(81)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(spaceLabel)
+								.addComponent(displaySpace))))
 					.addGap(26)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(selectCrop, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(displayTotalGrowTime, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 								.addComponent(totalTimeLabel, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
@@ -284,14 +312,13 @@ public class CropsWindow {
 						.addComponent(harvestCropButton, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
 					.addGap(27)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(tendCropButton, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-							.addGap(27)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(displayItemImpact, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-								.addComponent(itemImpactLabel, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))))
-					.addGap(73)
+						.addComponent(selectItem, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+						.addComponent(tendCropButton, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))
+					.addGap(48)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(displayItemImpact, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+						.addComponent(itemImpactLabel, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
+					.addGap(49)
 					.addComponent(returnButton, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
 					.addGap(113))
 		);
