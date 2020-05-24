@@ -24,7 +24,6 @@ public class GameGUI {
 	private int currentDay;
 	private GeneralStore store;
 	private HomeWindow window;
-	private GameGUI game;
 		
 	
 	/**
@@ -264,7 +263,7 @@ public class GameGUI {
 	 * Restart the game
 	 */
 	public void restart() {
-		game = new GameGUI();
+		GameGUI game = new GameGUI();
 	}
 	/**
 	 * Launches first start up window

@@ -101,7 +101,7 @@ public class HomeWindow {
 			Farm farm = game.getFarm();
 			game.tendLand();
 			String text = "Farm crop capacity increased to " + farm.getMaxCropCapacity() + "\n" + 
-			"Your animals are now 1.2 times happier"
+			"Your animals now stay happier for longer"
 					+ "\nActions left: " + game.getFarm().getFarmer().getNumActions();
 			JOptionPane.showMessageDialog(null, text);
 			refreshActions();

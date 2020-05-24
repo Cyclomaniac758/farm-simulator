@@ -48,6 +48,16 @@ public class StartWindow2 {
 		initialize();
 	}
 
+	public void startGame() {
+		game = new GameGUI();
+		game.setFarm(farm);
+		Farmer farmer = new Farmer(farmerName, farmerAge, farm);
+		game.setFarmer(farmer);
+		game.setFarm(farm);
+		game.setGameLength(gameLength);
+		game.getFarm().setFarmer(farmer);
+		game.setHomeWindow(new HomeWindow(game));
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -137,16 +147,7 @@ public class StartWindow2 {
 				farmName = textField.getText();
 				if (farmName.length() > 3 && farmName.length() < 17) {
 					if (farmTypeChosen == true) {
-						game = new GameGUI();
-						game.setFarm(farm);
-						Farmer farmer = new Farmer(farmerName, farmerAge, farm);
-						game.createFarmer(farmer);
-						game.setGame(game);
-						game.setFarm(farm);
-						game.setGameLength(gameLength);
-						game.setCurrentDay(1);
-						game.getFarm().setFarmer(farmer);
-						game.setHomeWindow(new HomeWindow(game));
+						startGame();
 						frame.dispose();
 					} else {
 						JOptionPane.showMessageDialog(null, "Select a farm type");

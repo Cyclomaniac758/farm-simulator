@@ -96,7 +96,7 @@ public class FarmHouseWindow {
 		JTextPane inventoryPane = new JTextPane();
 		scrollPane.setViewportView(inventoryPane);
 		inventoryPane.setEditable(false);
-		inventoryPane.setText(game.viewFarmStatus());
+		inventoryPane.setText(game.viewFarmInventory());
 		frame.getContentPane().setLayout(groupLayout);
 	}
 
