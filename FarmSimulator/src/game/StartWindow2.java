@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 
 import farm.*;
 import farmer.*;
+import java.awt.Color;
 
 /**
  * 2nd start window GUI
@@ -26,6 +27,11 @@ public class StartWindow2 {
 
 	private JFrame frame;
 	private JTextField textField;
+	//JButtons
+	private JButton familyFarmButton;
+	private JButton commercialFarmButton;
+	private JButton livestockFarmButton;
+	private JButton cropFarmButton;
 	/**
 	 * Farmer object variable
 	 */
@@ -79,10 +85,19 @@ public class StartWindow2 {
 		game.setFarm(farm);
 		Farmer farmer = new Farmer(farmerName, farmerAge, farm);
 		game.setFarmer(farmer);
-		game.setFarm(farm);
 		game.setGameLength(gameLength);
 		game.getFarm().setFarmer(farmer);
+		game.getFarm().setFarmName(textField.getText());
 		game.setHomeWindow(new HomeWindow(game));
+	}
+	/**
+	 * Reset the buttons colors to black
+	 */
+	public void refreshButtons() {
+		familyFarmButton.setForeground(Color.BLACK);
+		commercialFarmButton.setForeground(Color.BLACK);
+		livestockFarmButton.setForeground(Color.BLACK);
+		cropFarmButton.setForeground(Color.BLACK);
 	}
 	/**
 	 * Initialize the contents of the frame.
@@ -107,50 +122,62 @@ public class StartWindow2 {
 		
 		JLabel lblNewLabel_1 = new JLabel("Select Farm Type");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(192, 137, 123, 25);
+		lblNewLabel_1.setBounds(298, 159, 123, 25);
 		getFrame().getContentPane().add(lblNewLabel_1);
 		
-		JButton familyFarmButton = new JButton("Family");
+		familyFarmButton = new JButton("Family");
+		familyFarmButton.setForeground(Color.BLACK);
 		familyFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				farmName = textField.getText();
 				farm = new FamilyFarm(farmName);
 				farmTypeChosen = true;
+				refreshButtons();
+				familyFarmButton.setForeground(Color.RED);
 			}
 		});
 		familyFarmButton.setToolTipText("Family\r\nFarm");
 		familyFarmButton.setBounds(81, 250, 108, 60);
 		getFrame().getContentPane().add(familyFarmButton);
 		
-		JButton commercialFarmButton = new JButton("Commercial");
+		commercialFarmButton = new JButton("Commercial");
+		commercialFarmButton.setForeground(Color.BLACK);
 		commercialFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				farmName = textField.getText();
 				farm = new CommercialFarm(farmName);
 				farmTypeChosen = true;
+				refreshButtons();
+				commercialFarmButton.setForeground(Color.RED);
 			}
 		});
 		
 		commercialFarmButton.setBounds(221, 250, 108, 60);
 		getFrame().getContentPane().add(commercialFarmButton);
 		
-		JButton livestockFarmButton = new JButton("Livestock");
+		livestockFarmButton = new JButton("Livestock");
+		livestockFarmButton.setForeground(Color.BLACK);
 		livestockFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				farmName = textField.getText();
 				farm = new LivestockFarm(farmName);
 				farmTypeChosen = true;
+				refreshButtons();
+				livestockFarmButton.setForeground(Color.RED);
 			}
 		});
 		livestockFarmButton.setBounds(371, 250, 108, 60);
 		getFrame().getContentPane().add(livestockFarmButton);
 		
-		JButton cropFarmButton = new JButton("Crop");
+		cropFarmButton = new JButton("Crop");
+		cropFarmButton.setForeground(Color.BLACK);
 		cropFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				farmName = textField.getText();
 				farm = new CropFarm(farmName);
 				farmTypeChosen = true;
+				refreshButtons();
+				cropFarmButton.setForeground(Color.RED);
 			}
 		});
 		cropFarmButton.setBounds(509, 250, 114, 60);
@@ -163,7 +190,7 @@ public class StartWindow2 {
 				window.frame.setVisible(true);
 			}
 		});
-		farmInfoButton.setBounds(376, 140, 70, 23);
+		farmInfoButton.setBounds(526, 160, 91, 26);
 		getFrame().getContentPane().add(farmInfoButton);
 		
 		JButton nextButton = new JButton("Start Game");

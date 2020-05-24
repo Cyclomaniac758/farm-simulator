@@ -261,7 +261,7 @@ public class HomeWindow {
 		displayFarm = new JLabel("");
 		displayFarm.setFont(new Font("STXinwei", Font.PLAIN, 15));
 		displayFarm.setBounds(305, 101, 250, 16);
-		displayFarm.setText(String.valueOf(game.getFarm().getFarmName()));
+		displayFarm.setText(game.getFarm().getFarmName());
 		frame.getContentPane().add(displayFarm);
 		
 		farmTypeLabel = new JLabel("Farm Type:");
