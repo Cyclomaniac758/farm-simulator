@@ -44,7 +44,7 @@ public class CropsWindow {
 	private JLabel displayItemImpact;
 	/**
 	 * Create the application.
-	 * @param game 
+	 * @param game Game object 
 	 */
 	public CropsWindow(GameGUI game) {
 		this.game = game;
@@ -53,6 +53,7 @@ public class CropsWindow {
 	
 	/**
 	 * Refreshes the values of displayTotalGrowTime and displayRemainingDays.
+	 * @param crop Crop to be displayed
 	 */
 	public void changeCrop(Crops crop) {
 		try {
@@ -66,7 +67,7 @@ public class CropsWindow {
 	}
 	/**
 	 * Refreshes the values of displayItemImpact
-	 * @param item
+	 * @param item Item to be displayed
 	 */
 	public void changeItem(Item item) {
 		try {

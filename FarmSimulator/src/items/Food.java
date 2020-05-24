@@ -13,7 +13,7 @@ public class Food extends Item {
 	
 	/**
 	 * Set the items healthiness level
-	 * @param health
+	 * @param health The health impact of the food
 	 */
 	public void setHealthiness(double health) {
 		healthiness = health;
@@ -22,7 +22,7 @@ public class Food extends Item {
 	
 	/**
 	 * Return the associated items healthiness contribution
-	 * @return
+	 * @return The health impact of the food
 	 */
 	public double getHealthiness() {
 		return healthiness;

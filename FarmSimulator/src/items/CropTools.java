@@ -14,7 +14,7 @@ public class CropTools extends Item{
 	
 	/**
 	 * Sets the impact of the item
-	 * @param num
+	 * @param num The impact of the item
 	 */
 	public void setImpact(int num) {
 		impact = num;

@@ -28,35 +28,35 @@ public class Crops {
 	private int totalGrowTime;
 	/**
 	 * Sets the name of the crop
-	 * @param name
+	 * @param name The crops name
 	 */
 	public void setCropName(String name) {
 		cropName = name;
 	}
 	/**
 	 * Sets the buy price of  the crop
-	 * @param buyingPrice
+	 * @param buyingPrice The crops buy price
 	 */
 	public void setBuyPrice(int buyingPrice) {
 		buyPrice = buyingPrice;
 	}
 	/**
 	 * Sets the sell price of the crop
-	 * @param sellingPrice
+	 * @param sellingPrice The crops sell price
 	 */
 	public void setSellPrice(int sellingPrice) {
 		sellPrice = sellingPrice;
 	}
 	/**
 	 * Sets the grow time of the crop
-	 * @param growingTime
+	 * @param growingTime The crops growing time
 	 */
 	public void setGrowTime(int growingTime) {
 		growTime = growingTime;
 	}
 	/**
 	 * Set the total growing time of the crop
-	 * @param growTime
+	 * @param growTime The crops growing time
 	 */
 	public void setTotalGrowTime(int growTime) {
 		totalGrowTime = growTime;
@@ -64,28 +64,28 @@ public class Crops {
 	}
 	/**
 	 * Gets the crop name
-	 * @return
+	 * @return The name of the crop
 	 */
 	public String getCropName() {
 		return cropName;
 	}
 	/**
 	 * Gets the buy price of the  crop
-	 * @return
+	 * @return The crops buy price
 	 */
 	public int getBuyPrice() {
 		return buyPrice;
 	}
 	/**
 	 * Gets the sell price of the crop
-	 * @return
+	 * @return The crops sell price
 	 */
 	public int getSellPrice() {
 		return sellPrice;
 	}
 	/**
 	 * Gets the grow time of the crop
-	 * @return
+	 * @return The crops grow time
 	 */
 	public int getGrowTime() {
 		return growTime;

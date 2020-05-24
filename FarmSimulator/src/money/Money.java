@@ -15,7 +15,7 @@ public class Money {
 	private double startingMoney;
 	/**
 	 * Constructor of Money class
-	 * @param money
+	 * @param money The money value to start with
 	 */
 	public Money(double money) {
 		moneyAmount = money;
@@ -23,35 +23,35 @@ public class Money {
 	}
 	/**
 	 * Sets the moneyAmount value
-	 * @param amount
+	 * @param amount The amount of money in the farm
 	 */
 	public void setMoneyAmount(int amount) {
 		moneyAmount = amount;
 	}
 	/**
 	 * Get the amount of money the farm started with
-	 * @return
+	 * @return The starting amount of money
 	 */
 	public double getStartingMoney() {
 		return startingMoney;
 	}
 	/**
 	 * Gets the moneyAmount value
-	 * @return
+	 * @return The current amount of money
 	 */
 	public double getMoneyAmount() {
 		return moneyAmount;
 	}
 	/**
 	 * Adds amount value to current moneyAmount
-	 * @param amount
+	 * @param amount The amount to be added
 	 */
 	public void addMoney(double amount) {
 		moneyAmount += amount;
 	}
 	/**
 	 * Minuses amount value to current moneyAmount
-	 * @param amount
+	 * @param amount The amount to be subtracted
 	 */
 	public void minusMoney(int amount) {
 		moneyAmount -= amount;

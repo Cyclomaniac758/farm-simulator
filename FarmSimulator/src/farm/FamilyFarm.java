@@ -14,7 +14,7 @@ import items.*;
 public class FamilyFarm extends Farm {
 	/**
 	 * Constructor of FamilyFarm Class
-	 * @param name
+	 * @param name Name of the farm
 	 */
 	public FamilyFarm(String name) {
 		setFarmName(name);

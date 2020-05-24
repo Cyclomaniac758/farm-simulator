@@ -38,12 +38,12 @@ public class FarmHouseWindow {
 
 	/**
 	 * Create the application.
-	 * @param game 
-	 * @param frame2 
+	 * @param game Game object
+	 * @param returnFrame Window to return to
 	 */
-	public FarmHouseWindow(GameGUI game, JFrame frame2) {
+	public FarmHouseWindow(GameGUI game, JFrame returnFrame) {
 		this.game = game;
-		this.returnFrame = frame2;
+		this.returnFrame = returnFrame;
 		initialize();
 	}
 

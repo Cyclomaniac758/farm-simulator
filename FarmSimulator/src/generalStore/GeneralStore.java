@@ -22,6 +22,7 @@ public class GeneralStore {
 	
 	/**
 	 * Constructor method, setting the farm parameter
+	 * @param userFarm The farm
 	 */
 	public GeneralStore(Farm userFarm) {
 		farm = userFarm;
@@ -61,8 +62,8 @@ public class GeneralStore {
 	}
 	
 	/**
-	 * Buy water method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy water method
+	 * @param num Quantity of water that is to be bought
 	 */
 	public void buyWater(int num) {
 		Water water = new Water();
@@ -77,8 +78,8 @@ public class GeneralStore {
 	}
 	
 	/**
-	 * Buy Hoe method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy Hoe method
+	 * @param num Quantity of hoes to be bought
 	 */
 	public void buyHoe(int num) {
 		Hoe hoe = new Hoe();
@@ -93,8 +94,8 @@ public class GeneralStore {
 	}
 	
 	/**
-	 * Buy Fertilizer method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy Fertilizer method
+	 * @param num Quantity of fertilizer that is to be bought
 	 */
 	public void buyFertilizer(int num) {
 		Fertilizer fert = new Fertilizer();
@@ -109,8 +110,8 @@ public class GeneralStore {
 	}
 	
 	/**
-	 * Buy Incubator method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy Incubator method
+	 * @param num Quantity of incubators that is to be bought
 	 */
 	public void buyIncubator(int num) {
 		Incubator incubator = new Incubator();
@@ -124,8 +125,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy WaterFood method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy WaterFood method
+	 * @param num Quantity of water that is to be bought
 	 */
 	public void buyWaterFood(int num) {
 		WaterFood water = new WaterFood();
@@ -140,8 +141,8 @@ public class GeneralStore {
 	}
 	
 	/**
-	 * Buy Grain method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy Grain method
+	 * @param num Quantity of grain that is to be bought
 	 */
 	public void buyGrain(int num) {
 		Grain grain = new Grain();
@@ -155,8 +156,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy Growth Hormone method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy Growth Hormone method
+	 * @param num Quantity of growth hormone that is to be bought
 	 */
 	public void buyGrowthHormone(int num) {
 		GrowthHormone growth_hormone = new GrowthHormone();
@@ -170,8 +171,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy carrots method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy carrots method
+	 * @param num Quantity of carrots that is to be bought
 	 */
 	public void buyCarrots(int num) {
 		Carrots carrot = new Carrots();
@@ -191,8 +192,8 @@ public class GeneralStore {
 		
 	}
 	/**
-	 * Buy wheat method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy wheat method
+	 * @param num Quantity of wheat that is to be bought
 	 */
 	public void buyWheat(int num) {
 		Wheat wheat = new Wheat();
@@ -211,8 +212,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy tomatoes method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy tomatoes method
+	 * @param num Quantity of tomatoes that is to be bought
 	 */
 	public void buyTomatoes(int num) {
 		Tomatoes tomatoe = new Tomatoes();
@@ -231,8 +232,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy corn method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy corn method
+	 * @param num Quantity of corn that is to be bought
 	 */
 	public void buyCorn(int num) {
 		Corn corn = new Corn();
@@ -251,8 +252,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy lemon tree method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy lemon tree method
+	 * @param num Quantity of lemon trees that is to be bought
 	 */
 	public void buyLemonTree(int num) {
 		LemonTree lemonTree = new LemonTree();
@@ -271,8 +272,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy apple tree method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy apple tree method
+	 * @param num Quantity of apple trees that is to be bought
 	 */
 	public void buyAppleTree(int num) {
 		AppleTree appleTree = new AppleTree();
@@ -291,8 +292,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy chickens method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy chickens method
+	 * @param num Quantity of chickens that is to be bought
 	 */
 	public void buyChicken(int num) {
 		Chicken chicken = new Chicken();
@@ -312,8 +313,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buys pigs method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buys pigs method
+	 * @param num Quantity of pigs that is to be bought
 	 */
 	public void buyPig(int num) {
 		Pig pig = new Pig();
@@ -333,8 +334,8 @@ public class GeneralStore {
 		}
 	}
 	/**
-	 * Buy cows method, parameter num is the amount you would like to buy
-	 * @param num
+	 * Buy cows method
+	 * @param num Quantity of cows that is to be bought
 	 */
 	public void buyCow(int num) {
 		Cow cow = new Cow();

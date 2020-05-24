@@ -24,7 +24,7 @@ public abstract class Item {
 	
 	/**
 	 * Set the name of the item
-	 * @param name
+	 * @param name Name of the item
 	 */
 	public void setItemName(String name) {
 		itemName = name;
@@ -32,7 +32,7 @@ public abstract class Item {
 	
 	/**
 	 * Set the price of the item
-	 * @param num
+	 * @param num Price of the item
 	 */
 	public void setItemPrice(int num) {
 		price = num;
@@ -40,6 +40,7 @@ public abstract class Item {
 	
 	/**
 	 * Returns the name of the item
+	 * @return The name of the item
 	 */
 	public String getItemName() {
 		return itemName;
@@ -54,14 +55,14 @@ public abstract class Item {
 	}
 	/**
 	 * Sets the string when for when an item is used
-	 * @param use
+	 * @param use The items effect
 	 */
 	public void setItemUse(String use) {
 		itemUse = use;
 	}
 	/**
 	 * Gets the string for when the item is used
-	 * @return
+	 * @return The items effect
 	 */
 	public String getItemUse() {
 		return itemUse;

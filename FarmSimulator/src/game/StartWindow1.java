@@ -43,7 +43,7 @@ public class StartWindow1 {
 
 	/**
 	 * Create the application.
-	 * @param game
+	 * @param game  Game object
 	 */
 	public StartWindow1(GameGUI game) {
 		this.game = game;
@@ -111,9 +111,9 @@ public class StartWindow1 {
 					farmerAge = Integer.parseInt(ageField.getText());
 					int gameLength = Integer.parseInt((String) numDays.getSelectedItem());
 					if (farmerName.length() > 3 && farmerName.length() < 15 && farmerName.matches("^[a-zA-Z]*$")) {
-						StartWindow2 window = new StartWindow2(game, frame, gameLength, farmerName, farmerAge);
+						StartWindow2 window = new StartWindow2(game, gameLength, farmerName, farmerAge);
 						window.getFrame().setVisible(true);
-						frame.setVisible(false);
+						frame.dispose();
 					} else {
 						JOptionPane.showMessageDialog(null,  "Farmer name must be between 3 and 15 characters long and be composed of alphabet characters","ALERT", JOptionPane.ERROR_MESSAGE);
 					}

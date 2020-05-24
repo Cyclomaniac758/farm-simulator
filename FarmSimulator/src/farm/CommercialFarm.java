@@ -16,7 +16,7 @@ public class CommercialFarm extends Farm {
 	
 	/**
 	 * Constructor of CommercialFarm class
-	 * @param name
+	 * @param name Name of the farm
 	 */
 	public CommercialFarm(String name) {
 		setFarmName(name);

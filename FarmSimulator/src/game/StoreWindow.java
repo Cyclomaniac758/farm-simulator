@@ -39,13 +39,13 @@ public class StoreWindow {
 
 	/**
 	 * Create GeneralStore object
-	 * @param game
-	 * @param frame2
-	 * @param displayMoney
+	 * @param game Game object
+	 * @param returnWindow The window to return to
+	 * @param displayMoney Label on home window displaying how much money the user has
 	 */
-	public StoreWindow(GameGUI game, JFrame frame2, JLabel displayMoney) {
+	public StoreWindow(GameGUI game, JFrame returnWindow, JLabel displayMoney) {
 		this.game = game;
-		this.homeWindow = frame2;
+		this.homeWindow = returnWindow;
 		this.displayMoney = displayMoney;
 		game.createStore();
 		initialize();

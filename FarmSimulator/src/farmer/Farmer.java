@@ -32,9 +32,9 @@ public class Farmer {
 	
 	/**
 	 * Constructor method for the farmer class
-	 * @param userName
-	 * @param userAge
-	 * @param userFarm
+	 * @param userName Name of the user
+	 * @param userAge Age of the user
+	 * @param userFarm Farm
 	 */
 	public Farmer(String userName, int userAge, Farm userFarm) {
 		numActions = 2;
@@ -44,14 +44,14 @@ public class Farmer {
 	}
 	/**
 	 * Sets the name of the farmer
-	 * @param name
+	 * @param userName Name of the user
 	 */
 	public void setName(String userName) {
 		name = userName;
 	}
 	/**
 	 * Returns farmer name
-	 * @return name
+	 * @return Name of the user
 	 */
 	public String getName() {
 		return name;
@@ -81,8 +81,8 @@ public class Farmer {
 	}
 	/**
 	 * Use a crop tool item to reduce the grow time remaining of a crop to a minimum of 0, removes the item used
-	 * @param item
-	 * @param crop
+	 * @param item Item to be used
+	 * @param crop Crop to be tended to
 	 */
 	public void useCropTool(CropTools item, Crops crop) {
 		deductAction();
@@ -96,8 +96,8 @@ public class Farmer {
 	}
 	/**
 	 * Use a food item to increase the animal healthiness, removes the item used 
-	 * @param item
-	 * @param animal
+	 * @param item Item to be used
+	 * @param animal Animal to be fed
 	 */
 	public void useFood(Food item, Animals animal) {
 		deductAction();
@@ -124,7 +124,7 @@ public class Farmer {
 	}
 	/**
 	 * Harvests a crop, deducts an action and remove the crop from the farms cropList
-	 * @param crop
+	 * @param crop Crop to be harvested
 	 */
 	public void harvestCrop(Crops crop) {
 		deductAction();

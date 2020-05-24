@@ -43,7 +43,7 @@ public class BuyAnimalsWindow {
 
 	/**
 	 * Create the application.
-	 * @param game 
+	 * @param game Game object
 	 */
 	public BuyAnimalsWindow(GameGUI game) {
 		this.game = game;

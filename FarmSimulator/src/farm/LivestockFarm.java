@@ -15,7 +15,7 @@ import items.*;
 public class LivestockFarm extends Farm {
 	/**
 	 * Constructor of LivestockFarm Class
-	 * @param name
+	 * @param name Name of the farm
 	 */
 	public LivestockFarm(String name) {
 		setFarmName(name);

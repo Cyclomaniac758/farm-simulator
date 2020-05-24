@@ -42,7 +42,7 @@ public class BuyCropsWindow {
 
 	/**
 	 * Create the application.
-	 * @param game 
+	 * @param game Game object
 	 */
 	public BuyCropsWindow(GameGUI game) {
 		this.game = game;

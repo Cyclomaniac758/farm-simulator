@@ -46,7 +46,7 @@ public class AnimalsWindow {
 
 	/**
 	 * Create the application.
-	 * @param game 
+	 * @param game Game object
 	 */
 	public AnimalsWindow(GameGUI game) {
 		this.game = game;
@@ -55,6 +55,7 @@ public class AnimalsWindow {
 	
 	/**
 	 * Refreshes the values of displayTotalGrowTime and displayRemainingDays.
+	 * @param animal Animal to be displayed
 	 */
 	public void changeAnimal(Animals animal) {
 		try {
@@ -76,7 +77,7 @@ public class AnimalsWindow {
 	
 	/**
 	 * Refreshes the values of
-	 * @param item
+	 * @param item Item to be displayed
 	 */
 	public void changeItem(Item item) {
 		try {

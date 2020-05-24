@@ -110,56 +110,56 @@ public class Farm {
     }
     /**
      * Gets the animal healthiness modifier level
-     * @return the healthiness modifier for the animal
+     * @return The healthiness modifier for the animal
      */
     public double getAnimalHealthinessModifier() {
     	return animalHealthinessModifier;
     }
     /**
      * Gets the rate happiness decreases each day
-     * @return the daily happiness modifier
+     * @return The daily happiness modifier
      */
     public double getDeductHappinessRate() {
     	return deductHappinessRate;
     }
     /**
      * Gets the rate healthiness decreases each day
-     * @return the daily healthiness modifier
+     * @return The daily healthiness modifier
      */
     public double getDeductHealthinessRate() {
     	return deductHealthinessRate;
     }
     /**
      * Gets the farmer
-     * @return farmer
+     * @return The farmer
      */
     public Farmer getFarmer() {
     	return farmer;
     }
     /**
      * Gets the Crop list
-     * @return
+     * @return List of the farms crops
      */
     public ArrayList<Crops> getCropList() {
     	return cropList;
     }
     /**
      * Gets the Animal list
-     * @return
+     * @return The farms animals
      */
     public ArrayList<Animals> getAnimalList() {
     	return  animalList;
     }
     /**
      * Gets the item list
-     * @return ArrayList<item>
+     * @return The farms items
      */
     public ArrayList<Item> getItemList(){
     	return itemList;
     }
     /**
-     * Returns the items in itemList of type cropTools
-     * @return ArrayList<cropTools>
+     * Returns the items in itemList of type CropTools
+     * @return The farms crop tools
      */
     public ArrayList<CropTools> getCropToolList(){
     	ArrayList<CropTools> cropToolList = new ArrayList<CropTools>();
@@ -170,7 +170,10 @@ public class Farm {
     	}
     	return cropToolList;
     }
-    
+    /**
+     * Returns the items in itemList of type Food
+     * @return The farms food items
+     */
     public ArrayList<Food> getFoodList(){
     	ArrayList<Food> foodList = new ArrayList<Food>();
     	for (Item item: itemList) {
@@ -182,119 +185,119 @@ public class Farm {
     }
     /**
      * Gets the max crop capacity of the farm
-     * @return maxCropCapacity
+     * @return The farms max crop capacity
      */
     public int getMaxCropCapacity() {
     	return maxCropCapacity;
     }
     /**
      * Gets the max animal capacity of the farm
-     * @return
+     * @return The farms max animal capacity
      */
     public int getMaxAnimalCapacity() {
     	return maxAnimalCapacity;
     }
     /**
      * Sets the farm name at the start of the game
-     * @param name
+     * @param name Farms name
      */
 	public void setFarmName(String name) {
 		farmName = name;
 	}
 	/**
 	 * Sets the farm type at the start of the game
-	 * @param type
+	 * @param type The farms type
 	 */
 	public void setFarmType(String type) {
 		farmType = type;
 	}
 	/**
 	 * Sets the farms money at the start of the game
-	 * @param money
+	 * @param money The farms money
 	 */
 	public void setFarmMoney(Money money) {
 		farmMoney = money;
 	}
 	/**
 	 * Sets the modifier for the speed of crops on the farm
-	 * @param growingSpeed
+	 * @param growingSpeed The farms grow speed modifier
 	 */
 	public void setGrowingSpeedModifier(int growingSpeed) {
 		cropGrowingSpeedModifier = growingSpeed;
 	}
 	/**
 	 * Sets the modifier for the happiness of animals on the farm
-	 * @param happiness
+	 * @param happiness The farms happiness modifier
 	 */
 	public void setAnimalHappinessModifier(double happiness) {
 		animalHappinessModifier = happiness;
 	}
 	/**
 	 * Sets the daily happiness modifier value
-	 * @param value
+	 * @param rate The rate happiness decreases per day
 	 */
 	public void setDeductHappinessRate(double rate) {
     	deductHappinessRate = rate;
     }
 	/**
 	 * Sets the daily healthiness modifier value
-	 * @param value
+	 * @param rate The rate healthiness decreases per day
 	 */
 	public void setDeductHealthinessRate(double rate) {
     	deductHealthinessRate = rate;
     }
 	/**
 	 * Set the farms healthiness modifier value.
-	 * @param healthiness
+	 * @param healthiness The farms healthiness modifier
 	 */
 	public void setAnimalHealthinessModifier(double healthiness) {
 		animalHealthinessModifier = healthiness;
 	}
 	/**
 	 * Sets the farmer at the start of the game
-	 * @param newFarmer
+	 * @param newFarmer The farms farmer
 	 */
 	public void setFarmer(Farmer newFarmer) {
 		farmer = newFarmer;
 	}
 	/**
 	 * Sets the cropList of the farm at the start of the game
-	 * @param cropsList
+	 * @param cropsList The farms crops
 	 */
 	public void setCropList(ArrayList<Crops> cropsList) {
 		cropList = cropsList;
 	}
 	/**
 	 * Sets the animalList of the farm at the start of the game
-	 * @param animalsList
+	 * @param animalsList The farms animals
 	 */
 	public void setAnimalList(ArrayList<Animals> animalsList) {
 		animalList = animalsList;
 	}
 	/**
 	 * Set the list of owned items
-	 * @param itemList
+	 * @param itemsList The farms items
 	 */
 	public void setItemList(ArrayList<Item> itemsList) {
 		itemList = itemsList;
 	}
 	/**
 	 * Sets the max crop capacity of the farm
-	 * @param maxCapacity
+	 * @param maxCapacity The farms max crop capacity
 	 */
 	public void setMaxCropCapacity(int maxCapacity) {
 		maxCropCapacity = maxCapacity;
 	}
 	/**
 	 * Sets the max animal capacity of the farm
-	 * @param maxCapacity
+	 * @param maxCapacity The farms max animal capacity
 	 */
 	public void setMaxAnimalCapacity(int maxCapacity) {
 		maxAnimalCapacity = maxCapacity;
 	}
 	/**
 	 * Called when a crop is bought, adds new crop to the farms cropList
-	 * @param crop
+	 * @param crop Crop
 	 */
 	public void addCrop(Crops crop) {
 		crop.setGrowTime(cropGrowingSpeedModifier + crop.getGrowTime());
@@ -303,7 +306,7 @@ public class Farm {
 	}
 	/**
 	 * Called when a crop is sold, removes sold crop to the farms cropList
-	 * @param crop
+	 * @param crop Crop
 	 */
 	public void minusCrop(Crops crop) {
 		cropList.remove(crop);
@@ -311,7 +314,7 @@ public class Farm {
 	}
 	/**
 	 * Called when a animal is bought, adds new animal to the farms animalList
-	 * @param animal
+	 * @param animal Animal
 	 */
 	public void addAnimal(Animals animal) {
 		animalList.add(animal);
@@ -319,7 +322,7 @@ public class Farm {
 	}
 	/**
 	 * Add item to itemList
-	 * @param item
+	 * @param item Item
 	 */
 	public void addItem(Item item) {
 		itemList.add(item);
@@ -327,7 +330,7 @@ public class Farm {
 	}
 	/**
 	 * Remove item from itemList
-	 * @param item
+	 * @param item Item
 	 */
 	public void removeItem(Item item) {
 		if (item instanceof Incubator) {
@@ -375,6 +378,7 @@ public class Farm {
 	}
 	/**
 	 * Prints out the crops currently on the farm
+	 * @return String representation of the farms crops
 	 */
 	public String printCropList() {
 		if (cropList.size() == 0) {
@@ -393,6 +397,7 @@ public class Farm {
 	}
 	/**
 	 * prints out the animals currently on the farm
+	 * @return String representation of the farms animals
 	 */
 	public String printAnimalList() {
 		if (animalList.size() == 0) {
@@ -410,7 +415,7 @@ public class Farm {
 	}
 	/**
 	 * Return itemList as string
-	 * @return String
+	 * @return String representation of the farms items
 	 */
 	public String printItemList() {
 		if (itemList.size() == 0) {
@@ -427,7 +432,6 @@ public class Farm {
 		
 		}
 	}
-	
 	/**
 	 * String representation of the farm
 	 */

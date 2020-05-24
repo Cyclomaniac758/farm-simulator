@@ -58,15 +58,13 @@ public class StartWindow2 {
 
 	/**
 	 * Create the object
-	 * @param game
-	 * @param frame2
-	 * @param length
-	 * @param farmersName
-	 * @param farmersAge
+	 * @param game Game object
+	 * @param length Length of the game
+	 * @param farmersName Name of the user
+	 * @param farmersAge Age of the user
 	 */
-	public StartWindow2(GameGUI game, JFrame frame2, int length, String farmersName, int farmersAge) {
+	public StartWindow2(GameGUI game, int length, String farmersName, int farmersAge) {
 		this.game = game;
-		this.frame = frame2;
 		gameLength = length;
 		farmerName = farmersName;
 		farmerAge = farmersAge;

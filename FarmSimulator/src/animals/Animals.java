@@ -31,28 +31,28 @@ public class Animals {
   
 	/**
 	 * Sets the animal's name
-	 * @param name
+	 * @param name Animal type name
 	 */
   	public void setAnimalName(String name) {
   		animalName = name;
   	}
   	/**
   	 * Sets the buy price of the animal
-  	 * @param buyingPrice
+  	 * @param buyingPrice Animal buy price
   	 */
   	public void setBuyPrice(int buyingPrice) {
   		buyPrice = buyingPrice;
   	}
   	/**
   	 * Sets the daily earnings of the animal
-  	 * @param earnings
+  	 * @param earnings Base value for how much the animal earns each day
   	 */
   	public void setDailyEarnings(double earnings) {
   		dailyEarnings = earnings;
   	}
   	/**
   	 * Sets the happiness level of the animal
-  	 * @param newHappiness
+  	 * @param newHappiness Happiness of the animal
   	 */
   	public void setHappinessLevel(double newHappiness) {
   		happinessLevel = newHappiness;
@@ -62,42 +62,42 @@ public class Animals {
   	}
   	/**
   	 * Sets the healthiness level of the animal
-  	 * @param healthiness
+  	 * @param healthiness Healthiness of the animal
   	 */
   	public void setHealthiness(double healthiness) {
   		healthinessLevel = healthiness;
   	}
   	/**
   	 * Gets the animal name
-  	 * @return
+  	 * @return the animals name
   	 */
   	public String getAnimalName() {
   		return animalName;
   	}
   	/**
   	 * Gets the buy price of the animal
-  	 * @return
+  	 * @return The buy price of the animal
   	 */
   	public int getBuyPrice() {
   		return buyPrice;
   	}
   	/**
   	 * Gets the daily earnings of the animal
-  	 * @return
+  	 * @return The animals base daily earning
   	 */
   	public double getDailyEarnings() {
   		return dailyEarnings;
   	}
   	/**
   	 * Gets the happiness level of the animal
-  	 * @return
+  	 * @return The animals happiness
   	 */
   	public double getHappinessLevel() {
   		return happinessLevel;
   	}
   	/**
   	 * Gets the healthiness level of the animal
-  	 * @return
+  	 * @return The animals healthiness
   	 */
   	public double getHealthiness() {
   		return healthinessLevel;

@@ -60,7 +60,7 @@ public class HomeWindow {
 
 	/**
 	 * Create the application
-	 * @param game
+	 * @param game Game object
 	 */
 	public HomeWindow(GameGUI game) {
 		this.game = game;
