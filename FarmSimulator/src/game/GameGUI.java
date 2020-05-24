@@ -5,6 +5,7 @@ import farmer.*;
 import generalStore.*;
 import items.*;
 import crops.*;
+import music.*;
 
 import java.util.Scanner;
 
@@ -42,6 +43,8 @@ public class GameGUI {
 	 * The home window of the game
 	 */
 	private HomeWindow window;
+	
+	private MusicPlayer musicPlayer;
 		
 	
 	/**
@@ -286,6 +289,13 @@ public class GameGUI {
 		GameGUI game = new GameGUI();
 	}
 	/**
+	 * Play the game music
+	 */
+	public void playMusic() {
+		musicPlayer = new MusicPlayer();
+		musicPlayer.playMusic("MaryJaneLoop.wav");
+	}
+	/**
 	 * Launches first start up window
 	 * @param args optional
 	 */
@@ -293,6 +303,7 @@ public class GameGUI {
 		GameGUI game = new GameGUI();
 		StartWindow1 window = new StartWindow1(game);
 		window.getFrame().setVisible(true);
+		game.playMusic();
 	}
 
 	
