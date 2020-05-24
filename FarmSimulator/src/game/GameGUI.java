@@ -53,21 +53,21 @@ public class GameGUI {
 	}
 	/**
 	 * Set farm parameter
-	 * @param farm
+	 * @param farm Farm object
 	 */
 	public void setFarm(Farm farm) {
 		this.farm = farm;
 	}
 	/**
 	 * Return the farmer object
-	 * @return
+	 * @return The farmer object
 	 */
 	public Farmer getFarmer() {
 		return farmer;
 	}
 	/**
 	 * Set the farmer parameter
-	 * @param farmer
+	 * @param farmer the farmer object
 	 */
 	public void setFarmer(Farmer farmer) {
 		this.farmer = farmer;	
@@ -87,7 +87,7 @@ public class GameGUI {
 	}
 	/**
 	 * Set the game length call setCurrentDay
-	 * @param length
+	 * @param length Length of the game
 	 */
 	public void setGameLength(int length) {
 		numDays = length;
@@ -102,7 +102,7 @@ public class GameGUI {
 	}
 	/**
 	 * Set the current day
-	 * @param num
+	 * @param num The current day
 	 */
 	public void setCurrentDay(int num) {
 		currentDay = num;
@@ -149,8 +149,8 @@ public class GameGUI {
 	}
 	/**
 	 * Buy a certain number of a crop
-	 * @param crop
-	 * @param num
+	 * @param crop Crop to buy
+	 * @param num Crop quantity
 	 */
 	public void buyCrops(String crop, int num) {
 		switch (crop) {
@@ -176,8 +176,8 @@ public class GameGUI {
 	}
 	/**
 	 * Buy a certain number of an animal
-	 * @param animal
-	 * @param num
+	 * @param animal Animal to buy
+	 * @param num Animal Quantity
 	 */
 	public void buyAnimals(String animal, int num) {
 		switch (animal) {
@@ -194,8 +194,8 @@ public class GameGUI {
 	}
 	/**
 	 * Buy a certain number of an item
-	 * @param item
-	 * @param num
+	 * @param item Item to buy
+	 * @param num Item quantity
 	 */
 	public void buyItems(String item, int num) {
 		switch (item) {
@@ -223,15 +223,17 @@ public class GameGUI {
 		}
 	}
 	/**
-	 * Use crop tool to tend crop
+	 * Use cropTool to tend crop
+	 * @param item Item to use
+	 * @param crop Crop to tend
 	 */
 	public void tendCrops(CropTools item, Crops crop) {
 		farmer.useCropTool(item, crop);
 	}
 	/**
 	 * Use food to feed animal
-	 * @param item
-	 * @param animal
+	 * @param item Item to use
+	 * @param animal Animal to feed
 	 */
 	public void feedAnimals(Food item, Animals animal) {
 		farmer.useFood(item, animal);
@@ -244,7 +246,7 @@ public class GameGUI {
 	}
 	/**
 	 * Harvest a crop
-	 * @param crop
+	 * @param crop Crop to harvest
 	 */
 	public void harvestCrops(Crops crop) {
 		farmer.harvestCrop(crop);
@@ -265,7 +267,7 @@ public class GameGUI {
 	}
 	/**
 	 * Setting the home window parameter
-	 * @param window
+	 * @param window Game home window
 	 */
 	public void setHomeWindow(HomeWindow window) {
 		this.window = window;
@@ -285,7 +287,7 @@ public class GameGUI {
 	}
 	/**
 	 * Launches first start up window
-	 * @param args
+	 * @param args optional
 	 */
 	public static void main(String[] args) {
 		GameGUI game = new GameGUI();

@@ -59,7 +59,8 @@ public class HomeWindow {
 
 
 	/**
-	 * Create the application.
+	 * Create the application
+	 * @param game
 	 */
 	public HomeWindow(GameGUI game) {
 		this.game = game;
@@ -119,7 +120,7 @@ public class HomeWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1000, 666);
+		frame.setBounds(50, 0, 1000, 666);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

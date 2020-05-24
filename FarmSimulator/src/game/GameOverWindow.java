@@ -35,8 +35,8 @@ public class GameOverWindow {
 
 
 	/**
-	 * Create the application.
-	 * @param game 
+	 * Create the application
+	 * @param game
 	 */
 	public GameOverWindow(GameGUI game) {
 		this.game = game;

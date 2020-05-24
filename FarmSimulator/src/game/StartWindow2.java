@@ -57,8 +57,12 @@ public class StartWindow2 {
 
 
 	/**
-	 * Create the application.
-	 * @param frame2 
+	 * Create the object
+	 * @param game
+	 * @param frame2
+	 * @param length
+	 * @param farmersName
+	 * @param farmersAge
 	 */
 	public StartWindow2(GameGUI game, JFrame frame2, int length, String farmersName, int farmersAge) {
 		this.game = game;
@@ -87,7 +91,7 @@ public class StartWindow2 {
 	 */
 	private void initialize() {
 		setFrame(new JFrame());
-		getFrame().setBounds(100, 100, 750, 500);
+		getFrame().setBounds(50, 100, 750, 500);
 		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getFrame().getContentPane().setLayout(null);
 		

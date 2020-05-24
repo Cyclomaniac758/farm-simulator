@@ -123,7 +123,7 @@ public class AnimalsWindow {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setVisible(true);
-		frame.setBounds(100, 100, 1000, 666);
+		frame.setBounds(50, 0, 1000, 666);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel titleLabel = new JLabel("Animals");

@@ -38,8 +38,10 @@ public class StoreWindow {
 
 
 	/**
-	 * Create the application.
-	 * @param game 
+	 * Create GeneralStore object
+	 * @param game
+	 * @param frame2
+	 * @param displayMoney
 	 */
 	public StoreWindow(GameGUI game, JFrame frame2, JLabel displayMoney) {
 		this.game = game;
@@ -54,7 +56,7 @@ public class StoreWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1000, 666);
+		frame.setBounds(50, 0, 1000, 666);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton itemsButton = new JButton("Items");

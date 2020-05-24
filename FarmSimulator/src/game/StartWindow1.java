@@ -43,6 +43,7 @@ public class StartWindow1 {
 
 	/**
 	 * Create the application.
+	 * @param game
 	 */
 	public StartWindow1(GameGUI game) {
 		this.game = game;
@@ -54,7 +55,7 @@ public class StartWindow1 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 750, 500);
+		frame.setBounds(50, 100, 750, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

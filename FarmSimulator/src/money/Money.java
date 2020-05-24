@@ -15,7 +15,7 @@ public class Money {
 	private double startingMoney;
 	/**
 	 * Constructor of Money class
-	 * @param amount
+	 * @param money
 	 */
 	public Money(double money) {
 		moneyAmount = money;
