@@ -84,6 +84,16 @@ class FarmerTest {
 	}
 	
 	@Test
+	public void maxAnimalHappinessTest() {
+		CropFarm testCropFarm = new CropFarm("My Crop Farm");
+		Farmer testFarmer = new Farmer("Michael", 19, testCropFarm);
+		testCropFarm.addAnimal(new Pig());
+		testCropFarm.getAnimalList().get(0).setHappinessLevel(0.5);
+		
+		assertEquals(1, testCropFarm.getAnimalList().get(0).getHappinessLevel());
+	}
+	
+	@Test
 	public void tendLandTest() {
 		CropFarm testCropFarm = new CropFarm("My Crop Farm");
 		Farmer testFarmer = new Farmer("Michael", 19, testCropFarm);
