@@ -35,9 +35,10 @@ public class StartWindow1 {
 	private JTextField nameField;
 	private JTextField ageField;
 	private JComboBox<String> numDays;
-	
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
-	private Farmer farmer;
 
 
 	/**

@@ -25,9 +25,14 @@ import javax.swing.JScrollPane;
  *
  */
 public class FarmHouseWindow {
-	
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
-	private JFrame homeWindow;
+	/**
+	 * Frame to return to when exit button is clicked
+	 */
+	private JFrame returnFrame;
 	
 	private JFrame frame;
 
@@ -38,7 +43,7 @@ public class FarmHouseWindow {
 	 */
 	public FarmHouseWindow(GameGUI game, JFrame frame2) {
 		this.game = game;
-		this.homeWindow = frame2;
+		this.returnFrame = frame2;
 		initialize();
 	}
 
@@ -58,7 +63,7 @@ public class FarmHouseWindow {
 		JButton returnButton = new JButton("EXIT");
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				homeWindow.setVisible(true);
+				returnFrame.setVisible(true);
 				frame.dispose();
 			}
 		});

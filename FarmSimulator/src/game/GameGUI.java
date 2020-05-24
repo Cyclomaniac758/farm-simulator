@@ -18,11 +18,29 @@ import animals.*;
  *
  */
 public class GameGUI {
+	/**
+	 * The farm
+	 */
 	private Farm farm;
+	/**
+	 * The farmer
+	 */
 	private Farmer farmer;
+	/**
+	 * Number of days in the game
+	 */
 	private int numDays;
+	/**
+	 * Current day
+	 */
 	private int currentDay;
+	/**
+	 * The store
+	 */
 	private GeneralStore store;
+	/**
+	 * The home window of the game
+	 */
 	private HomeWindow window;
 		
 	

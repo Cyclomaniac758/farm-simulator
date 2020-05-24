@@ -31,11 +31,15 @@ import items.*;
 public class AnimalsWindow {
 
 	private JFrame frame;
+	//JCombobox
 	private JComboBox<Animals> selectAnimal;
 	private JComboBox<Item> selectItem;
 	
-	
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
+	//JLAbels
 	private JLabel displayHealthiness;
 	private JLabel displayHappiness;
 	private JLabel displayItemImpact;

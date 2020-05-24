@@ -26,15 +26,33 @@ public class StartWindow2 {
 
 	private JFrame frame;
 	private JTextField textField;
-	
+	/**
+	 * Farmer object variable
+	 */
 	private Farm farm;
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
-	
+	/**
+	 * Game length variable
+	 */
 	private int gameLength;
+	/**
+	 * Farmer name variable
+	 */
 	private String farmerName;
+	/**
+	 * Farmer age variable
+	 */
 	private int farmerAge;
-	
+	/**
+	 * Farm name variable
+	 */
 	private String farmName;
+	/**
+	 * Boolean whether a farm type has been selected
+	 */
 	private boolean farmTypeChosen;
 
 

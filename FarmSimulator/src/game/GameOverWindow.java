@@ -28,9 +28,10 @@ import farm.*;
 public class GameOverWindow {
 
 	private JFrame frame;
-	
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
-	private Farm farm;
 
 
 	/**
@@ -39,7 +40,6 @@ public class GameOverWindow {
 	 */
 	public GameOverWindow(GameGUI game) {
 		this.game = game;
-		this.farm = game.getFarm();
 		initialize();
 	}
 

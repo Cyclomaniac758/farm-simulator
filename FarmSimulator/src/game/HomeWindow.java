@@ -27,10 +27,13 @@ import java.awt.Font;
  *
  */
 public class HomeWindow {
-	
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
 	
 	private JFrame frame;
+	//JButtons
 	private JButton viewCropsButton;
 	private JButton visitAnimalsButton;
 	private JButton visitFarmhouseButton;
@@ -38,9 +41,10 @@ public class HomeWindow {
 	private JButton proceedDayButton;
 	private JButton tendLandButton;
 	private JButton visitStoreButton;
+	private JButton quitButton;
+	//JLabels
 	private JLabel dayNumLabel;
 	private JLabel displayDay;
-	private JButton quitButton;
 	private JLabel backgroundPic;
 	private JLabel remActionsLabel;
 	private JLabel displayActions;

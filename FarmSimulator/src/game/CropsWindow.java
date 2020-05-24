@@ -29,13 +29,16 @@ import items.*;
  *
  */
 public class CropsWindow {
-	
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
 	
 	private JFrame frame;
+	//JComboBox
 	private JComboBox<Crops> selectCrop;
 	private JComboBox<Item> selectItem;
-	
+	//JLabels
 	private JLabel displayTotalGrowTime;
 	private JLabel displayRemainingDays;
 	private JLabel displayItemImpact;

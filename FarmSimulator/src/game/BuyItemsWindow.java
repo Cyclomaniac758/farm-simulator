@@ -26,11 +26,14 @@ import items.*;
  *
  */
 public class BuyItemsWindow {
-	
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
 	
 	private JFrame frame;
 	private JTextField numItems;
+	//JLabels
 	private JLabel displayPrice;
 	private JLabel displayEffect;
 	private JLabel displayMoney;

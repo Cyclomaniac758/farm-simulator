@@ -27,12 +27,18 @@ import javax.swing.JTextField;
 public class BuyCropsWindow {
 
 	private JFrame frame;
+	/**
+	 * Game object variable
+	 */
 	private GameGUI game;
+	//JLabels
 	private JLabel displayPrice;
 	private JLabel displayGrowTime;
 	private JLabel displaySellPrice;
-	private JTextField numCrops;
 	private JLabel displayMoney;
+	//JTextField
+	private JTextField numCrops;
+	
 
 	/**
 	 * Create the application.

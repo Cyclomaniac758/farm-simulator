@@ -28,11 +28,15 @@ import javax.swing.JTextField;
  *
  */
 public class BuyAnimalsWindow {
-	
+	/**
+	 * Game object
+	 */
 	private GameGUI game;
 	
 	private JFrame frame;
+	//JTextField
 	private JTextField numAnimals;
+	//JLabels
 	private JLabel displayPrice;
 	private JLabel displayBonus;
 	private JLabel displayMoney;
