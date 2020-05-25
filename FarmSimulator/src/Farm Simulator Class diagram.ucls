@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="farm.CropFarm" project="FarmSimulator" 
+    file="/FarmSimulator/src/farm/CropFarm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="120" x="2155" y="2721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="game.RulesWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/RulesWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="116" x="249" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="items.CropTools" project="FarmSimulator" 
+    file="/FarmSimulator/src/items/CropTools.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="125" x="3348" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="exceptions.InsufficientCapacityException" project="FarmSimulator" 
+    file="/FarmSimulator/src/exceptions/InsufficientCapacityException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="224" x="405" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="game.BuyCropsWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/BuyCropsWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="281" width="184" x="925" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="items.GrowthHormone" project="FarmSimulator" 
+    file="/FarmSimulator/src/items/GrowthHormone.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="135" x="3513" y="3309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="game.BuyItemsWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/BuyItemsWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="263" width="181" x="1149" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="items.Fertilizer" project="FarmSimulator" 
+    file="/FarmSimulator/src/items/Fertilizer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="2965" y="3309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="items.Incubator" project="FarmSimulator" 
+    file="/FarmSimulator/src/items/Incubator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3102" y="3309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="crops.LemonTree" project="FarmSimulator" 
+    file="/FarmSimulator/src/crops/LemonTree.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="99" x="2524" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="game.GameGUI" project="FarmSimulator" file="/FarmSimulator/src/game/GameGUI.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="605" width="225" x="2165" y="372"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="game.GameOverWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/GameOverWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="190" x="1370" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="items.Water" project="FarmSimulator" file="/FarmSimulator/src/items/Water.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3239" y="3309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="farm.FamilyFarm" project="FarmSimulator" 
+    file="/FarmSimulator/src/farm/FamilyFarm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="129" x="2315" y="2721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="game.FarmInformation" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/FarmInformation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="353" width="216" x="669" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="generalStore.GeneralStore" project="FarmSimulator" 
+    file="/FarmSimulator/src/generalStore/GeneralStore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="407" width="180" x="2390" y="1017"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="items.Hoe" project="FarmSimulator" file="/FarmSimulator/src/items/Hoe.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3376" y="3309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="animals.Cow" project="FarmSimulator" file="/FarmSimulator/src/animals/Cow.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3728" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="crops.Crops" project="FarmSimulator" file="/FarmSimulator/src/crops/Crops.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="371" width="169" x="3074" y="2721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="items.Item" project="FarmSimulator" file="/FarmSimulator/src/items/Item.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="263" width="163" x="3348" y="2721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="game.StoreWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/StoreWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="173" width="243" x="1600" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="animals.Pig" project="FarmSimulator" file="/FarmSimulator/src/animals/Pig.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3865" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="exceptions.WrongItemTypeException" project="FarmSimulator" 
+    file="/FarmSimulator/src/exceptions/WrongItemTypeException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="203" x="3136" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="farm.LivestockFarm" project="FarmSimulator" 
+    file="/FarmSimulator/src/farm/LivestockFarm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="144" x="2484" y="2721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="crops.Corn" project="FarmSimulator" file="/FarmSimulator/src/crops/Corn.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="2663" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="farm.Farm" project="FarmSimulator" file="/FarmSimulator/src/farm/Farm.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1019" width="254" x="2848" y="1662"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="game.CropsWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/CropsWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="335" width="202" x="1883" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="items.Food" project="FarmSimulator" file="/FarmSimulator/src/items/Food.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="175" x="3513" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="animals.Chicken" project="FarmSimulator" 
+    file="/FarmSimulator/src/animals/Chicken.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="4002" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="game.HomeWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/HomeWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="605" width="190" x="1935" y="1017"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="exceptions.NoMoreActionsException" project="FarmSimulator" 
+    file="/FarmSimulator/src/exceptions/NoMoreActionsException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="201" x="3379" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="music.MusicPlayer" project="FarmSimulator" 
+    file="/FarmSimulator/src/music/MusicPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="155" width="185" x="2165" y="1017"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="game.StartWindow1" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/StartWindow1.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="191" width="195" x="2125" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="game.StartWindow2" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/StartWindow2.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="371" width="230" x="3869" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="exceptions.InsufficientFundsException" project="FarmSimulator" 
+    file="/FarmSimulator/src/exceptions/InsufficientFundsException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="209" x="3620" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="crops.AppleTree" project="FarmSimulator" 
+    file="/FarmSimulator/src/crops/AppleTree.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="2800" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="crops.Tomatoes" project="FarmSimulator" 
+    file="/FarmSimulator/src/crops/Tomatoes.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="2937" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="game.FarmHouseWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/FarmHouseWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="155" width="238" x="2360" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="game.BuyAnimalsWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/BuyAnimalsWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="263" width="195" x="2638" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="animals.Animals" project="FarmSimulator" 
+    file="/FarmSimulator/src/animals/Animals.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="371" width="197" x="3728" y="2721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="farm.CommercialFarm" project="FarmSimulator" 
+    file="/FarmSimulator/src/farm/CommercialFarm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="158" x="2668" y="2721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="items.Grain" project="FarmSimulator" file="/FarmSimulator/src/items/Grain.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3688" y="3309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="money.Money" project="FarmSimulator" file="/FarmSimulator/src/money/Money.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="227" width="168" x="2866" y="2721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="items.WaterFood" project="FarmSimulator" 
+    file="/FarmSimulator/src/items/WaterFood.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3825" y="3309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="crops.Wheat" project="FarmSimulator" file="/FarmSimulator/src/crops/Wheat.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3074" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="crops.Carrots" project="FarmSimulator" 
+    file="/FarmSimulator/src/crops/Carrots.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="97" x="3211" y="3132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="game.AnimalsWindow" project="FarmSimulator" 
+    file="/FarmSimulator/src/game/AnimalsWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="353" width="223" x="2873" y="-39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="farmer.Farmer" project="FarmSimulator" 
+    file="/FarmSimulator/src/farmer/Farmer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="317" width="217" x="2610" y="1017"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="49">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="50" name="game"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="53" name="musicPlayer"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="55">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <generalization id="56">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <association id="58">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="59" name="game"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="62" name="animalList"/>      
+      <multiplicity id="63" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="64">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <generalization id="65">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="66">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="67" name="game"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="69">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="70">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="71" name="game"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="73">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <generalization id="74">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <association id="75">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="76" name="farmer"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="78">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="80">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="81" name="farmMoney"/>      
+      <multiplicity id="82" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="83">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="84">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="85">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="86">    
+    <bendpoint x="3367" y="372"/>    
+    <bendpoint x="3367" y="1017"/>    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="87" name="farm"/>      
+      <multiplicity id="88" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="90" name="game"/>      
+      <multiplicity id="91" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="92">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <association id="93">    
+    <bendpoint x="2857" y="1017"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="94" name="farm"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="96">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <generalization id="97">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <association id="98">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="99" name="game"/>      
+      <multiplicity id="100" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="101">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <association id="102">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="103" name="itemList"/>      
+      <multiplicity id="104" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="105">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="106" name="window"/>      
+      <multiplicity id="107" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="108">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="109" name="game"/>      
+      <multiplicity id="110" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="111">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <association id="112">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="113" name="farmer"/>      
+      <multiplicity id="114" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="115">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <association id="117">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="118" name="game"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="120">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="121" name="game"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="123">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="124" name="cropList"/>      
+      <multiplicity id="125" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="127" name="farm"/>      
+      <multiplicity id="128" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="130" name="game"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="132">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="133">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="134" name="game"/>      
+      <multiplicity id="135" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="136">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="137" name="farm"/>      
+      <multiplicity id="138" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="139">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="140" name="store"/>      
+      <multiplicity id="141" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="142">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
