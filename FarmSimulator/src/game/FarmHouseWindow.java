@@ -12,11 +12,9 @@ import java.awt.Window;
 
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 /**
