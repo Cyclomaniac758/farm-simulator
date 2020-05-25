@@ -111,8 +111,8 @@ public class FarmInformation {
 		livestockPanel.add(livestockLabel);
 		
 		txtrTheLivestockFarm = new JTextArea();
-		txtrTheLivestockFarm.setText("The livestock farm allows you to\r\nstart with the base animal and"
-				+ "\ncrop max capacity.The animals\nalso have base happiness levels.");
+		txtrTheLivestockFarm.setText("The livestock farm allows you to\r\nstart with a large animal but"
+				+ "\nlow crop capacity. The animals\nalso have base happiness levels.");
 		txtrTheLivestockFarm.setBackground(SystemColor.window);
 		txtrTheLivestockFarm.setAlignmentX(SwingConstants.CENTER);
 		txtrTheLivestockFarm.setBounds(10, 60, 316, 95);
