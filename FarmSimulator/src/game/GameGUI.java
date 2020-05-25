@@ -276,6 +276,7 @@ public class GameGUI {
 	 */
 	public void showHomeWindow() {
 		window.getFrame().setVisible(true);
+		window.refreshMoney();
 	}
 	/**
 	 * Restart the game
